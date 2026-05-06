@@ -1,0 +1,48 @@
+{
+  "name": "@ancplua/typespec-otel-semconv",
+  "version": "0.1.0-dev.0",
+  "description": "TypeSpec library mirroring the OpenTelemetry Semantic Conventions YAML model. Personal sandbox — not affiliated with OpenTelemetry.",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "tspMain": "lib/main.tsp",
+  "exports": {
+    ".": {
+      "typespec": "./lib/main.tsp"
+    }
+  },
+  "files": [
+    "lib/**/*.tsp",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "compile": "tsp compile lib/main.tsp --no-emit",
+    "verify-clean": "node scripts/generate.mjs && git diff --exit-code -- lib/",
+    "lint": "tsp compile lib/main.tsp --warn-as-error --no-emit"
+  },
+  "peerDependencies": {
+    "@typespec/compiler": "^1.12.0-dev"
+  },
+  "devDependencies": {
+    "@typespec/compiler": "1.12.0-dev.6",
+    "yaml": "2.7.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "typespec",
+    "opentelemetry",
+    "otel",
+    "semantic-conventions",
+    "semconv"
+  ],
+  "license": "MIT",
+  "author": "Alexander Nachtmann",
+  "metadata": {
+    "semconvVersion": "v1.41.0",
+    "upstreamRepo": "https://github.com/open-telemetry/semantic-conventions"
+  }
+}
