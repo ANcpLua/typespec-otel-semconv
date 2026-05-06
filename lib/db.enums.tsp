@@ -6,8 +6,11 @@
 /** OpenTelemetry "db" enum-typed attribute values. */
 namespace OTel.Enums.Db;
 
-/** Deprecated, use `cassandra.consistency.level` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `cassandra.consistency.level` instead.
+ * @deprecated renamed → cassandra.consistency.level
+ */
+#deprecated "renamed → cassandra.consistency.level"
 enum DbCassandraConsistencyLevel {
   All: "all",
   EachQuorum: "each_quorum",
@@ -28,15 +31,21 @@ enum DbClientConnectionState {
   Used: "used",
 }
 
-/** Deprecated, use `db.client.connection.state` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `db.client.connection.state` instead.
+ * @deprecated renamed → db.client.connection.state
+ */
+#deprecated "renamed → db.client.connection.state"
 enum DbClientConnectionsState {
   Idle: "idle",
   Used: "used",
 }
 
-/** Deprecated, use `azure.cosmosdb.connection.mode` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `azure.cosmosdb.connection.mode` instead.
+ * @deprecated renamed → azure.cosmosdb.connection.mode
+ */
+#deprecated "renamed → azure.cosmosdb.connection.mode"
 enum DbCosmosdbConnectionMode {
   /** Gateway (HTTP) connection. */
   Gateway: "gateway",
@@ -44,8 +53,11 @@ enum DbCosmosdbConnectionMode {
   Direct: "direct",
 }
 
-/** Deprecated, use `cosmosdb.consistency.level` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `cosmosdb.consistency.level` instead.
+ * @deprecated renamed → azure.cosmosdb.consistency.level
+ */
+#deprecated "renamed → azure.cosmosdb.consistency.level"
 enum DbCosmosdbConsistencyLevel {
   Strong: "Strong",
   BoundedStaleness: "BoundedStaleness",
@@ -54,8 +66,11 @@ enum DbCosmosdbConsistencyLevel {
   ConsistentPrefix: "ConsistentPrefix",
 }
 
-/** Deprecated, no replacement at this time. */
-#deprecated "Removed, no replacement at this time."
+/**
+ * Deprecated, no replacement at this time.
+ * @deprecated obsoleted: Removed, no replacement at this time.
+ */
+#deprecated "obsoleted: Removed, no replacement at this time."
 enum DbCosmosdbOperationType {
   Batch: "batch",
   Create: "create",
@@ -74,15 +89,21 @@ enum DbCosmosdbOperationType {
   Upsert: "upsert",
 }
 
-/** Deprecated, use `db.system.name` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `db.system.name` instead.
+ * @deprecated renamed → db.system.name
+ */
+#deprecated "renamed → db.system.name"
 enum DbSystem {
   /** Some other SQL database. Fallback only. See notes. */
   OtherSql: "other_sql",
   /** Adabas (Adaptable Database System) */
   Adabas: "adabas",
-  /** Deprecated, use `intersystems_cache` instead. */
-  #deprecated "renamed"
+  /**
+   * Deprecated, use `intersystems_cache` instead.
+   * @deprecated renamed → intersystems_cache
+   */
+  #deprecated "renamed → intersystems_cache"
   Cache: "cache",
   /** InterSystems Caché */
   IntersystemsCache: "intersystems_cache",
@@ -90,12 +111,18 @@ enum DbSystem {
   Cassandra: "cassandra",
   /** ClickHouse */
   Clickhouse: "clickhouse",
-  /** Deprecated, use `other_sql` instead. */
-  #deprecated "renamed"
+  /**
+   * Deprecated, use `other_sql` instead.
+   * @deprecated renamed → other_sql
+   */
+  #deprecated "renamed → other_sql"
   Cloudscape: "cloudscape",
   /** CockroachDB */
   Cockroachdb: "cockroachdb",
-  /** Deprecated, no replacement at this time. */
+  /**
+   * Deprecated, no replacement at this time.
+   * @deprecated obsoleted
+   */
   #deprecated "obsoleted"
   Coldfusion: "coldfusion",
   /** Microsoft Azure Cosmos DB */
@@ -118,8 +145,11 @@ enum DbSystem {
   Filemaker: "filemaker",
   /** Firebird */
   Firebird: "firebird",
-  /** Deprecated, use `other_sql` instead. */
-  #deprecated "renamed"
+  /**
+   * Deprecated, use `other_sql` instead.
+   * @deprecated renamed → other_sql
+   */
+  #deprecated "renamed → other_sql"
   Firstsql: "firstsql",
   /** Apache Geode */
   Geode: "geode",
@@ -153,8 +183,11 @@ enum DbSystem {
   Mongodb: "mongodb",
   /** Microsoft SQL Server */
   Mssql: "mssql",
-  /** Deprecated, Microsoft SQL Server Compact is discontinued. */
-  #deprecated "renamed"
+  /**
+   * Deprecated, Microsoft SQL Server Compact is discontinued.
+   * @deprecated renamed → other_sql
+   */
+  #deprecated "renamed → other_sql"
   Mssqlcompact: "mssqlcompact",
   /** MySQL */
   Mysql: "mysql",

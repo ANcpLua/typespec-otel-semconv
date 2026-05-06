@@ -32,8 +32,11 @@ enum VcsProviderName {
   Github: "github",
   /** [GitLab](https://gitlab.com) */
   Gitlab: "gitlab",
-  /** Deprecated, use `gitea` instead. */
-  #deprecated "renamed"
+  /**
+   * Deprecated, use `gitea` instead.
+   * @deprecated renamed → gitea
+   */
+  #deprecated "renamed → gitea"
   Gittea: "gittea",
   /** [Gitea](https://gitea.io) */
   Gitea: "gitea",
@@ -65,8 +68,11 @@ enum VcsRefType {
   Tag: "tag",
 }
 
-/** Deprecated, use `vcs.ref.head.type` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `vcs.ref.head.type` instead.
+ * @deprecated renamed → vcs.ref.head.type
+ */
+#deprecated "renamed → vcs.ref.head.type"
 enum VcsRepositoryRefType {
   /** [branch](https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefbranchabranch) */
   Branch: "branch",

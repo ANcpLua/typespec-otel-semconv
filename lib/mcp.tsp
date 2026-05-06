@@ -10,22 +10,22 @@ namespace OTel.Keys.Mcp;
  * The name of the request or notification method.
  * @stability development
  */
-const MethodName: string = "mcp.method.name";
+alias MethodName = "mcp.method.name";
 
 /**
  * The [version](https://modelcontextprotocol.io/specification/versioning) of the Model Context Protocol used.
  * @stability development
  */
-const ProtocolVersion: string = "mcp.protocol.version";
+alias ProtocolVersion = "mcp.protocol.version";
 
 /**
  * The value of the resource uri.
  * @stability development
  */
-const ResourceUri: string = "mcp.resource.uri";
+alias ResourceUri = "mcp.resource.uri";
 
 /**
  * Identifies [MCP session](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#session-management).
  * @stability development
  */
-const SessionId: string = "mcp.session.id";
+alias SessionId = "mcp.session.id";

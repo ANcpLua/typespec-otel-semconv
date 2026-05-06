@@ -9,64 +9,69 @@ namespace OTel.Keys.Code;
 /**
  * Deprecated, use `code.column.number`
  * @stability development
+ * @deprecated renamed → code.column.number
  */
-#deprecated "renamed"
-const Column: string = "code.column";
+#deprecated "renamed → code.column.number"
+alias Column = "code.column";
 
 /**
  * The column number in `code.file.path` best representing the operation. It SHOULD point within the code unit named in `code.function.name`. This attribute MUST NOT be used on the Profile signal since the data is already captured in 'message Line'. This constraint is imposed to prevent redundancy and maintain data integrity.
  * @stability stable
  */
-const ColumnNumber: string = "code.column.number";
+alias ColumnNumber = "code.column.number";
 
 /**
  * The source code file name that identifies the code unit as uniquely as possible (preferably an absolute file path). This attribute MUST NOT be used on the Profile signal since the data is already captured in 'message Function'. This constraint is imposed to prevent redundancy and maintain data integrity.
  * @stability stable
  */
-const FilePath: string = "code.file.path";
+alias FilePath = "code.file.path";
 
 /**
  * Deprecated, use `code.file.path` instead
  * @stability development
+ * @deprecated renamed → code.file.path
  */
-#deprecated "renamed"
-const Filepath: string = "code.filepath";
+#deprecated "renamed → code.file.path"
+alias Filepath = "code.filepath";
 
 /**
  * Deprecated, use `code.function.name` instead
  * @stability development
+ * @deprecated uncategorized: Value should be included in `code.function.name` which is expected to be a fully-qualified name.
  */
-#deprecated "Value should be included in `code.function.name` which is expected to be a fully-qualified name."
-const Function: string = "code.function";
+#deprecated "uncategorized: Value should be included in `code.function.name` which is expected to be a fully-qualified name."
+alias Function = "code.function";
 
 /**
  * The method or function fully-qualified name without arguments. The value should fit the natural representation of the language runtime, which is also likely the same used within `code.stacktrace` attribute value. This attribute MUST NOT be used on the Profile signal since the data is already captured in 'message Function'. This constraint is imposed to prevent redundancy and maintain data integrity.
  * @stability stable
  */
-const FunctionName: string = "code.function.name";
+alias FunctionName = "code.function.name";
 
 /**
  * The line number in `code.file.path` best representing the operation. It SHOULD point within the code unit named in `code.function.name`. This attribute MUST NOT be used on the Profile signal since the data is already captured in 'message Line'. This constraint is imposed to prevent redundancy and maintain data integrity.
  * @stability stable
  */
-const LineNumber: string = "code.line.number";
+alias LineNumber = "code.line.number";
 
 /**
  * Deprecated, use `code.line.number` instead
  * @stability development
+ * @deprecated renamed → code.line.number
  */
-#deprecated "renamed"
-const Lineno: string = "code.lineno";
+#deprecated "renamed → code.line.number"
+alias Lineno = "code.lineno";
 
 /**
  * Deprecated, namespace is now included into `code.function.name`
  * @stability development
+ * @deprecated uncategorized: Value should be included in `code.function.name` which is expected to be a fully-qualified name.
  */
-#deprecated "Value should be included in `code.function.name` which is expected to be a fully-qualified name."
-const Namespace: string = "code.namespace";
+#deprecated "uncategorized: Value should be included in `code.function.name` which is expected to be a fully-qualified name."
+alias Namespace = "code.namespace";
 
 /**
  * A stacktrace as a string in the natural representation for the language runtime. The representation is identical to [`exception.stacktrace`](/docs/exceptions/exceptions-spans.md#stacktrace-representation). This attribute MUST NOT be used on the Profile signal since the data is already captured in 'message Location'. This constraint is imposed to prevent redundancy and maintain data integrity.
  * @stability stable
  */
-const Stacktrace: string = "code.stacktrace";
+alias Stacktrace = "code.stacktrace";

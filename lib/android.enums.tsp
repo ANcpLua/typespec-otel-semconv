@@ -16,8 +16,11 @@ enum AndroidAppState {
   Foreground: "foreground",
 }
 
-/** Deprecated. Use `android.app.state` attribute instead. */
-#deprecated "renamed"
+/**
+ * Deprecated. Use `android.app.state` attribute instead.
+ * @deprecated renamed → android.app.state
+ */
+#deprecated "renamed → android.app.state"
 enum AndroidState {
   /** Any time before Activity.onResume() or, if the app has no Activity, Context.startService() has been called in the app for the first time. */
   Created: "created",

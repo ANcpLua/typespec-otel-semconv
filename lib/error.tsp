@@ -9,12 +9,13 @@ namespace OTel.Keys.Error;
 /**
  * A message providing more detail about an error in human-readable form.
  * @stability development
+ * @deprecated obsoleted: Use domain-specific error message attribute. For example, use `feature_flag.error.message` for feature flag errors.
  */
-#deprecated "Use domain-specific error message attribute. For example, use `feature_flag.error.message` for feature flag errors."
-const Message: string = "error.message";
+#deprecated "obsoleted: Use domain-specific error message attribute. For example, use `feature_flag.error.message` for feature flag errors."
+alias Message = "error.message";
 
 /**
  * Describes a class of error the operation ended with.
  * @stability stable
  */
-const Type: string = "error.type";
+alias Type = "error.type";

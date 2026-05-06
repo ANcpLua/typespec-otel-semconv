@@ -10,76 +10,76 @@ namespace OTel.Keys.Url;
  * Domain extracted from the `url.full`, such as "opentelemetry.io".
  * @stability development
  */
-const Domain: string = "url.domain";
+alias Domain = "url.domain";
 
 /**
  * The file extension extracted from the `url.full`, excluding the leading dot.
  * @stability development
  */
-const Extension: string = "url.extension";
+alias Extension = "url.extension";
 
 /**
  * The [URI fragment](https://www.rfc-editor.org/rfc/rfc3986#section-3.5) component
  * @stability stable
  */
-const Fragment: string = "url.fragment";
+alias Fragment = "url.fragment";
 
 /**
  * Absolute URL describing a network resource according to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986)
  * @stability stable
  */
-const Full: string = "url.full";
+alias Full = "url.full";
 
 /**
  * Unmodified original URL as seen in the event source.
  * @stability development
  */
-const Original: string = "url.original";
+alias Original = "url.original";
 
 /**
  * The [URI path](https://www.rfc-editor.org/rfc/rfc3986#section-3.3) component
  * @stability stable
  */
-const Path: string = "url.path";
+alias Path = "url.path";
 
 /**
  * Port extracted from the `url.full`
  * @stability development
  */
-const Port: string = "url.port";
+alias Port = "url.port";
 
 /**
  * The [URI query](https://www.rfc-editor.org/rfc/rfc3986#section-3.4) component
  * @stability stable
  */
-const Query: string = "url.query";
+alias Query = "url.query";
 
 /**
  * The highest registered url domain, stripped of the subdomain.
  * @stability development
  */
-const RegisteredDomain: string = "url.registered_domain";
+alias RegisteredDomain = "url.registered_domain";
 
 /**
  * The [URI scheme](https://www.rfc-editor.org/rfc/rfc3986#section-3.1) component identifying the used protocol.
  * @stability stable
  */
-const Scheme: string = "url.scheme";
+alias Scheme = "url.scheme";
 
 /**
  * The subdomain portion of a fully qualified domain name includes all of the names except the host name under the registered_domain. In a partially qualified domain, or if the qualification level of the full name cannot be determined, subdomain contains all of the names below the registered domain.
  * @stability development
  */
-const Subdomain: string = "url.subdomain";
+alias Subdomain = "url.subdomain";
 
 /**
  * The low-cardinality template of an [absolute path reference](https://www.rfc-editor.org/rfc/rfc3986#section-4.2).
  * @stability development
  */
-const Template: string = "url.template";
+alias Template = "url.template";
 
 /**
  * The effective top level domain (eTLD), also known as the domain suffix, is the last part of the domain name. For example, the top level domain for example.com is `com`.
  * @stability development
  */
-const TopLevelDomain: string = "url.top_level_domain";
+alias TopLevelDomain = "url.top_level_domain";

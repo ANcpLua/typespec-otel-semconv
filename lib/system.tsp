@@ -9,107 +9,113 @@ namespace OTel.Keys.System;
 /**
  * Deprecated, use `cpu.logical_number` instead.
  * @stability development
+ * @deprecated renamed → cpu.logical_number
  */
-#deprecated "renamed"
-const CpuLogicalNumber: string = "system.cpu.logical_number";
+#deprecated "renamed → cpu.logical_number"
+alias CpuLogicalNumber = "system.cpu.logical_number";
 
 /**
  * Deprecated, use `cpu.mode` instead.
  * @stability development
+ * @deprecated renamed → cpu.mode
  */
-#deprecated "renamed"
-const CpuState: string = "system.cpu.state";
+#deprecated "renamed → cpu.mode"
+alias CpuState = "system.cpu.state";
 
 /**
  * The device identifier
  * @stability development
  */
-const Device: string = "system.device";
+alias Device = "system.device";
 
 /**
  * The filesystem mode
  * @stability development
  */
-const FilesystemMode: string = "system.filesystem.mode";
+alias FilesystemMode = "system.filesystem.mode";
 
 /**
  * The filesystem mount path
  * @stability development
  */
-const FilesystemMountpoint: string = "system.filesystem.mountpoint";
+alias FilesystemMountpoint = "system.filesystem.mountpoint";
 
 /**
  * The filesystem state
  * @stability development
  */
-const FilesystemState: string = "system.filesystem.state";
+alias FilesystemState = "system.filesystem.state";
 
 /**
  * The filesystem type
  * @stability development
  */
-const FilesystemType: string = "system.filesystem.type";
+alias FilesystemType = "system.filesystem.type";
 
 /**
  * The Linux HugePages memory state
  * @stability development
  */
-const MemoryLinuxHugepagesState: string = "system.memory.linux.hugepages.state";
+alias MemoryLinuxHugepagesState = "system.memory.linux.hugepages.state";
 
 /**
  * The Linux Slab memory state
  * @stability development
  */
-const MemoryLinuxSlabState: string = "system.memory.linux.slab.state";
+alias MemoryLinuxSlabState = "system.memory.linux.slab.state";
 
 /**
  * The memory state
  * @stability development
  */
-const MemoryState: string = "system.memory.state";
+alias MemoryState = "system.memory.state";
 
 /**
  * Deprecated, use `network.connection.state` instead.
  * @stability development
+ * @deprecated renamed → network.connection.state
  */
-#deprecated "renamed"
-const NetworkState: string = "system.network.state";
+#deprecated "renamed → network.connection.state"
+alias NetworkState = "system.network.state";
 
 /**
  * The paging access direction
  * @stability development
  */
-const PagingDirection: string = "system.paging.direction";
+alias PagingDirection = "system.paging.direction";
 
 /**
  * The paging fault type
  * @stability development
  */
-const PagingFaultType: string = "system.paging.fault.type";
+alias PagingFaultType = "system.paging.fault.type";
 
 /**
  * The memory paging state
  * @stability development
  */
-const PagingState: string = "system.paging.state";
+alias PagingState = "system.paging.state";
 
 /**
  * Deprecated, use `system.paging.fault.type` instead.
  * @stability development
+ * @deprecated renamed → system.paging.fault.type
  */
-#deprecated "renamed"
-const PagingType: string = "system.paging.type";
+#deprecated "renamed → system.paging.fault.type"
+alias PagingType = "system.paging.type";
 
 /**
  * Deprecated, use `process.state` instead.
  * @stability development
+ * @deprecated renamed → process.state
  */
-#deprecated "renamed"
-const ProcessStatus: string = "system.process.status";
+#deprecated "renamed → process.state"
+alias ProcessStatus = "system.process.status";
 
 /**
  * Deprecated, use `process.state` instead.
  * @stability development
+ * @deprecated renamed → process.state
  */
-#deprecated "renamed"
-const ProcessesStatus: string = "system.processes.status";
+#deprecated "renamed → process.state"
+alias ProcessesStatus = "system.processes.status";

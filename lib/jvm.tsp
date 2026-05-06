@@ -10,46 +10,46 @@ namespace OTel.Keys.Jvm;
  * Name of the buffer pool.
  * @stability development
  */
-const BufferPoolName: string = "jvm.buffer.pool.name";
+alias BufferPoolName = "jvm.buffer.pool.name";
 
 /**
  * Name of the garbage collector action.
  * @stability stable
  */
-const GcAction: string = "jvm.gc.action";
+alias GcAction = "jvm.gc.action";
 
 /**
  * Name of the garbage collector cause.
  * @stability development
  */
-const GcCause: string = "jvm.gc.cause";
+alias GcCause = "jvm.gc.cause";
 
 /**
  * Name of the garbage collector.
  * @stability stable
  */
-const GcName: string = "jvm.gc.name";
+alias GcName = "jvm.gc.name";
 
 /**
  * Name of the memory pool.
  * @stability stable
  */
-const MemoryPoolName: string = "jvm.memory.pool.name";
+alias MemoryPoolName = "jvm.memory.pool.name";
 
 /**
  * The type of memory.
  * @stability stable
  */
-const MemoryType: string = "jvm.memory.type";
+alias MemoryType = "jvm.memory.type";
 
 /**
  * Whether the thread is daemon or not.
  * @stability stable
  */
-const ThreadDaemon: string = "jvm.thread.daemon";
+alias ThreadDaemon = "jvm.thread.daemon";
 
 /**
  * State of the thread.
  * @stability stable
  */
-const ThreadState: string = "jvm.thread.state";
+alias ThreadState = "jvm.thread.state";

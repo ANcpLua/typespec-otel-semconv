@@ -10,10 +10,10 @@ namespace OTel.Keys.Server;
  * Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
  * @stability stable
  */
-const Address: string = "server.address";
+alias Address = "server.address";
 
 /**
  * Server port number.
  * @stability stable
  */
-const Port: string = "server.port";
+alias Port = "server.port";

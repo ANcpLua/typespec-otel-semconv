@@ -10,40 +10,40 @@ namespace OTel.Keys.Service;
  * The operational criticality of the service.
  * @stability development
  */
-const Criticality: string = "service.criticality";
+alias Criticality = "service.criticality";
 
 /**
  * The string ID of the service instance.
  * @stability stable
  */
-const InstanceId: string = "service.instance.id";
+alias InstanceId = "service.instance.id";
 
 /**
  * Logical name of the service.
  * @stability stable
  */
-const Name: string = "service.name";
+alias Name = "service.name";
 
 /**
  * A namespace for `service.name`.
  * @stability stable
  */
-const Namespace: string = "service.namespace";
+alias Namespace = "service.namespace";
 
 /**
  * Logical name of the service on the other side of the connection. SHOULD be equal to the actual [`service.name`](/docs/resource/README.md#service) resource attribute of the remote service if any.
  * @stability development
  */
-const PeerName: string = "service.peer.name";
+alias PeerName = "service.peer.name";
 
 /**
  * Logical namespace of the service on the other side of the connection. SHOULD be equal to the actual [`service.namespace`](/docs/resource/README.md#service) resource attribute of the remote service if any.
  * @stability development
  */
-const PeerNamespace: string = "service.peer.namespace";
+alias PeerNamespace = "service.peer.namespace";
 
 /**
  * The version string of the service component. The format is not defined by these conventions.
  * @stability stable
  */
-const Version: string = "service.version";
+alias Version = "service.version";

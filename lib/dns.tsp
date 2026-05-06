@@ -10,10 +10,10 @@ namespace OTel.Keys.Dns;
  * The list of IPv4 or IPv6 addresses resolved during DNS lookup.
  * @stability development
  */
-const Answers: string = "dns.answers";
+alias Answers = "dns.answers";
 
 /**
  * The name being queried.
  * @stability development
  */
-const QuestionName: string = "dns.question.name";
+alias QuestionName = "dns.question.name";

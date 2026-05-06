@@ -6,8 +6,11 @@
 /** OpenTelemetry "system" enum-typed attribute values. */
 namespace OTel.Enums.System;
 
-/** Deprecated, use `cpu.mode` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `cpu.mode` instead.
+ * @deprecated renamed → cpu.mode
+ */
+#deprecated "renamed → cpu.mode"
 enum SystemCpuState {
   User: "user",
   System: "system",
@@ -52,14 +55,18 @@ enum SystemMemoryState {
   /** Actual used virtual memory in bytes. */
   Used: "used",
   Free: "free",
-  #deprecated "Removed, report shared memory usage with `metric.system.memory.linux.shared` metric"
+  /** @deprecated uncategorized: Removed, report shared memory usage with `metric.system.memory.linux.shared` metric */
+  #deprecated "uncategorized: Removed, report shared memory usage with `metric.system.memory.linux.shared` metric"
   Shared: "shared",
   Buffers: "buffers",
   Cached: "cached",
 }
 
-/** Deprecated, use `network.connection.state` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `network.connection.state` instead.
+ * @deprecated renamed → network.connection.state
+ */
+#deprecated "renamed → network.connection.state"
 enum SystemNetworkState {
   Close: "close",
   CloseWait: "close_wait",
@@ -93,15 +100,21 @@ enum SystemPagingState {
   Free: "free",
 }
 
-/** Deprecated, use `system.paging.fault.type` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `system.paging.fault.type` instead.
+ * @deprecated renamed → system.paging.fault.type
+ */
+#deprecated "renamed → system.paging.fault.type"
 enum SystemPagingType {
   Major: "major",
   Minor: "minor",
 }
 
-/** Deprecated, use `process.state` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `process.state` instead.
+ * @deprecated renamed → process.state
+ */
+#deprecated "renamed → process.state"
 enum SystemProcessStatus {
   Running: "running",
   Sleeping: "sleeping",
@@ -109,8 +122,11 @@ enum SystemProcessStatus {
   Defunct: "defunct",
 }
 
-/** Deprecated, use `process.state` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `process.state` instead.
+ * @deprecated renamed → process.state
+ */
+#deprecated "renamed → process.state"
 enum SystemProcessesStatus {
   Running: "running",
   Sleeping: "sleeping",

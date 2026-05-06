@@ -9,6 +9,7 @@ namespace OTel.Keys.Event;
 /**
  * Identifies the class / type of event.
  * @stability development
+ * @deprecated uncategorized: The value of this attribute MUST now be set as the value of the EventName field on the LogRecord to indicate that the LogRecord represents an Event.
  */
-#deprecated "The value of this attribute MUST now be set as the value of the EventName field on the LogRecord to indicate that the LogRecord represents an Event."
-const Name: string = "event.name";
+#deprecated "uncategorized: The value of this attribute MUST now be set as the value of the EventName field on the LogRecord to indicate that the LogRecord represents an Event."
+alias Name = "event.name";

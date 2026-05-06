@@ -6,8 +6,11 @@
 /** OpenTelemetry "feature_flag" enum-typed attribute values. */
 namespace OTel.Enums.FeatureFlag;
 
-/** Deprecated, use `feature_flag.result.reason` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `feature_flag.result.reason` instead.
+ * @deprecated renamed → feature_flag.result.reason
+ */
+#deprecated "renamed → feature_flag.result.reason"
 enum FeatureFlagEvaluationReason {
   /** The resolved value is static (no dynamic evaluation). */
   Static: "static",

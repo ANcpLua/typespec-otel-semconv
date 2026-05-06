@@ -10,40 +10,40 @@ namespace OTel.Keys.Log;
  * The basename of the file.
  * @stability development
  */
-const FileName: string = "log.file.name";
+alias FileName = "log.file.name";
 
 /**
  * The basename of the file, with symlinks resolved.
  * @stability development
  */
-const FileNameResolved: string = "log.file.name_resolved";
+alias FileNameResolved = "log.file.name_resolved";
 
 /**
  * The full path to the file.
  * @stability development
  */
-const FilePath: string = "log.file.path";
+alias FilePath = "log.file.path";
 
 /**
  * The full path to the file, with symlinks resolved.
  * @stability development
  */
-const FilePathResolved: string = "log.file.path_resolved";
+alias FilePathResolved = "log.file.path_resolved";
 
 /**
  * The stream associated with the log. See below for a list of well-known values.
  * @stability development
  */
-const Iostream: string = "log.iostream";
+alias Iostream = "log.iostream";
 
 /**
  * The complete original Log Record.
  * @stability development
  */
-const RecordOriginal: string = "log.record.original";
+alias RecordOriginal = "log.record.original";
 
 /**
  * A unique identifier for the Log Record.
  * @stability development
  */
-const RecordUid: string = "log.record.uid";
+alias RecordUid = "log.record.uid";

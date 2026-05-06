@@ -9,13 +9,15 @@ namespace OTel.Keys.Az;
 /**
  * Deprecated, use `azure.resource_provider.namespace` instead.
  * @stability development
+ * @deprecated renamed → azure.resource_provider.namespace
  */
-#deprecated "renamed"
-const Namespace: string = "az.namespace";
+#deprecated "renamed → azure.resource_provider.namespace"
+alias Namespace = "az.namespace";
 
 /**
  * Deprecated, use `azure.service.request.id` instead.
  * @stability development
+ * @deprecated renamed → azure.service.request.id
  */
-#deprecated "renamed"
-const ServiceRequestId: string = "az.service_request_id";
+#deprecated "renamed → azure.service.request.id"
+alias ServiceRequestId = "az.service_request_id";

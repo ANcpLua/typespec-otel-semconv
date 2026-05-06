@@ -18,11 +18,17 @@ enum MessagingOperationType {
   Process: "process",
   /** One or more messages are settled. */
   Settle: "settle",
-  /** Deprecated. Use `process` instead. */
-  #deprecated "renamed"
+  /**
+   * Deprecated. Use `process` instead.
+   * @deprecated renamed → process
+   */
+  #deprecated "renamed → process"
   Deliver: "deliver",
-  /** Deprecated. Use `send` instead. */
-  #deprecated "renamed"
+  /**
+   * Deprecated. Use `send` instead.
+   * @deprecated renamed → send
+   */
+  #deprecated "renamed → send"
   Publish: "publish",
 }
 

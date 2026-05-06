@@ -10,17 +10,18 @@ namespace OTel.Keys.Android;
  * This attribute represents the state of the application.
  * @stability development
  */
-const AppState: string = "android.app.state";
+alias AppState = "android.app.state";
 
 /**
  * Uniquely identifies the framework API revision offered by a version (`os.version`) of the android operating system. More information can be found in the [Android API levels documentation](https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels).
  * @stability development
  */
-const OsApiLevel: string = "android.os.api_level";
+alias OsApiLevel = "android.os.api_level";
 
 /**
  * Deprecated. Use `android.app.state` attribute instead.
  * @stability development
+ * @deprecated renamed → android.app.state
  */
-#deprecated "renamed"
-const State: string = "android.state";
+#deprecated "renamed → android.app.state"
+alias State = "android.state";

@@ -10,111 +10,114 @@ namespace OTel.Keys.Container;
  * The command used to run the container (i.e. the command name).
  * @stability development
  */
-const Command: string = "container.command";
+alias Command = "container.command";
 
 /**
  * All the command arguments (including the command/executable itself) run by the container.
  * @stability development
  */
-const CommandArgs: string = "container.command_args";
+alias CommandArgs = "container.command_args";
 
 /**
  * The full command run by the container as a single string representing the full command.
  * @stability development
  */
-const CommandLine: string = "container.command_line";
+alias CommandLine = "container.command_line";
 
 /**
  * Deprecated, use `cpu.mode` instead.
  * @stability development
+ * @deprecated renamed → cpu.mode
  */
-#deprecated "renamed"
-const CpuState: string = "container.cpu.state";
+#deprecated "renamed → cpu.mode"
+alias CpuState = "container.cpu.state";
 
 /**
  * The name of the CSI ([Container Storage Interface](https://github.com/container-storage-interface/spec)) plugin used by the volume.
  * @stability development
  */
-const CsiPluginName: string = "container.csi.plugin.name";
+alias CsiPluginName = "container.csi.plugin.name";
 
 /**
  * The unique volume ID returned by the CSI ([Container Storage Interface](https://github.com/container-storage-interface/spec)) plugin.
  * @stability development
  */
-const CsiVolumeId: string = "container.csi.volume.id";
+alias CsiVolumeId = "container.csi.volume.id";
 
 /**
  * Container ID. Usually a UUID, as for example used to [identify Docker containers](https://docs.docker.com/engine/containers/run/#container-identification). The UUID might be abbreviated.
  * @stability release_candidate
  */
-const Id: string = "container.id";
+alias Id = "container.id";
 
 /**
  * Runtime specific image identifier. Usually a hash algorithm followed by a UUID.
  * @stability development
  */
-const ImageId: string = "container.image.id";
+alias ImageId = "container.image.id";
 
 /**
  * Name of the image the container was built on.
  * @stability release_candidate
  */
-const ImageName: string = "container.image.name";
+alias ImageName = "container.image.name";
 
 /**
  * Repo digests of the container image as provided by the container runtime.
  * @stability release_candidate
  */
-const ImageRepoDigests: string = "container.image.repo_digests";
+alias ImageRepoDigests = "container.image.repo_digests";
 
 /**
  * Container image tags. An example can be found in [Docker Image Inspect](https://docs.docker.com/reference/api/engine/version/v1.52/#tag/Image/operation/ImageInspect). Should be only the `<tag>` section of the full name for example from `registry.example.com/my-org/my-image:<tag>`.
  * @stability release_candidate
  */
-const ImageTags: string = "container.image.tags";
+alias ImageTags = "container.image.tags";
 
 /**
  * Container labels, `<key>` being the label name, the value being the label value.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
  */
-const Label: string = "container.label";
+alias Label = "container.label";
 
 /**
  * Deprecated, use `container.label` instead.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
+ * @deprecated renamed → container.label
  */
-#deprecated "renamed"
-const Labels: string = "container.labels";
+#deprecated "renamed → container.label"
+alias Labels = "container.labels";
 
 /**
  * Container name used by container runtime.
  * @stability development
  */
-const Name: string = "container.name";
+alias Name = "container.name";
 
 /**
  * The container runtime managing this container.
  * @stability development
+ * @deprecated renamed → container.runtime.name
  */
-#deprecated "renamed"
-const Runtime: string = "container.runtime";
+#deprecated "renamed → container.runtime.name"
+alias Runtime = "container.runtime";
 
 /**
  * A description about the runtime which could include, for example details about the CRI/API version being used or other customizations.
  * @stability development
  */
-const RuntimeDescription: string = "container.runtime.description";
+alias RuntimeDescription = "container.runtime.description";
 
 /**
  * The container runtime managing this container.
  * @stability development
  */
-const RuntimeName: string = "container.runtime.name";
+alias RuntimeName = "container.runtime.name";
 
 /**
  * The version of the runtime of this process, as returned by the runtime without modification.
  * @stability development
  */
-const RuntimeVersion: string = "container.runtime.version";
+alias RuntimeVersion = "container.runtime.version";

@@ -10,28 +10,28 @@ namespace OTel.Keys.Oracle;
  * The database domain associated with the connection.
  * @stability development
  */
-const DbDomain: string = "oracle.db.domain";
+alias DbDomain = "oracle.db.domain";
 
 /**
  * The instance name associated with the connection in an Oracle Real Application Clusters environment.
  * @stability development
  */
-const DbInstanceName: string = "oracle.db.instance.name";
+alias DbInstanceName = "oracle.db.instance.name";
 
 /**
  * The database name associated with the connection.
  * @stability development
  */
-const DbName: string = "oracle.db.name";
+alias DbName = "oracle.db.name";
 
 /**
  * The pluggable database (PDB) name associated with the connection.
  * @stability development
  */
-const DbPdb: string = "oracle.db.pdb";
+alias DbPdb = "oracle.db.pdb";
 
 /**
  * The service name currently associated with the database connection.
  * @stability development
  */
-const DbService: string = "oracle.db.service";
+alias DbService = "oracle.db.service";

@@ -9,153 +9,169 @@ namespace OTel.Keys.Rpc;
 /**
  * Deprecated, use `rpc.response.status_code` attribute instead.
  * @stability development
+ * @deprecated renamed → rpc.response.status_code
  */
-#deprecated "renamed"
-const ConnectRpcErrorCode: string = "rpc.connect_rpc.error_code";
+#deprecated "renamed → rpc.response.status_code"
+alias ConnectRpcErrorCode = "rpc.connect_rpc.error_code";
 
 /**
  * Deprecated, use `rpc.request.metadata` instead.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
+ * @deprecated renamed → rpc.request.metadata
  */
-#deprecated "renamed"
-const ConnectRpcRequestMetadata: string = "rpc.connect_rpc.request.metadata";
+#deprecated "renamed → rpc.request.metadata"
+alias ConnectRpcRequestMetadata = "rpc.connect_rpc.request.metadata";
 
 /**
  * Deprecated, use `rpc.response.metadata` instead.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
+ * @deprecated renamed → rpc.response.metadata
  */
-#deprecated "renamed"
-const ConnectRpcResponseMetadata: string = "rpc.connect_rpc.response.metadata";
+#deprecated "renamed → rpc.response.metadata"
+alias ConnectRpcResponseMetadata = "rpc.connect_rpc.response.metadata";
 
 /**
  * Deprecated, use `rpc.request.metadata` instead.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
+ * @deprecated renamed → rpc.request.metadata
  */
-#deprecated "renamed"
-const GrpcRequestMetadata: string = "rpc.grpc.request.metadata";
+#deprecated "renamed → rpc.request.metadata"
+alias GrpcRequestMetadata = "rpc.grpc.request.metadata";
 
 /**
  * Deprecated, use `rpc.response.metadata` instead.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
+ * @deprecated renamed → rpc.response.metadata
  */
-#deprecated "renamed"
-const GrpcResponseMetadata: string = "rpc.grpc.response.metadata";
+#deprecated "renamed → rpc.response.metadata"
+alias GrpcResponseMetadata = "rpc.grpc.response.metadata";
 
 /**
  * Deprecated, use string representation on the `rpc.response.status_code` attribute instead.
  * @stability development
+ * @deprecated uncategorized: Use string representation of the gRPC status code on the `rpc.response.status_code` attribute.
  */
-#deprecated "Use string representation of the gRPC status code on the `rpc.response.status_code` attribute."
-const GrpcStatusCode: string = "rpc.grpc.status_code";
+#deprecated "uncategorized: Use string representation of the gRPC status code on the `rpc.response.status_code` attribute."
+alias GrpcStatusCode = "rpc.grpc.status_code";
 
 /**
  * Deprecated, use string representation on the `rpc.response.status_code` attribute instead.
  * @stability development
+ * @deprecated uncategorized: Use string representation of the error code on the `rpc.response.status_code` attribute.
  */
-#deprecated "Use string representation of the error code on the `rpc.response.status_code` attribute."
-const JsonrpcErrorCode: string = "rpc.jsonrpc.error_code";
+#deprecated "uncategorized: Use string representation of the error code on the `rpc.response.status_code` attribute."
+alias JsonrpcErrorCode = "rpc.jsonrpc.error_code";
 
 /**
  * Deprecated, use the span status description when reporting JSON-RPC spans.
  * @stability development
+ * @deprecated uncategorized: Use the span status description when reporting JSON-RPC spans.
  */
-#deprecated "Use the span status description when reporting JSON-RPC spans."
-const JsonrpcErrorMessage: string = "rpc.jsonrpc.error_message";
+#deprecated "uncategorized: Use the span status description when reporting JSON-RPC spans."
+alias JsonrpcErrorMessage = "rpc.jsonrpc.error_message";
 
 /**
  * Deprecated, use `jsonrpc.request.id` instead.
  * @stability development
+ * @deprecated renamed → jsonrpc.request.id
  */
-#deprecated "renamed"
-const JsonrpcRequestId: string = "rpc.jsonrpc.request_id";
+#deprecated "renamed → jsonrpc.request.id"
+alias JsonrpcRequestId = "rpc.jsonrpc.request_id";
 
 /**
  * Deprecated, use `jsonrpc.protocol.version` instead.
  * @stability development
+ * @deprecated renamed → jsonrpc.protocol.version
  */
-#deprecated "renamed"
-const JsonrpcVersion: string = "rpc.jsonrpc.version";
+#deprecated "renamed → jsonrpc.protocol.version"
+alias JsonrpcVersion = "rpc.jsonrpc.version";
 
 /**
  * Compressed size of the message in bytes.
  * @stability development
+ * @deprecated obsoleted: Deprecated, no replacement at this time.
  */
-#deprecated "Deprecated, no replacement at this time."
-const MessageCompressedSize: string = "rpc.message.compressed_size";
+#deprecated "obsoleted: Deprecated, no replacement at this time."
+alias MessageCompressedSize = "rpc.message.compressed_size";
 
 /**
  * MUST be calculated as two different counters starting from `1` one for sent messages and one for received message.
  * @stability development
+ * @deprecated obsoleted: Deprecated, no replacement at this time.
  */
-#deprecated "Deprecated, no replacement at this time."
-const MessageId: string = "rpc.message.id";
+#deprecated "obsoleted: Deprecated, no replacement at this time."
+alias MessageId = "rpc.message.id";
 
 /**
  * Whether this is a received or sent message.
  * @stability development
+ * @deprecated obsoleted: Deprecated, no replacement at this time.
  */
-#deprecated "Deprecated, no replacement at this time."
-const MessageType: string = "rpc.message.type";
+#deprecated "obsoleted: Deprecated, no replacement at this time."
+alias MessageType = "rpc.message.type";
 
 /**
  * Uncompressed size of the message in bytes.
  * @stability development
+ * @deprecated obsoleted: Deprecated, no replacement at this time.
  */
-#deprecated "Deprecated, no replacement at this time."
-const MessageUncompressedSize: string = "rpc.message.uncompressed_size";
+#deprecated "obsoleted: Deprecated, no replacement at this time."
+alias MessageUncompressedSize = "rpc.message.uncompressed_size";
 
 /**
  * The fully-qualified logical name of the method from the RPC interface perspective.
  * @stability release_candidate
  */
-const Method: string = "rpc.method";
+alias Method = "rpc.method";
 
 /**
  * The original name of the method used by the client.
  * @stability release_candidate
  */
-const MethodOriginal: string = "rpc.method_original";
+alias MethodOriginal = "rpc.method_original";
 
 /**
  * RPC request metadata, `<key>` being the normalized RPC metadata key (lowercase), the value being the metadata values.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
  */
-const RequestMetadata: string = "rpc.request.metadata";
+alias RequestMetadata = "rpc.request.metadata";
 
 /**
  * RPC response metadata, `<key>` being the normalized RPC metadata key (lowercase), the value being the metadata values.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
  */
-const ResponseMetadata: string = "rpc.response.metadata";
+alias ResponseMetadata = "rpc.response.metadata";
 
 /**
  * Status code of the RPC returned by the RPC server or generated by the client
  * @stability release_candidate
  */
-const ResponseStatusCode: string = "rpc.response.status_code";
+alias ResponseStatusCode = "rpc.response.status_code";
 
 /**
  * Deprecated, use fully-qualified `rpc.method` instead.
  * @stability development
+ * @deprecated uncategorized: Value should be included in `rpc.method` which is expected to be a fully-qualified name.
  */
-#deprecated "Value should be included in `rpc.method` which is expected to be a fully-qualified name."
-const Service: string = "rpc.service";
+#deprecated "uncategorized: Value should be included in `rpc.method` which is expected to be a fully-qualified name."
+alias Service = "rpc.service";
 
 /**
  * Deprecated, use `rpc.system.name` attribute instead.
  * @stability development
+ * @deprecated renamed → rpc.system.name
  */
-#deprecated "renamed"
-const System: string = "rpc.system";
+#deprecated "renamed → rpc.system.name"
+alias System = "rpc.system";
 
 /**
  * The Remote Procedure Call (RPC) system.
  * @stability release_candidate
  */
-const SystemName: string = "rpc.system.name";
+alias SystemName = "rpc.system.name";

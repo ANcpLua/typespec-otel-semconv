@@ -10,4 +10,4 @@ namespace OTel.Keys.Dotnet;
  * Name of the garbage collector managed heap generation.
  * @stability stable
  */
-const GcHeapGeneration: string = "dotnet.gc.heap.generation";
+alias GcHeapGeneration = "dotnet.gc.heap.generation";

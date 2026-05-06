@@ -9,6 +9,7 @@ namespace OTel.Keys.State;
 /**
  * Deprecated, use `db.client.connection.state` instead.
  * @stability development
+ * @deprecated renamed → db.client.connection.state
  */
-#deprecated "renamed"
-const State: string = "state";
+#deprecated "renamed → db.client.connection.state"
+alias State = "state";

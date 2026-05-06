@@ -10,10 +10,10 @@ namespace OTel.Keys.Openshift;
  * The name of the cluster quota.
  * @stability development
  */
-const ClusterquotaName: string = "openshift.clusterquota.name";
+alias ClusterquotaName = "openshift.clusterquota.name";
 
 /**
  * The UID of the cluster quota.
  * @stability development
  */
-const ClusterquotaUid: string = "openshift.clusterquota.uid";
+alias ClusterquotaUid = "openshift.clusterquota.uid";

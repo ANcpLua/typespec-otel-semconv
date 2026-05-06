@@ -10,11 +10,12 @@ namespace OTel.Keys.Ios;
  * This attribute represents the state of the application.
  * @stability development
  */
-const AppState: string = "ios.app.state";
+alias AppState = "ios.app.state";
 
 /**
  * Deprecated. Use the `ios.app.state` attribute.
  * @stability development
+ * @deprecated renamed → ios.app.state
  */
-#deprecated "renamed"
-const State: string = "ios.state";
+#deprecated "renamed → ios.app.state"
+alias State = "ios.state";

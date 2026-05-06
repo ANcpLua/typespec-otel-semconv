@@ -10,22 +10,22 @@ namespace OTel.Keys.OncRpc;
  * ONC/Sun RPC procedure name.
  * @stability development
  */
-const ProcedureName: string = "onc_rpc.procedure.name";
+alias ProcedureName = "onc_rpc.procedure.name";
 
 /**
  * ONC/Sun RPC procedure number.
  * @stability development
  */
-const ProcedureNumber: string = "onc_rpc.procedure.number";
+alias ProcedureNumber = "onc_rpc.procedure.number";
 
 /**
  * ONC/Sun RPC program name.
  * @stability development
  */
-const ProgramName: string = "onc_rpc.program.name";
+alias ProgramName = "onc_rpc.program.name";
 
 /**
  * ONC/Sun RPC program version.
  * @stability development
  */
-const Version: string = "onc_rpc.version";
+alias Version = "onc_rpc.version";

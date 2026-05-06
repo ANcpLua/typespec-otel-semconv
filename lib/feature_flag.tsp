@@ -10,74 +10,78 @@ namespace OTel.Keys.FeatureFlag;
  * The unique identifier for the flag evaluation context. For example, the targeting key.
  * @stability release_candidate
  */
-const ContextId: string = "feature_flag.context.id";
+alias ContextId = "feature_flag.context.id";
 
 /**
  * A message providing more detail about an error that occurred during feature flag evaluation in human-readable form.
  * @stability release_candidate
  */
-const ErrorMessage: string = "feature_flag.error.message";
+alias ErrorMessage = "feature_flag.error.message";
 
 /**
  * Deprecated, use `feature_flag.error.message` instead.
  * @stability development
+ * @deprecated renamed → feature_flag.error.message
  */
-#deprecated "renamed"
-const EvaluationErrorMessage: string = "feature_flag.evaluation.error.message";
+#deprecated "renamed → feature_flag.error.message"
+alias EvaluationErrorMessage = "feature_flag.evaluation.error.message";
 
 /**
  * Deprecated, use `feature_flag.result.reason` instead.
  * @stability development
+ * @deprecated renamed → feature_flag.result.reason
  */
-#deprecated "renamed"
-const EvaluationReason: string = "feature_flag.evaluation.reason";
+#deprecated "renamed → feature_flag.result.reason"
+alias EvaluationReason = "feature_flag.evaluation.reason";
 
 /**
  * The lookup key of the feature flag.
  * @stability release_candidate
  */
-const Key: string = "feature_flag.key";
+alias Key = "feature_flag.key";
 
 /**
  * Deprecated, use `feature_flag.provider.name` instead.
  * @stability development
+ * @deprecated renamed → feature_flag.provider.name
  */
-#deprecated "renamed"
-const ProviderName: string = "feature_flag.provider_name";
+#deprecated "renamed → feature_flag.provider.name"
+alias ProviderName = "feature_flag.provider_name";
 
 /**
  * The reason code which shows how a feature flag value was determined.
  * @stability release_candidate
  */
-const ResultReason: string = "feature_flag.result.reason";
+alias ResultReason = "feature_flag.result.reason";
 
 /**
  * The evaluated value of the feature flag.
  * @stability release_candidate
  */
-const ResultValue: string = "feature_flag.result.value";
+alias ResultValue = "feature_flag.result.value";
 
 /**
  * A semantic identifier for an evaluated flag value.
  * @stability release_candidate
  */
-const ResultVariant: string = "feature_flag.result.variant";
+alias ResultVariant = "feature_flag.result.variant";
 
 /**
  * The identifier of the [flag set](https://openfeature.dev/specification/glossary/#flag-set) to which the feature flag belongs.
  * @stability release_candidate
  */
-const SetId: string = "feature_flag.set.id";
+alias SetId = "feature_flag.set.id";
 
 /**
  * Deprecated, use `feature_flag.result.variant` instead.
  * @stability development
+ * @deprecated renamed → feature_flag.result.variant
  */
-#deprecated "renamed"
-const Variant: string = "feature_flag.variant";
+#deprecated "renamed → feature_flag.result.variant"
+alias Variant = "feature_flag.variant";
 
 /**
  * The version of the ruleset used during the evaluation. This may be any stable value which uniquely identifies the ruleset.
  * @stability release_candidate
  */
-const Version: string = "feature_flag.version";
+alias Version = "feature_flag.version";

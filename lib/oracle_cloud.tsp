@@ -10,4 +10,4 @@ namespace OTel.Keys.OracleCloud;
  * The OCI realm identifier that indicates the isolated partition in which the tenancy and its resources reside.
  * @stability development
  */
-const Realm: string = "oracle_cloud.realm";
+alias Realm = "oracle_cloud.realm";

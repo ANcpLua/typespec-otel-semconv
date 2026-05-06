@@ -10,28 +10,28 @@ namespace OTel.Keys.Cloudevents;
  * The [event_id](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id) uniquely identifies the event.
  * @stability development
  */
-const EventId: string = "cloudevents.event_id";
+alias EventId = "cloudevents.event_id";
 
 /**
  * The [source](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1) identifies the context in which an event happened.
  * @stability development
  */
-const EventSource: string = "cloudevents.event_source";
+alias EventSource = "cloudevents.event_source";
 
 /**
  * The [version of the CloudEvents specification](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion) which the event uses.
  * @stability development
  */
-const EventSpecVersion: string = "cloudevents.event_spec_version";
+alias EventSpecVersion = "cloudevents.event_spec_version";
 
 /**
  * The [subject](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#subject) of the event in the context of the event producer (identified by source).
  * @stability development
  */
-const EventSubject: string = "cloudevents.event_subject";
+alias EventSubject = "cloudevents.event_subject";
 
 /**
  * The [event_type](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type) contains a value describing the type of event related to the originating occurrence.
  * @stability development
  */
-const EventType: string = "cloudevents.event_type";
+alias EventType = "cloudevents.event_type";

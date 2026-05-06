@@ -6,8 +6,11 @@
 /** OpenTelemetry "container" enum-typed attribute values. */
 namespace OTel.Enums.Container;
 
-/** Deprecated, use `cpu.mode` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `cpu.mode` instead.
+ * @deprecated renamed → cpu.mode
+ */
+#deprecated "renamed → cpu.mode"
 enum ContainerCpuState {
   /** When tasks of the cgroup are in user mode (Linux). When all container processes are in user mode (Windows). */
   User: "user",

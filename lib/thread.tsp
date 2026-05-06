@@ -10,10 +10,10 @@ namespace OTel.Keys.Thread;
  * Current "managed" thread ID (as opposed to OS thread ID).
  * @stability development
  */
-const Id: string = "thread.id";
+alias Id = "thread.id";
 
 /**
  * Current thread name.
  * @stability development
  */
-const Name: string = "thread.name";
+alias Name = "thread.name";

@@ -10,4 +10,4 @@ namespace OTel.Keys.Profile;
  * Describes the interpreter or compiler of a single frame.
  * @stability development
  */
-const FrameType: string = "profile.frame.type";
+alias FrameType = "profile.frame.type";

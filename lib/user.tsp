@@ -10,34 +10,34 @@ namespace OTel.Keys.User;
  * User email address.
  * @stability development
  */
-const Email: string = "user.email";
+alias Email = "user.email";
 
 /**
  * User's full name
  * @stability development
  */
-const FullName: string = "user.full_name";
+alias FullName = "user.full_name";
 
 /**
  * Unique user hash to correlate information for a user in anonymized form.
  * @stability development
  */
-const Hash: string = "user.hash";
+alias Hash = "user.hash";
 
 /**
  * Unique identifier of the user.
  * @stability development
  */
-const Id: string = "user.id";
+alias Id = "user.id";
 
 /**
  * Short name or login/username of the user.
  * @stability development
  */
-const Name: string = "user.name";
+alias Name = "user.name";
 
 /**
  * Array of user roles at the time of the event.
  * @stability development
  */
-const Roles: string = "user.roles";
+alias Roles = "user.roles";

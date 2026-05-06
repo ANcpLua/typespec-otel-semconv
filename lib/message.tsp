@@ -9,27 +9,31 @@ namespace OTel.Keys.Message;
 /**
  * Deprecated, no replacement at this time.
  * @stability development
+ * @deprecated obsoleted: Deprecated, no replacement at this time.
  */
-#deprecated "Deprecated, no replacement at this time."
-const CompressedSize: string = "message.compressed_size";
+#deprecated "obsoleted: Deprecated, no replacement at this time."
+alias CompressedSize = "message.compressed_size";
 
 /**
  * Deprecated, no replacement at this time.
  * @stability development
+ * @deprecated obsoleted: Deprecated, no replacement at this time.
  */
-#deprecated "Deprecated, no replacement at this time."
-const Id: string = "message.id";
+#deprecated "obsoleted: Deprecated, no replacement at this time."
+alias Id = "message.id";
 
 /**
  * Deprecated, no replacement at this time.
  * @stability development
+ * @deprecated obsoleted: Deprecated, no replacement at this time.
  */
-#deprecated "Deprecated, no replacement at this time."
-const Type: string = "message.type";
+#deprecated "obsoleted: Deprecated, no replacement at this time."
+alias Type = "message.type";
 
 /**
  * Deprecated, no replacement at this time.
  * @stability development
+ * @deprecated obsoleted: Deprecated, no replacement at this time.
  */
-#deprecated "Deprecated, no replacement at this time."
-const UncompressedSize: string = "message.uncompressed_size";
+#deprecated "obsoleted: Deprecated, no replacement at this time."
+alias UncompressedSize = "message.uncompressed_size";

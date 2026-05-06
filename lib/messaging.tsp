@@ -10,284 +10,294 @@ namespace OTel.Keys.Messaging;
  * The number of messages sent, received, or processed in the scope of the batching operation.
  * @stability development
  */
-const BatchMessageCount: string = "messaging.batch.message_count";
+alias BatchMessageCount = "messaging.batch.message_count";
 
 /**
  * Deprecated, use `messaging.client.id` instead.
  * @stability development
+ * @deprecated renamed → messaging.client.id
  */
-#deprecated "renamed"
-const ClientId: string = "messaging.client_id";
+#deprecated "renamed → messaging.client.id"
+alias ClientId = "messaging.client_id";
 
 /**
  * The name of the consumer group with which a consumer is associated.
  * @stability development
  */
-const ConsumerGroupName: string = "messaging.consumer.group.name";
+alias ConsumerGroupName = "messaging.consumer.group.name";
 
 /**
  * Deprecated, no replacement at this time.
  * @stability development
+ * @deprecated obsoleted: Removed. No replacement at this time.
  */
-#deprecated "Removed. No replacement at this time."
-const DestinationPublishAnonymous: string = "messaging.destination_publish.anonymous";
+#deprecated "obsoleted: Removed. No replacement at this time."
+alias DestinationPublishAnonymous = "messaging.destination_publish.anonymous";
 
 /**
  * Deprecated, no replacement at this time.
  * @stability development
+ * @deprecated obsoleted: Removed. No replacement at this time.
  */
-#deprecated "Removed. No replacement at this time."
-const DestinationPublishName: string = "messaging.destination_publish.name";
+#deprecated "obsoleted: Removed. No replacement at this time."
+alias DestinationPublishName = "messaging.destination_publish.name";
 
 /**
  * A boolean that is true if the message destination is anonymous (could be unnamed or have auto-generated name).
  * @stability development
  */
-const DestinationAnonymous: string = "messaging.destination.anonymous";
+alias DestinationAnonymous = "messaging.destination.anonymous";
 
 /**
  * The message destination name
  * @stability development
  */
-const DestinationName: string = "messaging.destination.name";
+alias DestinationName = "messaging.destination.name";
 
 /**
  * The identifier of the partition messages are sent to or received from, unique within the `messaging.destination.name`.
  * @stability development
  */
-const DestinationPartitionId: string = "messaging.destination.partition.id";
+alias DestinationPartitionId = "messaging.destination.partition.id";
 
 /**
  * The name of the destination subscription from which a message is consumed.
  * @stability development
  */
-const DestinationSubscriptionName: string = "messaging.destination.subscription.name";
+alias DestinationSubscriptionName = "messaging.destination.subscription.name";
 
 /**
  * Low cardinality representation of the messaging destination name
  * @stability development
  */
-const DestinationTemplate: string = "messaging.destination.template";
+alias DestinationTemplate = "messaging.destination.template";
 
 /**
  * A boolean that is true if the message destination is temporary and might not exist anymore after messages are processed.
  * @stability development
  */
-const DestinationTemporary: string = "messaging.destination.temporary";
+alias DestinationTemporary = "messaging.destination.temporary";
 
 /**
  * Deprecated, use `messaging.consumer.group.name` instead.
  * @stability development
+ * @deprecated renamed → messaging.consumer.group.name
  */
-#deprecated "renamed"
-const EventhubsConsumerGroup: string = "messaging.eventhubs.consumer.group";
+#deprecated "renamed → messaging.consumer.group.name"
+alias EventhubsConsumerGroup = "messaging.eventhubs.consumer.group";
 
 /**
  * The UTC epoch seconds at which the message has been accepted and stored in the entity.
  * @stability development
  */
-const EventhubsMessageEnqueuedTime: string = "messaging.eventhubs.message.enqueued_time";
+alias EventhubsMessageEnqueuedTime = "messaging.eventhubs.message.enqueued_time";
 
 /**
  * The ack deadline in seconds set for the modify ack deadline request.
  * @stability development
  */
-const GcpPubsubMessageAckDeadline: string = "messaging.gcp_pubsub.message.ack_deadline";
+alias GcpPubsubMessageAckDeadline = "messaging.gcp_pubsub.message.ack_deadline";
 
 /**
  * The ack id for a given message.
  * @stability development
  */
-const GcpPubsubMessageAckId: string = "messaging.gcp_pubsub.message.ack_id";
+alias GcpPubsubMessageAckId = "messaging.gcp_pubsub.message.ack_id";
 
 /**
  * The delivery attempt for a given message.
  * @stability development
  */
-const GcpPubsubMessageDeliveryAttempt: string = "messaging.gcp_pubsub.message.delivery_attempt";
+alias GcpPubsubMessageDeliveryAttempt = "messaging.gcp_pubsub.message.delivery_attempt";
 
 /**
  * The ordering key for a given message. If the attribute is not present, the message does not have an ordering key.
  * @stability development
  */
-const GcpPubsubMessageOrderingKey: string = "messaging.gcp_pubsub.message.ordering_key";
+alias GcpPubsubMessageOrderingKey = "messaging.gcp_pubsub.message.ordering_key";
 
 /**
  * Deprecated, use `messaging.consumer.group.name` instead.
  * @stability development
+ * @deprecated renamed → messaging.consumer.group.name
  */
-#deprecated "renamed"
-const KafkaConsumerGroup: string = "messaging.kafka.consumer.group";
+#deprecated "renamed → messaging.consumer.group.name"
+alias KafkaConsumerGroup = "messaging.kafka.consumer.group";
 
 /**
  * Deprecated, use `messaging.destination.partition.id` instead.
  * @stability development
+ * @deprecated uncategorized: Record string representation of the partition id in `messaging.destination.partition.id` attribute.
  */
-#deprecated "Record string representation of the partition id in `messaging.destination.partition.id` attribute."
-const KafkaDestinationPartition: string = "messaging.kafka.destination.partition";
+#deprecated "uncategorized: Record string representation of the partition id in `messaging.destination.partition.id` attribute."
+alias KafkaDestinationPartition = "messaging.kafka.destination.partition";
 
 /**
  * Message keys in Kafka are used for grouping alike messages to ensure they're processed on the same partition. They differ from `messaging.message.id` in that they're not unique. If the key is `null`, the attribute MUST NOT be set.
  * @stability development
  */
-const KafkaMessageKey: string = "messaging.kafka.message.key";
+alias KafkaMessageKey = "messaging.kafka.message.key";
 
 /**
  * Deprecated, use `messaging.kafka.offset` instead.
  * @stability development
+ * @deprecated renamed → messaging.kafka.offset
  */
-#deprecated "renamed"
-const KafkaMessageOffset: string = "messaging.kafka.message.offset";
+#deprecated "renamed → messaging.kafka.offset"
+alias KafkaMessageOffset = "messaging.kafka.message.offset";
 
 /**
  * A boolean that is true if the message is a tombstone.
  * @stability development
  */
-const KafkaMessageTombstone: string = "messaging.kafka.message.tombstone";
+alias KafkaMessageTombstone = "messaging.kafka.message.tombstone";
 
 /**
  * The offset of a record in the corresponding Kafka partition.
  * @stability development
  */
-const KafkaOffset: string = "messaging.kafka.offset";
+alias KafkaOffset = "messaging.kafka.offset";
 
 /**
  * The size of the message body in bytes.
  * @stability development
  */
-const MessageBodySize: string = "messaging.message.body.size";
+alias MessageBodySize = "messaging.message.body.size";
 
 /**
  * The conversation ID identifying the conversation to which the message belongs, represented as a string. Sometimes called "Correlation ID".
  * @stability development
  */
-const MessageConversationId: string = "messaging.message.conversation_id";
+alias MessageConversationId = "messaging.message.conversation_id";
 
 /**
  * The size of the message body and metadata in bytes.
  * @stability development
  */
-const MessageEnvelopeSize: string = "messaging.message.envelope.size";
+alias MessageEnvelopeSize = "messaging.message.envelope.size";
 
 /**
  * A value used by the messaging system as an identifier for the message, represented as a string.
  * @stability development
  */
-const MessageId: string = "messaging.message.id";
+alias MessageId = "messaging.message.id";
 
 /**
  * Deprecated, use `messaging.operation.type` instead.
  * @stability development
+ * @deprecated renamed → messaging.operation.type
  */
-#deprecated "renamed"
-const Operation: string = "messaging.operation";
+#deprecated "renamed → messaging.operation.type"
+alias Operation = "messaging.operation";
 
 /**
  * The system-specific name of the messaging operation.
  * @stability development
  */
-const OperationName: string = "messaging.operation.name";
+alias OperationName = "messaging.operation.name";
 
 /**
  * A string identifying the type of the messaging operation.
  * @stability development
  */
-const OperationType: string = "messaging.operation.type";
+alias OperationType = "messaging.operation.type";
 
 /**
  * RabbitMQ message routing key.
  * @stability development
  */
-const RabbitmqDestinationRoutingKey: string = "messaging.rabbitmq.destination.routing_key";
+alias RabbitmqDestinationRoutingKey = "messaging.rabbitmq.destination.routing_key";
 
 /**
  * RabbitMQ message delivery tag
  * @stability development
  */
-const RabbitmqMessageDeliveryTag: string = "messaging.rabbitmq.message.delivery_tag";
+alias RabbitmqMessageDeliveryTag = "messaging.rabbitmq.message.delivery_tag";
 
 /**
  * Deprecated, use `messaging.consumer.group.name` instead.
  * @stability development
+ * @deprecated uncategorized: Replaced by `messaging.consumer.group.name` on the consumer spans. No replacement for producer spans.
  */
-#deprecated "Replaced by `messaging.consumer.group.name` on the consumer spans. No replacement for producer spans."
-const RocketmqClientGroup: string = "messaging.rocketmq.client_group";
+#deprecated "uncategorized: Replaced by `messaging.consumer.group.name` on the consumer spans. No replacement for producer spans."
+alias RocketmqClientGroup = "messaging.rocketmq.client_group";
 
 /**
  * Model of message consumption. This only applies to consumer spans.
  * @stability development
  */
-const RocketmqConsumptionModel: string = "messaging.rocketmq.consumption_model";
+alias RocketmqConsumptionModel = "messaging.rocketmq.consumption_model";
 
 /**
  * The delay time level for delay message, which determines the message delay time.
  * @stability development
  */
-const RocketmqMessageDelayTimeLevel: string = "messaging.rocketmq.message.delay_time_level";
+alias RocketmqMessageDelayTimeLevel = "messaging.rocketmq.message.delay_time_level";
 
 /**
  * The timestamp in milliseconds that the delay message is expected to be delivered to consumer.
  * @stability development
  */
-const RocketmqMessageDeliveryTimestamp: string = "messaging.rocketmq.message.delivery_timestamp";
+alias RocketmqMessageDeliveryTimestamp = "messaging.rocketmq.message.delivery_timestamp";
 
 /**
  * It is essential for FIFO message. Messages that belong to the same message group are always processed one by one within the same consumer group.
  * @stability development
  */
-const RocketmqMessageGroup: string = "messaging.rocketmq.message.group";
+alias RocketmqMessageGroup = "messaging.rocketmq.message.group";
 
 /**
  * Key(s) of message, another way to mark message besides message id.
  * @stability development
  */
-const RocketmqMessageKeys: string = "messaging.rocketmq.message.keys";
+alias RocketmqMessageKeys = "messaging.rocketmq.message.keys";
 
 /**
  * The secondary classifier of message besides topic.
  * @stability development
  */
-const RocketmqMessageTag: string = "messaging.rocketmq.message.tag";
+alias RocketmqMessageTag = "messaging.rocketmq.message.tag";
 
 /**
  * Type of message.
  * @stability development
  */
-const RocketmqMessageType: string = "messaging.rocketmq.message.type";
+alias RocketmqMessageType = "messaging.rocketmq.message.type";
 
 /**
  * Namespace of RocketMQ resources, resources in different namespaces are individual.
  * @stability development
  */
-const RocketmqNamespace: string = "messaging.rocketmq.namespace";
+alias RocketmqNamespace = "messaging.rocketmq.namespace";
 
 /**
  * Deprecated, use `messaging.destination.subscription.name` instead.
  * @stability development
+ * @deprecated renamed → messaging.destination.subscription.name
  */
-#deprecated "renamed"
-const ServicebusDestinationSubscriptionName: string = "messaging.servicebus.destination.subscription_name";
+#deprecated "renamed → messaging.destination.subscription.name"
+alias ServicebusDestinationSubscriptionName = "messaging.servicebus.destination.subscription_name";
 
 /**
  * Describes the [settlement type](https://learn.microsoft.com/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock).
  * @stability development
  */
-const ServicebusDispositionStatus: string = "messaging.servicebus.disposition_status";
+alias ServicebusDispositionStatus = "messaging.servicebus.disposition_status";
 
 /**
  * Number of deliveries that have been attempted for this message.
  * @stability development
  */
-const ServicebusMessageDeliveryCount: string = "messaging.servicebus.message.delivery_count";
+alias ServicebusMessageDeliveryCount = "messaging.servicebus.message.delivery_count";
 
 /**
  * The UTC epoch seconds at which the message has been accepted and stored in the entity.
  * @stability development
  */
-const ServicebusMessageEnqueuedTime: string = "messaging.servicebus.message.enqueued_time";
+alias ServicebusMessageEnqueuedTime = "messaging.servicebus.message.enqueued_time";
 
 /**
  * The messaging system as identified by the client instrumentation.
  * @stability development
  */
-const System: string = "messaging.system";
+alias System = "messaging.system";

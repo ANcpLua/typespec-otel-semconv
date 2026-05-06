@@ -10,4 +10,4 @@ namespace OTel.Keys.Disk;
  * The disk IO operation direction.
  * @stability development
  */
-const IoDirection: string = "disk.io.direction";
+alias IoDirection = "disk.io.direction";

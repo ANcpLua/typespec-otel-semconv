@@ -10,10 +10,10 @@ namespace OTel.Keys.Session;
  * A unique id to identify a session.
  * @stability development
  */
-const Id: string = "session.id";
+alias Id = "session.id";
 
 /**
  * The previous `session.id` for this user, when known.
  * @stability development
  */
-const PreviousId: string = "session.previous_id";
+alias PreviousId = "session.previous_id";

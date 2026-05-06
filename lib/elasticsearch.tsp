@@ -10,4 +10,4 @@ namespace OTel.Keys.Elasticsearch;
  * Represents the human-readable identifier of the node/instance to which a request was routed.
  * @stability development
  */
-const NodeName: string = "elasticsearch.node.name";
+alias NodeName = "elasticsearch.node.name";

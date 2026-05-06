@@ -10,22 +10,22 @@ namespace OTel.Keys.Openai;
  * The type of OpenAI API being used.
  * @stability development
  */
-const ApiType: string = "openai.api.type";
+alias ApiType = "openai.api.type";
 
 /**
  * The service tier requested. May be a specific tier, default, or auto.
  * @stability development
  */
-const RequestServiceTier: string = "openai.request.service_tier";
+alias RequestServiceTier = "openai.request.service_tier";
 
 /**
  * The service tier used for the response.
  * @stability development
  */
-const ResponseServiceTier: string = "openai.response.service_tier";
+alias ResponseServiceTier = "openai.response.service_tier";
 
 /**
  * A fingerprint to track any eventual change in the Generative AI environment.
  * @stability development
  */
-const ResponseSystemFingerprint: string = "openai.response.system_fingerprint";
+alias ResponseSystemFingerprint = "openai.response.system_fingerprint";

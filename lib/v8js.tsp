@@ -10,16 +10,16 @@ namespace OTel.Keys.V8js;
  * The type of garbage collection.
  * @stability development
  */
-const GcType: string = "v8js.gc.type";
+alias GcType = "v8js.gc.type";
 
 /**
  * The name of the space type of heap memory.
  * @stability development
  */
-const HeapSpaceName: string = "v8js.heap.space.name";
+alias HeapSpaceName = "v8js.heap.space.name";
 
 /**
  * The type of resource keeping the event loop active.
  * @stability development
  */
-const ResourceType: string = "v8js.resource.type";
+alias ResourceType = "v8js.resource.type";

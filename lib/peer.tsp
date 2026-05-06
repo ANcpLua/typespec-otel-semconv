@@ -9,6 +9,7 @@ namespace OTel.Keys.Peer;
 /**
  * The [`service.name`](/docs/resource/README.md#service) of the remote service. SHOULD be equal to the actual `service.name` resource attribute of the remote service if any.
  * @stability development
+ * @deprecated renamed → service.peer.name
  */
-#deprecated "renamed"
-const Service: string = "peer.service";
+#deprecated "renamed → service.peer.name"
+alias Service = "peer.service";

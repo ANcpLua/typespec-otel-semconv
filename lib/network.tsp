@@ -10,100 +10,100 @@ namespace OTel.Keys.Network;
  * The ISO 3166-1 alpha-2 2-character country code associated with the mobile carrier network.
  * @stability development
  */
-const CarrierIcc: string = "network.carrier.icc";
+alias CarrierIcc = "network.carrier.icc";
 
 /**
  * The mobile carrier country code.
  * @stability development
  */
-const CarrierMcc: string = "network.carrier.mcc";
+alias CarrierMcc = "network.carrier.mcc";
 
 /**
  * The mobile carrier network code.
  * @stability development
  */
-const CarrierMnc: string = "network.carrier.mnc";
+alias CarrierMnc = "network.carrier.mnc";
 
 /**
  * The name of the mobile carrier.
  * @stability development
  */
-const CarrierName: string = "network.carrier.name";
+alias CarrierName = "network.carrier.name";
 
 /**
  * The state of network connection
  * @stability development
  */
-const ConnectionState: string = "network.connection.state";
+alias ConnectionState = "network.connection.state";
 
 /**
  * This describes more details regarding the connection.type. It may be the type of cell technology connection, but it could be used for describing details about a wifi connection.
  * @stability development
  */
-const ConnectionSubtype: string = "network.connection.subtype";
+alias ConnectionSubtype = "network.connection.subtype";
 
 /**
  * The internet connection type.
  * @stability development
  */
-const ConnectionType: string = "network.connection.type";
+alias ConnectionType = "network.connection.type";
 
 /**
  * The network interface name.
  * @stability development
  */
-const InterfaceName: string = "network.interface.name";
+alias InterfaceName = "network.interface.name";
 
 /**
  * The network IO operation direction.
  * @stability development
  */
-const IoDirection: string = "network.io.direction";
+alias IoDirection = "network.io.direction";
 
 /**
  * Local address of the network connection - IP address or Unix domain socket name.
  * @stability stable
  */
-const LocalAddress: string = "network.local.address";
+alias LocalAddress = "network.local.address";
 
 /**
  * Local port number of the network connection.
  * @stability stable
  */
-const LocalPort: string = "network.local.port";
+alias LocalPort = "network.local.port";
 
 /**
  * Peer address of the network connection - IP address or Unix domain socket name.
  * @stability stable
  */
-const PeerAddress: string = "network.peer.address";
+alias PeerAddress = "network.peer.address";
 
 /**
  * Peer port number of the network connection.
  * @stability stable
  */
-const PeerPort: string = "network.peer.port";
+alias PeerPort = "network.peer.port";
 
 /**
  * [OSI application layer](https://wikipedia.org/wiki/Application_layer) or non-OSI equivalent.
  * @stability stable
  */
-const ProtocolName: string = "network.protocol.name";
+alias ProtocolName = "network.protocol.name";
 
 /**
  * The actual version of the protocol used for network communication.
  * @stability stable
  */
-const ProtocolVersion: string = "network.protocol.version";
+alias ProtocolVersion = "network.protocol.version";
 
 /**
  * [OSI transport layer](https://wikipedia.org/wiki/Transport_layer) or [inter-process communication method](https://wikipedia.org/wiki/Inter-process_communication).
  * @stability stable
  */
-const Transport: string = "network.transport";
+alias Transport = "network.transport";
 
 /**
  * [OSI network layer](https://wikipedia.org/wiki/Network_layer) or non-OSI equivalent.
  * @stability stable
  */
-const Type: string = "network.type";
+alias Type = "network.type";

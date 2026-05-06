@@ -10,106 +10,106 @@ namespace OTel.Keys.File;
  * Time when the file was last accessed, in ISO 8601 format.
  * @stability development
  */
-const Accessed: string = "file.accessed";
+alias Accessed = "file.accessed";
 
 /**
  * Array of file attributes.
  * @stability development
  */
-const Attributes: string = "file.attributes";
+alias Attributes = "file.attributes";
 
 /**
  * Time when the file attributes or metadata was last changed, in ISO 8601 format.
  * @stability development
  */
-const Changed: string = "file.changed";
+alias Changed = "file.changed";
 
 /**
  * Time when the file was created, in ISO 8601 format.
  * @stability development
  */
-const Created: string = "file.created";
+alias Created = "file.created";
 
 /**
  * Directory where the file is located. It should include the drive letter, when appropriate.
  * @stability development
  */
-const Directory: string = "file.directory";
+alias Directory = "file.directory";
 
 /**
  * File extension, excluding the leading dot.
  * @stability development
  */
-const Extension: string = "file.extension";
+alias Extension = "file.extension";
 
 /**
  * Name of the fork. A fork is additional data associated with a filesystem object.
  * @stability development
  */
-const ForkName: string = "file.fork_name";
+alias ForkName = "file.fork_name";
 
 /**
  * Primary Group ID (GID) of the file.
  * @stability development
  */
-const GroupId: string = "file.group.id";
+alias GroupId = "file.group.id";
 
 /**
  * Primary group name of the file.
  * @stability development
  */
-const GroupName: string = "file.group.name";
+alias GroupName = "file.group.name";
 
 /**
  * Inode representing the file in the filesystem.
  * @stability development
  */
-const Inode: string = "file.inode";
+alias Inode = "file.inode";
 
 /**
  * Mode of the file in octal representation.
  * @stability development
  */
-const Mode: string = "file.mode";
+alias Mode = "file.mode";
 
 /**
  * Time when the file content was last modified, in ISO 8601 format.
  * @stability development
  */
-const Modified: string = "file.modified";
+alias Modified = "file.modified";
 
 /**
  * Name of the file including the extension, without the directory.
  * @stability development
  */
-const Name: string = "file.name";
+alias Name = "file.name";
 
 /**
  * The user ID (UID) or security identifier (SID) of the file owner.
  * @stability development
  */
-const OwnerId: string = "file.owner.id";
+alias OwnerId = "file.owner.id";
 
 /**
  * Username of the file owner.
  * @stability development
  */
-const OwnerName: string = "file.owner.name";
+alias OwnerName = "file.owner.name";
 
 /**
  * Full path to the file, including the file name. It should include the drive letter, when appropriate.
  * @stability development
  */
-const Path: string = "file.path";
+alias Path = "file.path";
 
 /**
  * File size in bytes.
  * @stability development
  */
-const Size: string = "file.size";
+alias Size = "file.size";
 
 /**
  * Path to the target of a symbolic link.
  * @stability development
  */
-const SymbolicLinkTargetPath: string = "file.symbolic_link.target_path";
+alias SymbolicLinkTargetPath = "file.symbolic_link.target_path";

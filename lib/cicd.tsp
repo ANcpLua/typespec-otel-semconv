@@ -10,94 +10,94 @@ namespace OTel.Keys.Cicd;
  * The kind of action a pipeline run is performing.
  * @stability development
  */
-const PipelineActionName: string = "cicd.pipeline.action.name";
+alias PipelineActionName = "cicd.pipeline.action.name";
 
 /**
  * The human readable name of the pipeline within a CI/CD system.
  * @stability development
  */
-const PipelineName: string = "cicd.pipeline.name";
+alias PipelineName = "cicd.pipeline.name";
 
 /**
  * The result of a pipeline run.
  * @stability development
  */
-const PipelineResult: string = "cicd.pipeline.result";
+alias PipelineResult = "cicd.pipeline.result";
 
 /**
  * The unique identifier of a pipeline run within a CI/CD system.
  * @stability development
  */
-const PipelineRunId: string = "cicd.pipeline.run.id";
+alias PipelineRunId = "cicd.pipeline.run.id";
 
 /**
  * The pipeline run goes through these states during its lifecycle.
  * @stability development
  */
-const PipelineRunState: string = "cicd.pipeline.run.state";
+alias PipelineRunState = "cicd.pipeline.run.state";
 
 /**
  * The [URL](https://wikipedia.org/wiki/URL) of the pipeline run, providing the complete address in order to locate and identify the pipeline run.
  * @stability development
  */
-const PipelineRunUrlFull: string = "cicd.pipeline.run.url.full";
+alias PipelineRunUrlFull = "cicd.pipeline.run.url.full";
 
 /**
  * The human readable name of a task within a pipeline. Task here most closely aligns with a [computing process](https://wikipedia.org/wiki/Pipeline_(computing)) in a pipeline. Other terms for tasks include commands, steps, and procedures.
  * @stability development
  */
-const PipelineTaskName: string = "cicd.pipeline.task.name";
+alias PipelineTaskName = "cicd.pipeline.task.name";
 
 /**
  * The unique identifier of a task run within a pipeline.
  * @stability development
  */
-const PipelineTaskRunId: string = "cicd.pipeline.task.run.id";
+alias PipelineTaskRunId = "cicd.pipeline.task.run.id";
 
 /**
  * The result of a task run.
  * @stability development
  */
-const PipelineTaskRunResult: string = "cicd.pipeline.task.run.result";
+alias PipelineTaskRunResult = "cicd.pipeline.task.run.result";
 
 /**
  * The [URL](https://wikipedia.org/wiki/URL) of the pipeline task run, providing the complete address in order to locate and identify the pipeline task run.
  * @stability development
  */
-const PipelineTaskRunUrlFull: string = "cicd.pipeline.task.run.url.full";
+alias PipelineTaskRunUrlFull = "cicd.pipeline.task.run.url.full";
 
 /**
  * The type of the task within a pipeline.
  * @stability development
  */
-const PipelineTaskType: string = "cicd.pipeline.task.type";
+alias PipelineTaskType = "cicd.pipeline.task.type";
 
 /**
  * The name of a component of the CICD system.
  * @stability development
  */
-const SystemComponent: string = "cicd.system.component";
+alias SystemComponent = "cicd.system.component";
 
 /**
  * The unique identifier of a worker within a CICD system.
  * @stability development
  */
-const WorkerId: string = "cicd.worker.id";
+alias WorkerId = "cicd.worker.id";
 
 /**
  * The name of a worker within a CICD system.
  * @stability development
  */
-const WorkerName: string = "cicd.worker.name";
+alias WorkerName = "cicd.worker.name";
 
 /**
  * The state of a CICD worker / agent.
  * @stability development
  */
-const WorkerState: string = "cicd.worker.state";
+alias WorkerState = "cicd.worker.state";
 
 /**
  * The [URL](https://wikipedia.org/wiki/URL) of the worker, providing the complete address in order to locate and identify the worker.
  * @stability development
  */
-const WorkerUrlFull: string = "cicd.worker.url.full";
+alias WorkerUrlFull = "cicd.worker.url.full";

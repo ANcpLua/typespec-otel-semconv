@@ -10,10 +10,10 @@ namespace OTel.Keys.Jsonrpc;
  * Protocol version, as specified in the `jsonrpc` property of the request and its corresponding response.
  * @stability development
  */
-const ProtocolVersion: string = "jsonrpc.protocol.version";
+alias ProtocolVersion = "jsonrpc.protocol.version";
 
 /**
  * A string representation of the `id` property of the request and its corresponding response.
  * @stability development
  */
-const RequestId: string = "jsonrpc.request.id";
+alias RequestId = "jsonrpc.request.id";

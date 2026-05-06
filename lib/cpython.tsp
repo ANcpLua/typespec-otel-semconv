@@ -10,4 +10,4 @@ namespace OTel.Keys.Cpython;
  * Value of the garbage collector collection generation.
  * @stability development
  */
-const GcGeneration: string = "cpython.gc.generation";
+alias GcGeneration = "cpython.gc.generation";

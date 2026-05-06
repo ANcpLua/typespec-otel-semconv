@@ -10,40 +10,40 @@ namespace OTel.Keys.Geo;
  * Two-letter code representing continent’s name.
  * @stability development
  */
-const ContinentCode: string = "geo.continent.code";
+alias ContinentCode = "geo.continent.code";
 
 /**
  * Two-letter ISO Country Code ([ISO 3166-1 alpha2](https://wikipedia.org/wiki/ISO_3166-1#Codes)).
  * @stability development
  */
-const CountryIsoCode: string = "geo.country.iso_code";
+alias CountryIsoCode = "geo.country.iso_code";
 
 /**
  * Locality name. Represents the name of a city, town, village, or similar populated place.
  * @stability development
  */
-const LocalityName: string = "geo.locality.name";
+alias LocalityName = "geo.locality.name";
 
 /**
  * Latitude of the geo location in [WGS84](https://wikipedia.org/wiki/World_Geodetic_System#WGS84).
  * @stability development
  */
-const LocationLat: string = "geo.location.lat";
+alias LocationLat = "geo.location.lat";
 
 /**
  * Longitude of the geo location in [WGS84](https://wikipedia.org/wiki/World_Geodetic_System#WGS84).
  * @stability development
  */
-const LocationLon: string = "geo.location.lon";
+alias LocationLon = "geo.location.lon";
 
 /**
  * Postal code associated with the location. Values appropriate for this field may also be known as a postcode or ZIP code and will vary widely from country to country.
  * @stability development
  */
-const PostalCode: string = "geo.postal_code";
+alias PostalCode = "geo.postal_code";
 
 /**
  * Region ISO code ([ISO 3166-2](https://wikipedia.org/wiki/ISO_3166-2)).
  * @stability development
  */
-const RegionIsoCode: string = "geo.region.iso_code";
+alias RegionIsoCode = "geo.region.iso_code";

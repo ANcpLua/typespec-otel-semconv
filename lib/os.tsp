@@ -10,28 +10,28 @@ namespace OTel.Keys.Os;
  * Unique identifier for a particular build or compilation of the operating system.
  * @stability development
  */
-const BuildId: string = "os.build_id";
+alias BuildId = "os.build_id";
 
 /**
  * Human readable (not intended to be parsed) OS version information, like e.g. reported by `ver` or `lsb_release -a` commands.
  * @stability development
  */
-const Description: string = "os.description";
+alias Description = "os.description";
 
 /**
  * Human readable operating system name.
  * @stability development
  */
-const Name: string = "os.name";
+alias Name = "os.name";
 
 /**
  * The operating system type.
  * @stability development
  */
-const Type: string = "os.type";
+alias Type = "os.type";
 
 /**
  * The version string of the operating system as defined in [Version Attributes](/docs/resource/README.md#version-attributes).
  * @stability development
  */
-const Version: string = "os.version";
+alias Version = "os.version";

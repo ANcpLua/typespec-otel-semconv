@@ -10,22 +10,22 @@ namespace OTel.Keys.Device;
  * A unique identifier representing the device
  * @stability development
  */
-const Id: string = "device.id";
+alias Id = "device.id";
 
 /**
  * The name of the device manufacturer
  * @stability development
  */
-const Manufacturer: string = "device.manufacturer";
+alias Manufacturer = "device.manufacturer";
 
 /**
  * The model identifier for the device
  * @stability development
  */
-const ModelIdentifier: string = "device.model.identifier";
+alias ModelIdentifier = "device.model.identifier";
 
 /**
  * The marketing name for the device model
  * @stability development
  */
-const ModelName: string = "device.model.name";
+alias ModelName = "device.model.name";

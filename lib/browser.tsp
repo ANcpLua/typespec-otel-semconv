@@ -10,22 +10,22 @@ namespace OTel.Keys.Browser;
  * Array of brand name and version separated by a space
  * @stability development
  */
-const Brands: string = "browser.brands";
+alias Brands = "browser.brands";
 
 /**
  * Preferred language of the user using the browser
  * @stability development
  */
-const Language: string = "browser.language";
+alias Language = "browser.language";
 
 /**
  * A boolean that is true if the browser is running on a mobile device
  * @stability development
  */
-const Mobile: string = "browser.mobile";
+alias Mobile = "browser.mobile";
 
 /**
  * The platform on which the browser is running
  * @stability development
  */
-const Platform: string = "browser.platform";
+alias Platform = "browser.platform";

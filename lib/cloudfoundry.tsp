@@ -10,64 +10,64 @@ namespace OTel.Keys.Cloudfoundry;
  * The guid of the application.
  * @stability development
  */
-const AppId: string = "cloudfoundry.app.id";
+alias AppId = "cloudfoundry.app.id";
 
 /**
  * The index of the application instance. 0 when just one instance is active.
  * @stability development
  */
-const AppInstanceId: string = "cloudfoundry.app.instance.id";
+alias AppInstanceId = "cloudfoundry.app.instance.id";
 
 /**
  * The name of the application.
  * @stability development
  */
-const AppName: string = "cloudfoundry.app.name";
+alias AppName = "cloudfoundry.app.name";
 
 /**
  * The guid of the CloudFoundry org the application is running in.
  * @stability development
  */
-const OrgId: string = "cloudfoundry.org.id";
+alias OrgId = "cloudfoundry.org.id";
 
 /**
  * The name of the CloudFoundry organization the app is running in.
  * @stability development
  */
-const OrgName: string = "cloudfoundry.org.name";
+alias OrgName = "cloudfoundry.org.name";
 
 /**
  * The UID identifying the process.
  * @stability development
  */
-const ProcessId: string = "cloudfoundry.process.id";
+alias ProcessId = "cloudfoundry.process.id";
 
 /**
  * The type of process.
  * @stability development
  */
-const ProcessType: string = "cloudfoundry.process.type";
+alias ProcessType = "cloudfoundry.process.type";
 
 /**
  * The guid of the CloudFoundry space the application is running in.
  * @stability development
  */
-const SpaceId: string = "cloudfoundry.space.id";
+alias SpaceId = "cloudfoundry.space.id";
 
 /**
  * The name of the CloudFoundry space the application is running in.
  * @stability development
  */
-const SpaceName: string = "cloudfoundry.space.name";
+alias SpaceName = "cloudfoundry.space.name";
 
 /**
  * A guid or another name describing the event source.
  * @stability development
  */
-const SystemId: string = "cloudfoundry.system.id";
+alias SystemId = "cloudfoundry.system.id";
 
 /**
  * A guid describing the concrete instance of the event source.
  * @stability development
  */
-const SystemInstanceId: string = "cloudfoundry.system.instance.id";
+alias SystemInstanceId = "cloudfoundry.system.instance.id";

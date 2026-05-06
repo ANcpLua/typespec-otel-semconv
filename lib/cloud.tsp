@@ -10,34 +10,34 @@ namespace OTel.Keys.Cloud;
  * The cloud account ID the resource is assigned to.
  * @stability development
  */
-const AccountId: string = "cloud.account.id";
+alias AccountId = "cloud.account.id";
 
 /**
  * Cloud regions often have multiple, isolated locations known as zones to increase availability. Availability zone represents the zone where the resource is running.
  * @stability development
  */
-const AvailabilityZone: string = "cloud.availability_zone";
+alias AvailabilityZone = "cloud.availability_zone";
 
 /**
  * The cloud platform in use.
  * @stability development
  */
-const Platform: string = "cloud.platform";
+alias Platform = "cloud.platform";
 
 /**
  * Name of the cloud provider.
  * @stability development
  */
-const Provider: string = "cloud.provider";
+alias Provider = "cloud.provider";
 
 /**
  * The geographical region within a cloud provider. When associated with a resource, this attribute specifies the region where the resource operates. When calling services or APIs deployed on a cloud, this attribute identifies the region where the called destination is deployed.
  * @stability development
  */
-const Region: string = "cloud.region";
+alias Region = "cloud.region";
 
 /**
  * Cloud provider-specific native identifier of the monitored cloud resource (e.g. an [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) on AWS, a [fully qualified resource ID](https://learn.microsoft.com/rest/api/resources/resources/get-by-id) on Azure, a [full resource name](https://google.aip.dev/122#full-resource-names) on GCP)
  * @stability development
  */
-const ResourceId: string = "cloud.resource_id";
+alias ResourceId = "cloud.resource_id";

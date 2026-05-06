@@ -14,8 +14,11 @@ enum HttpConnectionState {
   Idle: "idle",
 }
 
-/** Deprecated, use `network.protocol.name` and `network.protocol.version` instead. */
-#deprecated "Split into `network.protocol.name` and `network.protocol.version`"
+/**
+ * Deprecated, use `network.protocol.name` and `network.protocol.version` instead.
+ * @deprecated uncategorized: Split into `network.protocol.name` and `network.protocol.version`
+ */
+#deprecated "uncategorized: Split into `network.protocol.name` and `network.protocol.version`"
 enum HttpFlavor {
   /** HTTP/1.0 */
   Http10: "1.0",

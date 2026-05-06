@@ -9,6 +9,7 @@ namespace OTel.Keys.Pool;
 /**
  * Deprecated, use `db.client.connection.pool.name` instead.
  * @stability development
+ * @deprecated renamed → db.client.connection.pool.name
  */
-#deprecated "renamed"
-const Name: string = "pool.name";
+#deprecated "renamed → db.client.connection.pool.name"
+alias Name = "pool.name";

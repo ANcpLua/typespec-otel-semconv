@@ -6,8 +6,11 @@
 /** OpenTelemetry "state" enum-typed attribute values. */
 namespace OTel.Enums.State;
 
-/** Deprecated, use `db.client.connection.state` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `db.client.connection.state` instead.
+ * @deprecated renamed → db.client.connection.state
+ */
+#deprecated "renamed → db.client.connection.state"
 enum StateState {
   Idle: "idle",
   Used: "used",

@@ -6,23 +6,32 @@
 /** OpenTelemetry "process" enum-typed attribute values. */
 namespace OTel.Enums.Process;
 
-/** "Deprecated, use `process.context_switch.type` instead." */
-#deprecated "renamed"
+/**
+ * "Deprecated, use `process.context_switch.type` instead."
+ * @deprecated renamed → process.context_switch.type
+ */
+#deprecated "renamed → process.context_switch.type"
 enum ProcessContextSwitchType {
   Voluntary: "voluntary",
   Involuntary: "involuntary",
 }
 
-/** Deprecated, use `cpu.mode` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `cpu.mode` instead.
+ * @deprecated renamed → cpu.mode
+ */
+#deprecated "renamed → cpu.mode"
 enum ProcessCpuState {
   System: "system",
   User: "user",
   Wait: "wait",
 }
 
-/** Deprecated, use `system.paging.fault.type` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `system.paging.fault.type` instead.
+ * @deprecated renamed → system.paging.fault.type
+ */
+#deprecated "renamed → system.paging.fault.type"
 enum ProcessPagingFaultType {
   Major: "major",
   Minor: "minor",

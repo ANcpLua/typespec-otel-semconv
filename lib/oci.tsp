@@ -10,4 +10,4 @@ namespace OTel.Keys.Oci;
  * The digest of the OCI image manifest. For container images specifically is the digest by which the container image is known.
  * @stability development
  */
-const ManifestDigest: string = "oci.manifest.digest";
+alias ManifestDigest = "oci.manifest.digest";

@@ -10,72 +10,74 @@ namespace OTel.Keys.Otel;
  * A name uniquely identifying the instance of the OpenTelemetry component within its containing SDK instance.
  * @stability development
  */
-const ComponentName: string = "otel.component.name";
+alias ComponentName = "otel.component.name";
 
 /**
  * A name identifying the type of the OpenTelemetry component.
  * @stability development
  */
-const ComponentType: string = "otel.component.type";
+alias ComponentType = "otel.component.type";
 
 /**
  * Identifies the class / type of event.
  * @stability stable
  */
-const EventName: string = "otel.event.name";
+alias EventName = "otel.event.name";
 
 /**
  * Deprecated. Use the `otel.scope.name` attribute
  * @stability development
+ * @deprecated renamed → otel.scope.name
  */
-#deprecated "renamed"
-const LibraryName: string = "otel.library.name";
+#deprecated "renamed → otel.scope.name"
+alias LibraryName = "otel.library.name";
 
 /**
  * Deprecated. Use the `otel.scope.version` attribute.
  * @stability development
+ * @deprecated renamed → otel.scope.version
  */
-#deprecated "renamed"
-const LibraryVersion: string = "otel.library.version";
+#deprecated "renamed → otel.scope.version"
+alias LibraryVersion = "otel.library.version";
 
 /**
  * The name of the instrumentation scope - (`InstrumentationScope.Name` in OTLP).
  * @stability stable
  */
-const ScopeName: string = "otel.scope.name";
+alias ScopeName = "otel.scope.name";
 
 /**
  * The schema URL of the instrumentation scope.
  * @stability development
  */
-const ScopeSchemaUrl: string = "otel.scope.schema_url";
+alias ScopeSchemaUrl = "otel.scope.schema_url";
 
 /**
  * The version of the instrumentation scope - (`InstrumentationScope.Version` in OTLP).
  * @stability stable
  */
-const ScopeVersion: string = "otel.scope.version";
+alias ScopeVersion = "otel.scope.version";
 
 /**
  * Determines whether the span has a parent span, and if so, [whether it is a remote parent](https://opentelemetry.io/docs/specs/otel/trace/api/#isremote)
  * @stability development
  */
-const SpanParentOrigin: string = "otel.span.parent.origin";
+alias SpanParentOrigin = "otel.span.parent.origin";
 
 /**
  * The result value of the sampler for this span
  * @stability development
  */
-const SpanSamplingResult: string = "otel.span.sampling_result";
+alias SpanSamplingResult = "otel.span.sampling_result";
 
 /**
  * Name of the code, either "OK" or "ERROR". MUST NOT be set if the status code is UNSET.
  * @stability stable
  */
-const StatusCode: string = "otel.status_code";
+alias StatusCode = "otel.status_code";
 
 /**
  * Description of the Status if it has a value, otherwise not set.
  * @stability stable
  */
-const StatusDescription: string = "otel.status_description";
+alias StatusDescription = "otel.status_description";

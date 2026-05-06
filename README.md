@@ -11,20 +11,27 @@ So that a `.tsp` author writing an HTTP API spec can write
 ```typespec
 import "@ancplua/typespec-otel-semconv";
 
-using OTel.Http;
-using OTel.Server;
+namespace MyApi;
 
-@doc("HTTP route info")
 model RouteInfo {
-  @encodedName("application/json", HttpAttributes.RequestMethod)
-  method: HttpRequestMethod;
+  @encodedName("application/json", OTel.Keys.Http.RequestMethod)
+  method: OTel.Enums.Http.HttpRequestMethod;
 
-  @encodedName("application/json", ServerAttributes.Address)
+  @encodedName("application/json", OTel.Keys.Server.Address)
   serverAddress: string;
 }
 ```
 
 instead of stringly-typed `"http.request.method"`. Names, enum values, deprecation flags, and stability levels stay in lockstep with upstream because every release is a clean regen.
+
+## What you get
+
+- **IDE autocomplete** — every attribute key resolves through the `OTel.Keys.<Domain>` namespace, every enum-typed attribute through `OTel.Enums.<Domain>`. Any TypeSpec-aware editor (VS Code with the TypeSpec extension, JetBrains via the LSP, Vim with the language server) sees the full namespace tree.
+- **Hover tooltips** — every alias and enum carries a JSDoc comment with the upstream `brief`, the formal stability level (`development`, `alpha`, `beta`, `release_candidate`, `stable`), and — for deprecated entries — an actionable `@deprecated` tag like `renamed → client.address` extracted from the upstream `deprecated.renamed_to` field. The language server renders this on hover.
+- **Compiler-level deprecation warnings on enum and enum-member references** — TypeSpec's `#deprecated` directive fires for enum-position references, so `OTel.Enums.Http.HttpRequestMethod` (the whole enum) and individual deprecated members produce a build-time warning when used.
+- **Compiler-level deprecation warnings on attribute keys** — _not yet_. The keys are emitted as `alias Name = "foo.bar"` (a string-literal alias) so they satisfy `@encodedName(format, value: valueof string)`. TypeSpec 1.12.0-dev.6 does not fire `#deprecated` for value-position references to string-literal aliases. The directive and the JSDoc `@deprecated` tag are both emitted, so:
+  - the IDE strikethrough still works today,
+  - the build-time warning will start firing automatically once TypeSpec extends value-position deprecation checking — no library change needed.
 
 ## Source-of-truth chain
 

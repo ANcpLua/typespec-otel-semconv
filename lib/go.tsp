@@ -10,22 +10,22 @@ namespace OTel.Keys.Go;
  * The detailed state of the CPU.
  * @stability development
  */
-const CpuDetailedState: string = "go.cpu.detailed_state";
+alias CpuDetailedState = "go.cpu.detailed_state";
 
 /**
  * The state of the CPU.
  * @stability development
  */
-const CpuState: string = "go.cpu.state";
+alias CpuState = "go.cpu.state";
 
 /**
  * The detailed type of memory.
  * @stability development
  */
-const MemoryDetailedType: string = "go.memory.detailed_type";
+alias MemoryDetailedType = "go.memory.detailed_type";
 
 /**
  * The type of memory.
  * @stability development
  */
-const MemoryType: string = "go.memory.type";
+alias MemoryType = "go.memory.type";

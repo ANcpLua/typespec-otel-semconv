@@ -10,10 +10,10 @@ namespace OTel.Keys.Client;
  * Client address - domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
  * @stability stable
  */
-const Address: string = "client.address";
+alias Address = "client.address";
 
 /**
  * Client port number.
  * @stability stable
  */
-const Port: string = "client.port";
+alias Port = "client.port";

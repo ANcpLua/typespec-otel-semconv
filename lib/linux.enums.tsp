@@ -6,8 +6,11 @@
 /** OpenTelemetry "linux" enum-typed attribute values. */
 namespace OTel.Enums.Linux;
 
-/** The Linux Slab memory state */
-#deprecated "renamed"
+/**
+ * The Linux Slab memory state
+ * @deprecated renamed → system.memory.linux.slab.state
+ */
+#deprecated "renamed → system.memory.linux.slab.state"
 enum LinuxMemorySlabState {
   Reclaimable: "reclaimable",
   Unreclaimable: "unreclaimable",

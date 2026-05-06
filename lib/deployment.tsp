@@ -9,30 +9,31 @@ namespace OTel.Keys.Deployment;
 /**
  * Deprecated, use `deployment.environment.name` instead.
  * @stability development
+ * @deprecated renamed → deployment.environment.name
  */
-#deprecated "renamed"
-const Environment: string = "deployment.environment";
+#deprecated "renamed → deployment.environment.name"
+alias Environment = "deployment.environment";
 
 /**
  * Name of the [deployment environment](https://wikipedia.org/wiki/Deployment_environment) (aka deployment tier).
  * @stability stable
  */
-const EnvironmentName: string = "deployment.environment.name";
+alias EnvironmentName = "deployment.environment.name";
 
 /**
  * The id of the deployment.
  * @stability development
  */
-const Id: string = "deployment.id";
+alias Id = "deployment.id";
 
 /**
  * The name of the deployment.
  * @stability development
  */
-const Name: string = "deployment.name";
+alias Name = "deployment.name";
 
 /**
  * The status of the deployment.
  * @stability development
  */
-const Status: string = "deployment.status";
+alias Status = "deployment.status";

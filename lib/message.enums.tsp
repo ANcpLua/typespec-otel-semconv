@@ -6,8 +6,11 @@
 /** OpenTelemetry "message" enum-typed attribute values. */
 namespace OTel.Enums.Message;
 
-/** Deprecated, no replacement at this time. */
-#deprecated "Deprecated, no replacement at this time."
+/**
+ * Deprecated, no replacement at this time.
+ * @deprecated obsoleted: Deprecated, no replacement at this time.
+ */
+#deprecated "obsoleted: Deprecated, no replacement at this time."
 enum MessageType {
   Sent: "SENT",
   Received: "RECEIVED",

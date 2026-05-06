@@ -10,160 +10,160 @@ namespace OTel.Keys.Hw;
  * Design capacity in Watts-hours or Ampere-hours
  * @stability development
  */
-const BatteryCapacity: string = "hw.battery.capacity";
+alias BatteryCapacity = "hw.battery.capacity";
 
 /**
  * Battery [chemistry](https://schemas.dmtf.org/wbem/cim-html/2.31.0/CIM_Battery.html), e.g. Lithium-Ion, Nickel-Cadmium, etc.
  * @stability development
  */
-const BatteryChemistry: string = "hw.battery.chemistry";
+alias BatteryChemistry = "hw.battery.chemistry";
 
 /**
  * The current state of the battery
  * @stability development
  */
-const BatteryState: string = "hw.battery.state";
+alias BatteryState = "hw.battery.state";
 
 /**
  * BIOS version of the hardware component
  * @stability development
  */
-const BiosVersion: string = "hw.bios_version";
+alias BiosVersion = "hw.bios_version";
 
 /**
  * Driver version for the hardware component
  * @stability development
  */
-const DriverVersion: string = "hw.driver_version";
+alias DriverVersion = "hw.driver_version";
 
 /**
  * Type of the enclosure (useful for modular systems)
  * @stability development
  */
-const EnclosureType: string = "hw.enclosure.type";
+alias EnclosureType = "hw.enclosure.type";
 
 /**
  * Firmware version of the hardware component
  * @stability development
  */
-const FirmwareVersion: string = "hw.firmware_version";
+alias FirmwareVersion = "hw.firmware_version";
 
 /**
  * Type of task the GPU is performing
  * @stability development
  */
-const GpuTask: string = "hw.gpu.task";
+alias GpuTask = "hw.gpu.task";
 
 /**
  * An identifier for the hardware component, unique within the monitored host
  * @stability development
  */
-const Id: string = "hw.id";
+alias Id = "hw.id";
 
 /**
  * Type of limit for hardware components
  * @stability development
  */
-const LimitType: string = "hw.limit_type";
+alias LimitType = "hw.limit_type";
 
 /**
  * RAID Level of the logical disk
  * @stability development
  */
-const LogicalDiskRaidLevel: string = "hw.logical_disk.raid_level";
+alias LogicalDiskRaidLevel = "hw.logical_disk.raid_level";
 
 /**
  * State of the logical disk space usage
  * @stability development
  */
-const LogicalDiskState: string = "hw.logical_disk.state";
+alias LogicalDiskState = "hw.logical_disk.state";
 
 /**
  * Type of the memory module
  * @stability development
  */
-const MemoryType: string = "hw.memory.type";
+alias MemoryType = "hw.memory.type";
 
 /**
  * Descriptive model name of the hardware component
  * @stability development
  */
-const Model: string = "hw.model";
+alias Model = "hw.model";
 
 /**
  * An easily-recognizable name for the hardware component
  * @stability development
  */
-const Name: string = "hw.name";
+alias Name = "hw.name";
 
 /**
  * Logical addresses of the adapter (e.g. IP address, or WWPN)
  * @stability development
  */
-const NetworkLogicalAddresses: string = "hw.network.logical_addresses";
+alias NetworkLogicalAddresses = "hw.network.logical_addresses";
 
 /**
  * Physical address of the adapter (e.g. MAC address, or WWNN)
  * @stability development
  */
-const NetworkPhysicalAddress: string = "hw.network.physical_address";
+alias NetworkPhysicalAddress = "hw.network.physical_address";
 
 /**
  * Unique identifier of the parent component (typically the `hw.id` attribute of the enclosure, or disk controller)
  * @stability development
  */
-const Parent: string = "hw.parent";
+alias Parent = "hw.parent";
 
 /**
  * [S.M.A.R.T.](https://wikipedia.org/wiki/S.M.A.R.T.) (Self-Monitoring, Analysis, and Reporting Technology) attribute of the physical disk
  * @stability development
  */
-const PhysicalDiskSmartAttribute: string = "hw.physical_disk.smart_attribute";
+alias PhysicalDiskSmartAttribute = "hw.physical_disk.smart_attribute";
 
 /**
  * State of the physical disk endurance utilization
  * @stability development
  */
-const PhysicalDiskState: string = "hw.physical_disk.state";
+alias PhysicalDiskState = "hw.physical_disk.state";
 
 /**
  * Type of the physical disk
  * @stability development
  */
-const PhysicalDiskType: string = "hw.physical_disk.type";
+alias PhysicalDiskType = "hw.physical_disk.type";
 
 /**
  * Location of the sensor
  * @stability development
  */
-const SensorLocation: string = "hw.sensor_location";
+alias SensorLocation = "hw.sensor_location";
 
 /**
  * Serial number of the hardware component
  * @stability development
  */
-const SerialNumber: string = "hw.serial_number";
+alias SerialNumber = "hw.serial_number";
 
 /**
  * The current state of the component
  * @stability development
  */
-const State: string = "hw.state";
+alias State = "hw.state";
 
 /**
  * Type of tape drive operation
  * @stability development
  */
-const TapeDriveOperationType: string = "hw.tape_drive.operation_type";
+alias TapeDriveOperationType = "hw.tape_drive.operation_type";
 
 /**
  * Type of the component
  * @stability development
  */
-const Type: string = "hw.type";
+alias Type = "hw.type";
 
 /**
  * Vendor name of the hardware component
  * @stability development
  */
-const Vendor: string = "hw.vendor";
+alias Vendor = "hw.vendor";

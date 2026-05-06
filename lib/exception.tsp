@@ -9,24 +9,25 @@ namespace OTel.Keys.Exception;
 /**
  * Indicates that the exception is escaping the scope of the span.
  * @stability stable
+ * @deprecated obsoleted: It's no longer recommended to record exceptions that are handled and do not escape the scope of a span.
  */
-#deprecated "It's no longer recommended to record exceptions that are handled and do not escape the scope of a span."
-const Escaped: string = "exception.escaped";
+#deprecated "obsoleted: It's no longer recommended to record exceptions that are handled and do not escape the scope of a span."
+alias Escaped = "exception.escaped";
 
 /**
  * The exception message.
  * @stability stable
  */
-const Message: string = "exception.message";
+alias Message = "exception.message";
 
 /**
  * A stacktrace as a string in the natural representation for the language runtime. The representation is to be determined and documented by each language SIG.
  * @stability stable
  */
-const Stacktrace: string = "exception.stacktrace";
+alias Stacktrace = "exception.stacktrace";
 
 /**
  * The type of the exception (its fully-qualified class name, if applicable). The dynamic type of the exception should be preferred over the static type in languages that support it.
  * @stability stable
  */
-const Type: string = "exception.type";
+alias Type = "exception.type";

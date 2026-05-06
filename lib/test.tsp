@@ -10,22 +10,22 @@ namespace OTel.Keys.Test;
  * The fully qualified human readable name of the [test case](https://wikipedia.org/wiki/Test_case).
  * @stability development
  */
-const CaseName: string = "test.case.name";
+alias CaseName = "test.case.name";
 
 /**
  * The status of the actual test case result from test execution.
  * @stability development
  */
-const CaseResultStatus: string = "test.case.result.status";
+alias CaseResultStatus = "test.case.result.status";
 
 /**
  * The human readable name of a [test suite](https://wikipedia.org/wiki/Test_suite).
  * @stability development
  */
-const SuiteName: string = "test.suite.name";
+alias SuiteName = "test.suite.name";
 
 /**
  * The status of the test suite run.
  * @stability development
  */
-const SuiteRunStatus: string = "test.suite.run.status";
+alias SuiteRunStatus = "test.suite.run.status";

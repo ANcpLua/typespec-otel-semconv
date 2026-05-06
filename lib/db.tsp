@@ -9,324 +9,358 @@ namespace OTel.Keys.Db;
 /**
  * Deprecated, use `cassandra.consistency.level` instead.
  * @stability development
+ * @deprecated renamed → cassandra.consistency.level
  */
-#deprecated "renamed"
-const CassandraConsistencyLevel: string = "db.cassandra.consistency_level";
+#deprecated "renamed → cassandra.consistency.level"
+alias CassandraConsistencyLevel = "db.cassandra.consistency_level";
 
 /**
  * Deprecated, use `cassandra.coordinator.dc` instead.
  * @stability development
+ * @deprecated renamed → cassandra.coordinator.dc
  */
-#deprecated "renamed"
-const CassandraCoordinatorDc: string = "db.cassandra.coordinator.dc";
+#deprecated "renamed → cassandra.coordinator.dc"
+alias CassandraCoordinatorDc = "db.cassandra.coordinator.dc";
 
 /**
  * Deprecated, use `cassandra.coordinator.id` instead.
  * @stability development
+ * @deprecated renamed → cassandra.coordinator.id
  */
-#deprecated "renamed"
-const CassandraCoordinatorId: string = "db.cassandra.coordinator.id";
+#deprecated "renamed → cassandra.coordinator.id"
+alias CassandraCoordinatorId = "db.cassandra.coordinator.id";
 
 /**
  * Deprecated, use `cassandra.query.idempotent` instead.
  * @stability development
+ * @deprecated renamed → cassandra.query.idempotent
  */
-#deprecated "renamed"
-const CassandraIdempotence: string = "db.cassandra.idempotence";
+#deprecated "renamed → cassandra.query.idempotent"
+alias CassandraIdempotence = "db.cassandra.idempotence";
 
 /**
  * Deprecated, use `cassandra.page.size` instead.
  * @stability development
+ * @deprecated renamed → cassandra.page.size
  */
-#deprecated "renamed"
-const CassandraPageSize: string = "db.cassandra.page_size";
+#deprecated "renamed → cassandra.page.size"
+alias CassandraPageSize = "db.cassandra.page_size";
 
 /**
  * Deprecated, use `cassandra.speculative_execution.count` instead.
  * @stability development
+ * @deprecated renamed → cassandra.speculative_execution.count
  */
-#deprecated "renamed"
-const CassandraSpeculativeExecutionCount: string = "db.cassandra.speculative_execution_count";
+#deprecated "renamed → cassandra.speculative_execution.count"
+alias CassandraSpeculativeExecutionCount = "db.cassandra.speculative_execution_count";
 
 /**
  * Deprecated, use `db.collection.name` instead.
  * @stability development
+ * @deprecated renamed → db.collection.name
  */
-#deprecated "renamed"
-const CassandraTable: string = "db.cassandra.table";
+#deprecated "renamed → db.collection.name"
+alias CassandraTable = "db.cassandra.table";
 
 /**
  * The name of the connection pool; unique within the instrumented application. In case the connection pool implementation doesn't provide a name, instrumentation SHOULD use a combination of parameters that would make the name unique, for example, combining attributes `server.address`, `server.port`, and `db.namespace`, formatted as `server.address:server.port/db.namespace`. Instrumentations that generate connection pool name following different patterns SHOULD document it.
  * @stability development
  */
-const ClientConnectionPoolName: string = "db.client.connection.pool.name";
+alias ClientConnectionPoolName = "db.client.connection.pool.name";
 
 /**
  * The state of a connection in the pool
  * @stability development
  */
-const ClientConnectionState: string = "db.client.connection.state";
+alias ClientConnectionState = "db.client.connection.state";
 
 /**
  * Deprecated, use `db.client.connection.pool.name` instead.
  * @stability development
+ * @deprecated renamed → db.client.connection.pool.name
  */
-#deprecated "renamed"
-const ClientConnectionsPoolName: string = "db.client.connections.pool.name";
+#deprecated "renamed → db.client.connection.pool.name"
+alias ClientConnectionsPoolName = "db.client.connections.pool.name";
 
 /**
  * Deprecated, use `db.client.connection.state` instead.
  * @stability development
+ * @deprecated renamed → db.client.connection.state
  */
-#deprecated "renamed"
-const ClientConnectionsState: string = "db.client.connections.state";
+#deprecated "renamed → db.client.connection.state"
+alias ClientConnectionsState = "db.client.connections.state";
 
 /**
  * The name of a collection (table, container) within the database.
  * @stability stable
  */
-const CollectionName: string = "db.collection.name";
+alias CollectionName = "db.collection.name";
 
 /**
  * Deprecated, use `server.address`, `server.port` attributes instead.
  * @stability development
+ * @deprecated uncategorized: Replaced by `server.address` and `server.port`.
  */
-#deprecated "Replaced by `server.address` and `server.port`."
-const ConnectionString: string = "db.connection_string";
+#deprecated "uncategorized: Replaced by `server.address` and `server.port`."
+alias ConnectionString = "db.connection_string";
 
 /**
  * Deprecated, use `azure.client.id` instead.
  * @stability development
+ * @deprecated renamed → azure.client.id
  */
-#deprecated "renamed"
-const CosmosdbClientId: string = "db.cosmosdb.client_id";
+#deprecated "renamed → azure.client.id"
+alias CosmosdbClientId = "db.cosmosdb.client_id";
 
 /**
  * Deprecated, use `azure.cosmosdb.connection.mode` instead.
  * @stability development
+ * @deprecated renamed → azure.cosmosdb.connection.mode
  */
-#deprecated "renamed"
-const CosmosdbConnectionMode: string = "db.cosmosdb.connection_mode";
+#deprecated "renamed → azure.cosmosdb.connection.mode"
+alias CosmosdbConnectionMode = "db.cosmosdb.connection_mode";
 
 /**
  * Deprecated, use `cosmosdb.consistency.level` instead.
  * @stability development
+ * @deprecated renamed → azure.cosmosdb.consistency.level
  */
-#deprecated "renamed"
-const CosmosdbConsistencyLevel: string = "db.cosmosdb.consistency_level";
+#deprecated "renamed → azure.cosmosdb.consistency.level"
+alias CosmosdbConsistencyLevel = "db.cosmosdb.consistency_level";
 
 /**
  * Deprecated, use `db.collection.name` instead.
  * @stability development
+ * @deprecated renamed → db.collection.name
  */
-#deprecated "renamed"
-const CosmosdbContainer: string = "db.cosmosdb.container";
+#deprecated "renamed → db.collection.name"
+alias CosmosdbContainer = "db.cosmosdb.container";
 
 /**
  * Deprecated, no replacement at this time.
  * @stability development
+ * @deprecated obsoleted: Removed, no replacement at this time.
  */
-#deprecated "Removed, no replacement at this time."
-const CosmosdbOperationType: string = "db.cosmosdb.operation_type";
+#deprecated "obsoleted: Removed, no replacement at this time."
+alias CosmosdbOperationType = "db.cosmosdb.operation_type";
 
 /**
  * Deprecated, use `azure.cosmosdb.operation.contacted_regions` instead.
  * @stability development
+ * @deprecated renamed → azure.cosmosdb.operation.contacted_regions
  */
-#deprecated "renamed"
-const CosmosdbRegionsContacted: string = "db.cosmosdb.regions_contacted";
+#deprecated "renamed → azure.cosmosdb.operation.contacted_regions"
+alias CosmosdbRegionsContacted = "db.cosmosdb.regions_contacted";
 
 /**
  * Deprecated, use `azure.cosmosdb.operation.request_charge` instead.
  * @stability development
+ * @deprecated renamed → azure.cosmosdb.operation.request_charge
  */
-#deprecated "renamed"
-const CosmosdbRequestCharge: string = "db.cosmosdb.request_charge";
+#deprecated "renamed → azure.cosmosdb.operation.request_charge"
+alias CosmosdbRequestCharge = "db.cosmosdb.request_charge";
 
 /**
  * Deprecated, use `azure.cosmosdb.request.body.size` instead.
  * @stability development
+ * @deprecated renamed → azure.cosmosdb.request.body.size
  */
-#deprecated "renamed"
-const CosmosdbRequestContentLength: string = "db.cosmosdb.request_content_length";
+#deprecated "renamed → azure.cosmosdb.request.body.size"
+alias CosmosdbRequestContentLength = "db.cosmosdb.request_content_length";
 
 /**
  * Deprecated, use `db.response.status_code` instead.
  * @stability development
+ * @deprecated uncategorized: Use `db.response.status_code` instead.
  */
-#deprecated "Use `db.response.status_code` instead."
-const CosmosdbStatusCode: string = "db.cosmosdb.status_code";
+#deprecated "uncategorized: Use `db.response.status_code` instead."
+alias CosmosdbStatusCode = "db.cosmosdb.status_code";
 
 /**
  * Deprecated, use `azure.cosmosdb.response.sub_status_code` instead.
  * @stability development
+ * @deprecated renamed → azure.cosmosdb.response.sub_status_code
  */
-#deprecated "renamed"
-const CosmosdbSubStatusCode: string = "db.cosmosdb.sub_status_code";
+#deprecated "renamed → azure.cosmosdb.response.sub_status_code"
+alias CosmosdbSubStatusCode = "db.cosmosdb.sub_status_code";
 
 /**
  * Deprecated, use `db.namespace` instead.
  * @stability development
+ * @deprecated renamed → db.namespace
  */
-#deprecated "renamed"
-const ElasticsearchClusterName: string = "db.elasticsearch.cluster.name";
+#deprecated "renamed → db.namespace"
+alias ElasticsearchClusterName = "db.elasticsearch.cluster.name";
 
 /**
  * Deprecated, use `elasticsearch.node.name` instead.
  * @stability development
+ * @deprecated renamed → elasticsearch.node.name
  */
-#deprecated "renamed"
-const ElasticsearchNodeName: string = "db.elasticsearch.node.name";
+#deprecated "renamed → elasticsearch.node.name"
+alias ElasticsearchNodeName = "db.elasticsearch.node.name";
 
 /**
  * Deprecated, use `db.operation.parameter` instead.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
+ * @deprecated renamed → db.operation.parameter
  */
-#deprecated "renamed"
-const ElasticsearchPathParts: string = "db.elasticsearch.path_parts";
+#deprecated "renamed → db.operation.parameter"
+alias ElasticsearchPathParts = "db.elasticsearch.path_parts";
 
 /**
  * Deprecated, no general replacement at this time. For Elasticsearch, use `db.elasticsearch.node.name` instead.
  * @stability development
+ * @deprecated obsoleted: Removed, no general replacement at this time. For Elasticsearch, use `db.elasticsearch.node.name` instead.
  */
-#deprecated "Removed, no general replacement at this time. For Elasticsearch, use `db.elasticsearch.node.name` instead."
-const InstanceId: string = "db.instance.id";
+#deprecated "obsoleted: Removed, no general replacement at this time. For Elasticsearch, use `db.elasticsearch.node.name` instead."
+alias InstanceId = "db.instance.id";
 
 /**
  * Removed, no replacement at this time.
  * @stability development
+ * @deprecated obsoleted: Removed, no replacement at this time.
  */
-#deprecated "Removed, no replacement at this time."
-const JdbcDriverClassname: string = "db.jdbc.driver_classname";
+#deprecated "obsoleted: Removed, no replacement at this time."
+alias JdbcDriverClassname = "db.jdbc.driver_classname";
 
 /**
  * Deprecated, use `db.collection.name` instead.
  * @stability development
+ * @deprecated renamed → db.collection.name
  */
-#deprecated "renamed"
-const MongodbCollection: string = "db.mongodb.collection";
+#deprecated "renamed → db.collection.name"
+alias MongodbCollection = "db.mongodb.collection";
 
 /**
  * Deprecated, SQL Server instance is now populated as a part of `db.namespace` attribute.
  * @stability development
+ * @deprecated obsoleted: Removed, no replacement at this time.
  */
-#deprecated "Removed, no replacement at this time."
-const MssqlInstanceName: string = "db.mssql.instance_name";
+#deprecated "obsoleted: Removed, no replacement at this time."
+alias MssqlInstanceName = "db.mssql.instance_name";
 
 /**
  * Deprecated, use `db.namespace` instead.
  * @stability development
+ * @deprecated renamed → db.namespace
  */
-#deprecated "renamed"
-const Name: string = "db.name";
+#deprecated "renamed → db.namespace"
+alias Name = "db.name";
 
 /**
  * The name of the database, fully qualified within the server address and port.
  * @stability stable
  */
-const Namespace: string = "db.namespace";
+alias Namespace = "db.namespace";
 
 /**
  * Deprecated, use `db.operation.name` instead.
  * @stability development
+ * @deprecated renamed → db.operation.name
  */
-#deprecated "renamed"
-const Operation: string = "db.operation";
+#deprecated "renamed → db.operation.name"
+alias Operation = "db.operation";
 
 /**
  * The number of queries included in a batch operation.
  * @stability stable
  */
-const OperationBatchSize: string = "db.operation.batch.size";
+alias OperationBatchSize = "db.operation.batch.size";
 
 /**
  * The name of the operation or command being executed.
  * @stability stable
  */
-const OperationName: string = "db.operation.name";
+alias OperationName = "db.operation.name";
 
 /**
  * A database operation parameter, with `<key>` being the parameter name, and the attribute value being a string representation of the parameter value.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
  */
-const OperationParameter: string = "db.operation.parameter";
+alias OperationParameter = "db.operation.parameter";
 
 /**
  * A database query parameter, with `<key>` being the parameter name, and the attribute value being a string representation of the parameter value.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
  */
-const QueryParameter: string = "db.query.parameter";
+alias QueryParameter = "db.query.parameter";
 
 /**
  * Low cardinality summary of a database query.
  * @stability stable
  */
-const QuerySummary: string = "db.query.summary";
+alias QuerySummary = "db.query.summary";
 
 /**
  * The database query being executed.
  * @stability stable
  */
-const QueryText: string = "db.query.text";
+alias QueryText = "db.query.text";
 
 /**
  * Deprecated, use `db.namespace` instead.
  * @stability development
+ * @deprecated uncategorized → Use `db.namespace` instead.
  */
-#deprecated "uncategorized"
-const RedisDatabaseIndex: string = "db.redis.database_index";
+#deprecated "uncategorized → Use `db.namespace` instead."
+alias RedisDatabaseIndex = "db.redis.database_index";
 
 /**
  * Number of rows returned by the operation.
  * @stability development
  */
-const ResponseReturnedRows: string = "db.response.returned_rows";
+alias ResponseReturnedRows = "db.response.returned_rows";
 
 /**
  * Database response status code.
  * @stability stable
  */
-const ResponseStatusCode: string = "db.response.status_code";
+alias ResponseStatusCode = "db.response.status_code";
 
 /**
  * Deprecated, use `db.collection.name` instead.
  * @stability development
+ * @deprecated uncategorized: Replaced by `db.collection.name`, but only if not extracting the value from `db.query.text`.
  */
-#deprecated "Replaced by `db.collection.name`, but only if not extracting the value from `db.query.text`."
-const SqlTable: string = "db.sql.table";
+#deprecated "uncategorized: Replaced by `db.collection.name`, but only if not extracting the value from `db.query.text`."
+alias SqlTable = "db.sql.table";
 
 /**
  * The database statement being executed.
  * @stability development
+ * @deprecated renamed → db.query.text
  */
-#deprecated "renamed"
-const Statement: string = "db.statement";
+#deprecated "renamed → db.query.text"
+alias Statement = "db.statement";
 
 /**
  * The name of a stored procedure within the database.
  * @stability stable
  */
-const StoredProcedureName: string = "db.stored_procedure.name";
+alias StoredProcedureName = "db.stored_procedure.name";
 
 /**
  * Deprecated, use `db.system.name` instead.
  * @stability development
+ * @deprecated renamed → db.system.name
  */
-#deprecated "renamed"
-const System: string = "db.system";
+#deprecated "renamed → db.system.name"
+alias System = "db.system";
 
 /**
  * The database management system (DBMS) product as identified by the client instrumentation.
  * @stability stable
  */
-const SystemName: string = "db.system.name";
+alias SystemName = "db.system.name";
 
 /**
  * Deprecated, no replacement at this time.
  * @stability development
+ * @deprecated obsoleted: Removed, no replacement at this time.
  */
-#deprecated "Removed, no replacement at this time."
-const User: string = "db.user";
+#deprecated "obsoleted: Removed, no replacement at this time."
+alias User = "db.user";

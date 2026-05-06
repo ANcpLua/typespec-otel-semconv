@@ -10,28 +10,28 @@ namespace OTel.Keys.Telemetry;
  * The name of the auto instrumentation agent or distribution, if used.
  * @stability stable
  */
-const DistroName: string = "telemetry.distro.name";
+alias DistroName = "telemetry.distro.name";
 
 /**
  * The version string of the auto instrumentation agent or distribution, if used.
  * @stability stable
  */
-const DistroVersion: string = "telemetry.distro.version";
+alias DistroVersion = "telemetry.distro.version";
 
 /**
  * The language of the telemetry SDK.
  * @stability stable
  */
-const SdkLanguage: string = "telemetry.sdk.language";
+alias SdkLanguage = "telemetry.sdk.language";
 
 /**
  * The name of the telemetry SDK as defined above.
  * @stability stable
  */
-const SdkName: string = "telemetry.sdk.name";
+alias SdkName = "telemetry.sdk.name";
 
 /**
  * The version string of the telemetry SDK.
  * @stability stable
  */
-const SdkVersion: string = "telemetry.sdk.version";
+alias SdkVersion = "telemetry.sdk.version";

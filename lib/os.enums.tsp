@@ -28,8 +28,11 @@ enum OsType {
   Aix: "aix",
   /** SunOS, Oracle Solaris */
   Solaris: "solaris",
-  /** Deprecated. Use `zos` instead. */
-  #deprecated "renamed"
+  /**
+   * Deprecated. Use `zos` instead.
+   * @deprecated renamed → zos
+   */
+  #deprecated "renamed → zos"
   ZOs: "z_os",
   /** IBM z/OS */
   Zos: "zos",

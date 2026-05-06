@@ -10,46 +10,46 @@ namespace OTel.Keys.SecurityRule;
  * A categorization value keyword used by the entity using the rule for detection of this event
  * @stability development
  */
-const Category: string = "security_rule.category";
+alias Category = "security_rule.category";
 
 /**
  * The description of the rule generating the event.
  * @stability development
  */
-const Description: string = "security_rule.description";
+alias Description = "security_rule.description";
 
 /**
  * Name of the license under which the rule used to generate this event is made available.
  * @stability development
  */
-const License: string = "security_rule.license";
+alias License = "security_rule.license";
 
 /**
  * The name of the rule or signature generating the event.
  * @stability development
  */
-const Name: string = "security_rule.name";
+alias Name = "security_rule.name";
 
 /**
  * Reference URL to additional information about the rule used to generate this event.
  * @stability development
  */
-const Reference: string = "security_rule.reference";
+alias Reference = "security_rule.reference";
 
 /**
  * Name of the ruleset, policy, group, or parent category in which the rule used to generate this event is a member.
  * @stability development
  */
-const RulesetName: string = "security_rule.ruleset.name";
+alias RulesetName = "security_rule.ruleset.name";
 
 /**
  * A rule ID that is unique within the scope of a set or group of agents, observers, or other entities using the rule for detection of this event.
  * @stability development
  */
-const Uuid: string = "security_rule.uuid";
+alias Uuid = "security_rule.uuid";
 
 /**
  * The version / revision of the rule being used for analysis.
  * @stability development
  */
-const Version: string = "security_rule.version";
+alias Version = "security_rule.version";

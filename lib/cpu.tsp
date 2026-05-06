@@ -10,10 +10,10 @@ namespace OTel.Keys.Cpu;
  * The logical CPU number [0..n-1]
  * @stability development
  */
-const LogicalNumber: string = "cpu.logical_number";
+alias LogicalNumber = "cpu.logical_number";
 
 /**
  * The mode of the CPU
  * @stability development
  */
-const Mode: string = "cpu.mode";
+alias Mode = "cpu.mode";

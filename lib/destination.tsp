@@ -10,10 +10,10 @@ namespace OTel.Keys.Destination;
  * Destination address - domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
  * @stability development
  */
-const Address: string = "destination.address";
+alias Address = "destination.address";
 
 /**
  * Destination port number
  * @stability development
  */
-const Port: string = "destination.port";
+alias Port = "destination.port";

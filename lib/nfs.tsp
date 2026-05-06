@@ -10,10 +10,10 @@ namespace OTel.Keys.Nfs;
  * NFSv4+ operation name.
  * @stability development
  */
-const OperationName: string = "nfs.operation.name";
+alias OperationName = "nfs.operation.name";
 
 /**
  * Linux: one of "hit" (NFSD_STATS_RC_HITS), "miss" (NFSD_STATS_RC_MISSES), or "nocache" (NFSD_STATS_RC_NOCACHE -- uncacheable)
  * @stability development
  */
-const ServerRepcacheStatus: string = "nfs.server.repcache.status";
+alias ServerRepcacheStatus = "nfs.server.repcache.status";

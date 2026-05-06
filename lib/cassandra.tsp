@@ -10,34 +10,34 @@ namespace OTel.Keys.Cassandra;
  * The consistency level of the query. Based on consistency values from [CQL](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html).
  * @stability development
  */
-const ConsistencyLevel: string = "cassandra.consistency.level";
+alias ConsistencyLevel = "cassandra.consistency.level";
 
 /**
  * The data center of the coordinating node for a query.
  * @stability development
  */
-const CoordinatorDc: string = "cassandra.coordinator.dc";
+alias CoordinatorDc = "cassandra.coordinator.dc";
 
 /**
  * The ID of the coordinating node for a query.
  * @stability development
  */
-const CoordinatorId: string = "cassandra.coordinator.id";
+alias CoordinatorId = "cassandra.coordinator.id";
 
 /**
  * The fetch size used for paging, i.e. how many rows will be returned at once.
  * @stability development
  */
-const PageSize: string = "cassandra.page.size";
+alias PageSize = "cassandra.page.size";
 
 /**
  * Whether or not the query is idempotent.
  * @stability development
  */
-const QueryIdempotent: string = "cassandra.query.idempotent";
+alias QueryIdempotent = "cassandra.query.idempotent";
 
 /**
  * The number of times a query was speculatively executed. Not set or `0` if the query was not executed speculatively.
  * @stability development
  */
-const SpeculativeExecutionCount: string = "cassandra.speculative_execution.count";
+alias SpeculativeExecutionCount = "cassandra.speculative_execution.count";

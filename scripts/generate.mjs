@@ -174,13 +174,13 @@ function emitDomainKeys(domain, attrs) {
   // Dedupe: a few attributes have id collisions after PascalCase tail extraction
   // (e.g. `feature_flag.provider.name` and `feature_flag.provider_name` both yield
   // `ProviderName`). First-wins keeps regen deterministic; the original id is in the
-  // string value, so consumers can always reach the deduped variant via that.
-  const seenConsts = new Set();
+  // alias value, so consumers can always reach the deduped variant via that.
+  const seenAliases = new Set();
   for (const attr of attrs) {
-    const constName = constNameOf(attr.id, domain);
-    if (seenConsts.has(constName)) continue;
-    seenConsts.add(constName);
-    out.push(emitKeyConst(attr, domain, constName));
+    const aliasName = constNameOf(attr.id, domain);
+    if (seenAliases.has(aliasName)) continue;
+    seenAliases.add(aliasName);
+    out.push(emitKeyAlias(attr, domain, aliasName));
     out.push(``);
   }
   return out.join("\n");
@@ -212,25 +212,47 @@ function emitDomainEnums(domain, attrs) {
   return out.join("\n");
 }
 
-function emitKeyConst(attr, domain, constName) {
+function deprecationMessage(deprecated) {
+  if (!deprecated) return null;
+  if (typeof deprecated === "string") return deprecated;
+  // Upstream shape: { reason: renamed|obsoleted|uncategorized, renamed_to?: id, note?: text }.
+  // Make the message actionable so the IDE hover tooltip / compiler warning tells the
+  // consumer where to migrate to.
+  const reason = deprecated.reason ?? "deprecated";
+  if (deprecated.renamed_to) return `${reason} → ${deprecated.renamed_to}`;
+  if (deprecated.note) return `${reason}: ${deprecated.note.replace(/\s+/g, " ").trim()}`;
+  return reason;
+}
+
+function emitKeyAlias(attr, domain, aliasName) {
+  // Alias to a string literal — works as `valueof string` in @encodedName(...) calls.
+  // Property-position deprecation (TypeSpec compiler #deprecated directive) doesn't fire
+  // on string-literal aliases used as decorator values in TypeSpec 1.12.0-dev.6, but the
+  // JSDoc `@deprecated` tag is rendered as a tooltip / strikethrough by the language
+  // server, and the directive is preserved for future TypeSpec releases that may extend
+  // value-position deprecation checking.
   const stability = VALID_STABILITY.has(attr.stability) ? attr.stability : null;
-  const trailers = [];
-  if (stability) trailers.push(`stability ${stability}`);
+  const docLines = [];
+  if (attr.brief) docLines.push(escapeDoc(attr.brief));
+  if (stability) docLines.push(`@stability ${stability}`);
   if (attributeIsTemplate(attr)) {
     // Template attributes are not full keys — the value is a prefix that the
     // instrumentation completes with a runtime suffix (e.g. an HTTP header name).
-    // Mark explicitly so the consumer doesn't accidentally use the prefix as a key.
-    trailers.push("template attribute (prefix; append <key> at runtime)");
+    docLines.push("@remarks template attribute (prefix; append <key> at runtime)");
   }
+  const depMsg = deprecationMessage(attr.deprecated);
+  if (depMsg) docLines.push(`@deprecated ${escapeDoc(depMsg)}`);
+
   const lines = [];
-  if (attr.brief) lines.push(jsdocTopLevel(attr.brief, ...trailers));
-  if (attr.deprecated) {
-    const reason = typeof attr.deprecated === "string"
-      ? attr.deprecated
-      : (attr.deprecated.note ?? attr.deprecated.reason ?? "deprecated");
-    lines.push(`#deprecated "${escapeDoc(reason)}"`);
+  if (docLines.length === 1) {
+    lines.push(`/** ${docLines[0]} */`);
+  } else if (docLines.length > 1) {
+    lines.push(`/**`);
+    for (const l of docLines) lines.push(` * ${l}`);
+    lines.push(` */`);
   }
-  lines.push(`const ${constName}: string = "${attr.id}";`);
+  if (depMsg) lines.push(`#deprecated "${escapeDoc(depMsg)}"`);
+  lines.push(`alias ${aliasName} = "${attr.id}";`);
   return lines.join("\n");
 }
 
@@ -245,13 +267,17 @@ function enumNameOf(attr, domain) {
 function emitEnum(attr, domain) {
   const enumName = enumNameOf(attr, domain);
   const lines = [];
-  if (attr.brief) lines.push(`/** ${escapeDoc(attr.brief)} */`);
-  if (attr.deprecated) {
-    const reason = typeof attr.deprecated === "string"
-      ? attr.deprecated
-      : (attr.deprecated.note ?? attr.deprecated.reason ?? "deprecated");
-    lines.push(`#deprecated "${escapeDoc(reason)}"`);
+  const docLines = [];
+  if (attr.brief) docLines.push(escapeDoc(attr.brief));
+  const depMsg = deprecationMessage(attr.deprecated);
+  if (depMsg) docLines.push(`@deprecated ${escapeDoc(depMsg)}`);
+  if (docLines.length === 1) lines.push(`/** ${docLines[0]} */`);
+  else if (docLines.length > 1) {
+    lines.push(`/**`);
+    for (const l of docLines) lines.push(` * ${l}`);
+    lines.push(` */`);
   }
+  if (depMsg) lines.push(`#deprecated "${escapeDoc(depMsg)}"`);
   lines.push(`enum ${enumName} {`);
   const members = attributeMembers(attr) ?? [];
   // Dedupe member names: when the same enum carries both a `foo.bar` (current)
@@ -262,13 +288,17 @@ function emitEnum(attr, domain) {
     const memberName = pascalCase(String(m.id));
     if (seenMembers.has(memberName)) continue;
     seenMembers.add(memberName);
-    if (m.brief) lines.push(`  /** ${escapeDoc(m.brief)} */`);
-    if (m.deprecated) {
-      const reason = typeof m.deprecated === "string"
-        ? m.deprecated
-        : (m.deprecated.note ?? m.deprecated.reason ?? "deprecated");
-      lines.push(`  #deprecated "${escapeDoc(reason)}"`);
+    const memberDoc = [];
+    if (m.brief) memberDoc.push(escapeDoc(m.brief));
+    const memberDep = deprecationMessage(m.deprecated);
+    if (memberDep) memberDoc.push(`@deprecated ${escapeDoc(memberDep)}`);
+    if (memberDoc.length === 1) lines.push(`  /** ${memberDoc[0]} */`);
+    else if (memberDoc.length > 1) {
+      lines.push(`  /**`);
+      for (const l of memberDoc) lines.push(`   * ${l}`);
+      lines.push(`   */`);
     }
+    if (memberDep) lines.push(`  #deprecated "${escapeDoc(memberDep)}"`);
     const value = String(m.value ?? m.id);
     lines.push(`  ${memberName}: "${value.replace(/"/g, '\\"')}",`);
   }
@@ -298,14 +328,14 @@ function emitSchema() {
     `// <auto-generated/>`,
     `// Source: open-telemetry/semantic-conventions @ ${PINNED_VERSION}`,
     ``,
-    `/** OpenTelemetry schema URL constants for the pinned upstream release. */`,
+    `/** OpenTelemetry schema URL aliases for the pinned upstream release. */`,
     `namespace OTel.Schemas;`,
     ``,
     `/** Schema URL for the upstream release this library was generated against. */`,
-    `const Current: string = "${SCHEMA_URL}";`,
+    `alias Current = "${SCHEMA_URL}";`,
     ``,
     `/** Schema URL for ${PINNED_VERSION}. */`,
-    `const ${pascalCase("v" + PINNED_VERSION.replace(/^v/, ""))}: string = "${SCHEMA_URL}";`,
+    `alias ${pascalCase("v" + PINNED_VERSION.replace(/^v/, ""))} = "${SCHEMA_URL}";`,
     ``,
   ].join("\n");
 }

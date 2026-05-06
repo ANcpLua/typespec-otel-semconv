@@ -10,10 +10,10 @@ namespace OTel.Keys.Zos;
  * The System Management Facility (SMF) Identifier uniquely identified a z/OS system within a SYSPLEX or mainframe environment and is used for system and performance analysis.
  * @stability development
  */
-const SmfId: string = "zos.smf.id";
+alias SmfId = "zos.smf.id";
 
 /**
  * The name of the SYSPLEX to which the z/OS system belongs too.
  * @stability development
  */
-const SysplexName: string = "zos.sysplex.name";
+alias SysplexName = "zos.sysplex.name";

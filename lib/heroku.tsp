@@ -10,16 +10,16 @@ namespace OTel.Keys.Heroku;
  * Unique identifier for the application
  * @stability development
  */
-const AppId: string = "heroku.app.id";
+alias AppId = "heroku.app.id";
 
 /**
  * Commit hash for the current release
  * @stability development
  */
-const ReleaseCommit: string = "heroku.release.commit";
+alias ReleaseCommit = "heroku.release.commit";
 
 /**
  * Time and date the release was created
  * @stability development
  */
-const ReleaseCreationTimestamp: string = "heroku.release.creation_timestamp";
+alias ReleaseCreationTimestamp = "heroku.release.creation_timestamp";

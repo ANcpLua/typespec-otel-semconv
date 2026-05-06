@@ -6,8 +6,11 @@
 /** OpenTelemetry "net" enum-typed attribute values. */
 namespace OTel.Enums.Net;
 
-/** Deprecated, use `network.transport` and `network.type`. */
-#deprecated "Split to `network.transport` and `network.type`."
+/**
+ * Deprecated, use `network.transport` and `network.type`.
+ * @deprecated uncategorized: Split to `network.transport` and `network.type`.
+ */
+#deprecated "uncategorized: Split to `network.transport` and `network.type`."
 enum NetSockFamily {
   /** IPv4 address */
   Inet: "inet",
@@ -17,8 +20,11 @@ enum NetSockFamily {
   Unix: "unix",
 }
 
-/** Deprecated, use `network.transport`. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `network.transport`.
+ * @deprecated renamed → network.transport
+ */
+#deprecated "renamed → network.transport"
 enum NetTransport {
   IpTcp: "ip_tcp",
   IpUdp: "ip_udp",

@@ -10,4 +10,4 @@ namespace OTel.Keys.Nodejs;
  * The state of event loop time.
  * @stability development
  */
-const EventloopState: string = "nodejs.eventloop.state";
+alias EventloopState = "nodejs.eventloop.state";

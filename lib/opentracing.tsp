@@ -10,4 +10,4 @@ namespace OTel.Keys.Opentracing;
  * Parent-child Reference type
  * @stability development
  */
-const RefType: string = "opentracing.ref_type";
+alias RefType = "opentracing.ref_type";

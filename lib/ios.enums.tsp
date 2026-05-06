@@ -20,8 +20,11 @@ enum IosAppState {
   Terminate: "terminate",
 }
 
-/** Deprecated. Use the `ios.app.state` attribute. */
-#deprecated "renamed"
+/**
+ * Deprecated. Use the `ios.app.state` attribute.
+ * @deprecated renamed → ios.app.state
+ */
+#deprecated "renamed → ios.app.state"
 enum IosState {
   /** The app has become `active`. Associated with UIKit notification `applicationDidBecomeActive`. */
   Active: "active",

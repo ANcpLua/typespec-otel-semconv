@@ -10,136 +10,136 @@ namespace OTel.Keys.Aspnetcore;
  * The result of the authentication operation.
  * @stability development
  */
-const AuthenticationResult: string = "aspnetcore.authentication.result";
+alias AuthenticationResult = "aspnetcore.authentication.result";
 
 /**
  * The identifier that names a particular authentication handler.
  * @stability development
  */
-const AuthenticationScheme: string = "aspnetcore.authentication.scheme";
+alias AuthenticationScheme = "aspnetcore.authentication.scheme";
 
 /**
  * The name of the authorization policy.
  * @stability development
  */
-const AuthorizationPolicy: string = "aspnetcore.authorization.policy";
+alias AuthorizationPolicy = "aspnetcore.authorization.policy";
 
 /**
  * The result of calling the authorization service.
  * @stability development
  */
-const AuthorizationResult: string = "aspnetcore.authorization.result";
+alias AuthorizationResult = "aspnetcore.authorization.result";
 
 /**
  * ASP.NET Core exception middleware handling result.
  * @stability stable
  */
-const DiagnosticsExceptionResult: string = "aspnetcore.diagnostics.exception.result";
+alias DiagnosticsExceptionResult = "aspnetcore.diagnostics.exception.result";
 
 /**
  * Full type name of the [`IExceptionHandler`](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.diagnostics.iexceptionhandler) implementation that handled the exception.
  * @stability stable
  */
-const DiagnosticsHandlerType: string = "aspnetcore.diagnostics.handler.type";
+alias DiagnosticsHandlerType = "aspnetcore.diagnostics.handler.type";
 
 /**
  * The error code for a failed identity operation.
  * @stability development
  */
-const IdentityErrorCode: string = "aspnetcore.identity.error_code";
+alias IdentityErrorCode = "aspnetcore.identity.error_code";
 
 /**
  * The result from checking the password.
  * @stability development
  */
-const IdentityPasswordCheckResult: string = "aspnetcore.identity.password_check_result";
+alias IdentityPasswordCheckResult = "aspnetcore.identity.password_check_result";
 
 /**
  * The result of the identity operation.
  * @stability development
  */
-const IdentityResult: string = "aspnetcore.identity.result";
+alias IdentityResult = "aspnetcore.identity.result";
 
 /**
  * Whether the sign in result was success or failure.
  * @stability development
  */
-const IdentitySignInResult: string = "aspnetcore.identity.sign_in.result";
+alias IdentitySignInResult = "aspnetcore.identity.sign_in.result";
 
 /**
  * The authentication type.
  * @stability development
  */
-const IdentitySignInType: string = "aspnetcore.identity.sign_in.type";
+alias IdentitySignInType = "aspnetcore.identity.sign_in.type";
 
 /**
  * What the token will be used for.
  * @stability development
  */
-const IdentityTokenPurpose: string = "aspnetcore.identity.token_purpose";
+alias IdentityTokenPurpose = "aspnetcore.identity.token_purpose";
 
 /**
  * The result of token verification.
  * @stability development
  */
-const IdentityTokenVerified: string = "aspnetcore.identity.token_verified";
+alias IdentityTokenVerified = "aspnetcore.identity.token_verified";
 
 /**
  * The full name of the identity user type.
  * @stability development
  */
-const IdentityUserType: string = "aspnetcore.identity.user_type";
+alias IdentityUserType = "aspnetcore.identity.user_type";
 
 /**
  * The user update type.
  * @stability development
  */
-const IdentityUserUpdateType: string = "aspnetcore.identity.user.update_type";
+alias IdentityUserUpdateType = "aspnetcore.identity.user.update_type";
 
 /**
  * The name of the library or subsystem using the memory pool instance.
  * @stability development
  */
-const MemoryPoolOwner: string = "aspnetcore.memory_pool.owner";
+alias MemoryPoolOwner = "aspnetcore.memory_pool.owner";
 
 /**
  * Rate limiting policy name.
  * @stability stable
  */
-const RateLimitingPolicy: string = "aspnetcore.rate_limiting.policy";
+alias RateLimitingPolicy = "aspnetcore.rate_limiting.policy";
 
 /**
  * Rate-limiting result, shows whether the lease was acquired or contains a rejection reason
  * @stability stable
  */
-const RateLimitingResult: string = "aspnetcore.rate_limiting.result";
+alias RateLimitingResult = "aspnetcore.rate_limiting.result";
 
 /**
  * Flag indicating if request was handled by the application pipeline.
  * @stability stable
  */
-const RequestIsUnhandled: string = "aspnetcore.request.is_unhandled";
+alias RequestIsUnhandled = "aspnetcore.request.is_unhandled";
 
 /**
  * A value that indicates whether the matched route is a fallback route.
  * @stability stable
  */
-const RoutingIsFallback: string = "aspnetcore.routing.is_fallback";
+alias RoutingIsFallback = "aspnetcore.routing.is_fallback";
 
 /**
  * Match result - success or failure
  * @stability stable
  */
-const RoutingMatchStatus: string = "aspnetcore.routing.match_status";
+alias RoutingMatchStatus = "aspnetcore.routing.match_status";
 
 /**
  * A flag indicating whether the sign in is persistent.
  * @stability development
  */
-const SignInIsPersistent: string = "aspnetcore.sign_in.is_persistent";
+alias SignInIsPersistent = "aspnetcore.sign_in.is_persistent";
 
 /**
  * A value that indicates whether the user is authenticated.
  * @stability stable
  */
-const UserIsAuthenticated: string = "aspnetcore.user.is_authenticated";
+alias UserIsAuthenticated = "aspnetcore.user.is_authenticated";

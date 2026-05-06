@@ -10,225 +10,229 @@ namespace OTel.Keys.Process;
  * Length of the process.command_args array
  * @stability development
  */
-const ArgsCount: string = "process.args_count";
+alias ArgsCount = "process.args_count";
 
 /**
  * The command used to launch the process (i.e. the command name). On Linux based systems, can be set to the zeroth string in `proc/[pid]/cmdline`. On Windows, can be set to the first parameter extracted from `GetCommandLineW`.
  * @stability development
  */
-const Command: string = "process.command";
+alias Command = "process.command";
 
 /**
  * All the command arguments (including the command/executable itself) as received by the process. On Linux-based systems (and some other Unixoid systems supporting procfs), can be set according to the list of null-delimited strings extracted from `proc/[pid]/cmdline`. For libc-based executables, this would be the full argv vector passed to `main`. SHOULD NOT be collected by default unless there is sanitization that excludes sensitive data.
  * @stability development
  */
-const CommandArgs: string = "process.command_args";
+alias CommandArgs = "process.command_args";
 
 /**
  * The full command used to launch the process as a single string representing the full command. On Windows, can be set to the result of `GetCommandLineW`. Do not set this if you have to assemble it just for monitoring; use `process.command_args` instead. SHOULD NOT be collected by default unless there is sanitization that excludes sensitive data.
  * @stability development
  */
-const CommandLine: string = "process.command_line";
+alias CommandLine = "process.command_line";
 
 /**
  * "Deprecated, use `process.context_switch.type` instead."
  * @stability development
+ * @deprecated renamed → process.context_switch.type
  */
-#deprecated "renamed"
-const ContextSwitchType: string = "process.context_switch_type";
+#deprecated "renamed → process.context_switch.type"
+alias ContextSwitchType = "process.context_switch_type";
 
 /**
  * Deprecated, use `cpu.mode` instead.
  * @stability development
+ * @deprecated renamed → cpu.mode
  */
-#deprecated "renamed"
-const CpuState: string = "process.cpu.state";
+#deprecated "renamed → cpu.mode"
+alias CpuState = "process.cpu.state";
 
 /**
  * The date and time the process was created, in ISO 8601 format.
  * @stability development
  */
-const CreationTime: string = "process.creation.time";
+alias CreationTime = "process.creation.time";
 
 /**
  * Process environment variables, `<key>` being the environment variable name, the value being the environment variable value.
  * @stability development
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
  */
-const EnvironmentVariable: string = "process.environment_variable";
+alias EnvironmentVariable = "process.environment_variable";
 
 /**
  * The GNU build ID as found in the `.note.gnu.build-id` ELF section (hex string).
  * @stability development
  */
-const ExecutableBuildIdGnu: string = "process.executable.build_id.gnu";
+alias ExecutableBuildIdGnu = "process.executable.build_id.gnu";
 
 /**
  * The Go build ID as retrieved by `go tool buildid <go executable>`.
  * @stability development
  */
-const ExecutableBuildIdGo: string = "process.executable.build_id.go";
+alias ExecutableBuildIdGo = "process.executable.build_id.go";
 
 /**
  * Deterministic build ID for executables.
  * @stability development
  */
-const ExecutableBuildIdHtlhash: string = "process.executable.build_id.htlhash";
+alias ExecutableBuildIdHtlhash = "process.executable.build_id.htlhash";
 
 /**
  * "Deprecated, use `process.executable.build_id.htlhash` instead."
  * @stability development
+ * @deprecated renamed → process.executable.build_id.htlhash
  */
-#deprecated "renamed"
-const ExecutableBuildIdProfiling: string = "process.executable.build_id.profiling";
+#deprecated "renamed → process.executable.build_id.htlhash"
+alias ExecutableBuildIdProfiling = "process.executable.build_id.profiling";
 
 /**
  * The name of the process executable. On Linux based systems, this SHOULD be set to the base name of the target of `/proc/[pid]/exe`. On Windows, this SHOULD be set to the base name of `GetProcessImageFileNameW`.
  * @stability development
  */
-const ExecutableName: string = "process.executable.name";
+alias ExecutableName = "process.executable.name";
 
 /**
  * The full path to the process executable. On Linux based systems, can be set to the target of `proc/[pid]/exe`. On Windows, can be set to the result of `GetProcessImageFileNameW`.
  * @stability development
  */
-const ExecutablePath: string = "process.executable.path";
+alias ExecutablePath = "process.executable.path";
 
 /**
  * The exit code of the process.
  * @stability development
  */
-const ExitCode: string = "process.exit.code";
+alias ExitCode = "process.exit.code";
 
 /**
  * The date and time the process exited, in ISO 8601 format.
  * @stability development
  */
-const ExitTime: string = "process.exit.time";
+alias ExitTime = "process.exit.time";
 
 /**
  * The PID of the process's group leader. This is also the process group ID (PGID) of the process.
  * @stability development
  */
-const GroupLeaderPid: string = "process.group_leader.pid";
+alias GroupLeaderPid = "process.group_leader.pid";
 
 /**
  * Whether the process is connected to an interactive shell.
  * @stability development
  */
-const Interactive: string = "process.interactive";
+alias Interactive = "process.interactive";
 
 /**
  * The control group associated with the process.
  * @stability development
  */
-const LinuxCgroup: string = "process.linux.cgroup";
+alias LinuxCgroup = "process.linux.cgroup";
 
 /**
  * The username of the user that owns the process.
  * @stability development
  */
-const Owner: string = "process.owner";
+alias Owner = "process.owner";
 
 /**
  * Deprecated, use `system.paging.fault.type` instead.
  * @stability development
+ * @deprecated renamed → system.paging.fault.type
  */
-#deprecated "renamed"
-const PagingFaultType: string = "process.paging.fault_type";
+#deprecated "renamed → system.paging.fault.type"
+alias PagingFaultType = "process.paging.fault_type";
 
 /**
  * Parent Process identifier (PPID).
  * @stability development
  */
-const ParentPid: string = "process.parent_pid";
+alias ParentPid = "process.parent_pid";
 
 /**
  * Process identifier (PID).
  * @stability development
  */
-const Pid: string = "process.pid";
+alias Pid = "process.pid";
 
 /**
  * The real user ID (RUID) of the process.
  * @stability development
  */
-const RealUserId: string = "process.real_user.id";
+alias RealUserId = "process.real_user.id";
 
 /**
  * The username of the real user of the process.
  * @stability development
  */
-const RealUserName: string = "process.real_user.name";
+alias RealUserName = "process.real_user.name";
 
 /**
  * An additional description about the runtime of the process, for example a specific vendor customization of the runtime environment.
  * @stability development
  */
-const RuntimeDescription: string = "process.runtime.description";
+alias RuntimeDescription = "process.runtime.description";
 
 /**
  * The name of the runtime of this process.
  * @stability development
  */
-const RuntimeName: string = "process.runtime.name";
+alias RuntimeName = "process.runtime.name";
 
 /**
  * The version of the runtime of this process, as returned by the runtime without modification.
  * @stability development
  */
-const RuntimeVersion: string = "process.runtime.version";
+alias RuntimeVersion = "process.runtime.version";
 
 /**
  * The saved user ID (SUID) of the process.
  * @stability development
  */
-const SavedUserId: string = "process.saved_user.id";
+alias SavedUserId = "process.saved_user.id";
 
 /**
  * The username of the saved user.
  * @stability development
  */
-const SavedUserName: string = "process.saved_user.name";
+alias SavedUserName = "process.saved_user.name";
 
 /**
  * The PID of the process's session leader. This is also the session ID (SID) of the process.
  * @stability development
  */
-const SessionLeaderPid: string = "process.session_leader.pid";
+alias SessionLeaderPid = "process.session_leader.pid";
 
 /**
  * The process state, e.g., [Linux Process State Codes](https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_STATE_CODES)
  * @stability development
  */
-const State: string = "process.state";
+alias State = "process.state";
 
 /**
  * Process title (proctitle)
  * @stability development
  */
-const Title: string = "process.title";
+alias Title = "process.title";
 
 /**
  * The effective user ID (EUID) of the process.
  * @stability development
  */
-const UserId: string = "process.user.id";
+alias UserId = "process.user.id";
 
 /**
  * The username of the effective user of the process.
  * @stability development
  */
-const UserName: string = "process.user.name";
+alias UserName = "process.user.name";
 
 /**
  * Virtual process identifier.
  * @stability development
  */
-const Vpid: string = "process.vpid";
+alias Vpid = "process.vpid";
 
 /**
  * The working directory of the process.
  * @stability development
  */
-const WorkingDirectory: string = "process.working_directory";
+alias WorkingDirectory = "process.working_directory";

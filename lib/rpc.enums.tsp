@@ -6,8 +6,11 @@
 /** OpenTelemetry "rpc" enum-typed attribute values. */
 namespace OTel.Enums.Rpc;
 
-/** Deprecated, use `rpc.response.status_code` attribute instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `rpc.response.status_code` attribute instead.
+ * @deprecated renamed → rpc.response.status_code
+ */
+#deprecated "renamed → rpc.response.status_code"
 enum RpcConnectRpcErrorCode {
   Cancelled: "cancelled",
   Unknown: "unknown",
@@ -27,8 +30,11 @@ enum RpcConnectRpcErrorCode {
   Unauthenticated: "unauthenticated",
 }
 
-/** Deprecated, use string representation on the `rpc.response.status_code` attribute instead. */
-#deprecated "Use string representation of the gRPC status code on the `rpc.response.status_code` attribute."
+/**
+ * Deprecated, use string representation on the `rpc.response.status_code` attribute instead.
+ * @deprecated uncategorized: Use string representation of the gRPC status code on the `rpc.response.status_code` attribute.
+ */
+#deprecated "uncategorized: Use string representation of the gRPC status code on the `rpc.response.status_code` attribute."
 enum RpcGrpcStatusCode {
   /** OK */
   Ok: "0",
@@ -66,15 +72,21 @@ enum RpcGrpcStatusCode {
   Unauthenticated: "16",
 }
 
-/** Whether this is a received or sent message. */
-#deprecated "Deprecated, no replacement at this time."
+/**
+ * Whether this is a received or sent message.
+ * @deprecated obsoleted: Deprecated, no replacement at this time.
+ */
+#deprecated "obsoleted: Deprecated, no replacement at this time."
 enum RpcMessageType {
   Sent: "SENT",
   Received: "RECEIVED",
 }
 
-/** Deprecated, use `rpc.system.name` attribute instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `rpc.system.name` attribute instead.
+ * @deprecated renamed → rpc.system.name
+ */
+#deprecated "renamed → rpc.system.name"
 enum RpcSystem {
   /** gRPC */
   Grpc: "grpc",

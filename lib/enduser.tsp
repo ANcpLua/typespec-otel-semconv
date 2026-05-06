@@ -10,24 +10,26 @@ namespace OTel.Keys.Enduser;
  * Unique identifier of an end user in the system. It maybe a username, email address, or other identifier.
  * @stability development
  */
-const Id: string = "enduser.id";
+alias Id = "enduser.id";
 
 /**
  * Pseudonymous identifier of an end user. This identifier should be a random value that is not directly linked or associated with the end user's actual identity.
  * @stability development
  */
-const PseudoId: string = "enduser.pseudo.id";
+alias PseudoId = "enduser.pseudo.id";
 
 /**
  * Deprecated, use `user.roles` instead.
  * @stability development
+ * @deprecated uncategorized: Use `user.roles` instead.
  */
-#deprecated "Use `user.roles` instead."
-const Role: string = "enduser.role";
+#deprecated "uncategorized: Use `user.roles` instead."
+alias Role = "enduser.role";
 
 /**
  * Deprecated, no replacement at this time.
  * @stability development
+ * @deprecated obsoleted: Removed, no replacement at this time.
  */
-#deprecated "Removed, no replacement at this time."
-const Scope: string = "enduser.scope";
+#deprecated "obsoleted: Removed, no replacement at this time."
+alias Scope = "enduser.scope";

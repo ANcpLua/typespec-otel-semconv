@@ -10,4 +10,4 @@ namespace OTel.Keys.Mainframe;
  * Name of the logical partition that hosts a systems with a mainframe operating system.
  * @stability development
  */
-const LparName: string = "mainframe.lpar.name";
+alias LparName = "mainframe.lpar.name";

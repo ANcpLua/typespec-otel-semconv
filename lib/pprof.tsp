@@ -10,64 +10,64 @@ namespace OTel.Keys.Pprof;
  * Provides an indication that multiple symbols map to this location's address, for example due to identical code folding by the linker. In that case the line information represents one of the multiple symbols. This field must be recomputed when the symbolization state of the profile changes.
  * @stability development
  */
-const LocationIsFolded: string = "pprof.location.is_folded";
+alias LocationIsFolded = "pprof.location.is_folded";
 
 /**
  * Indicates that there are filenames related to this mapping.
  * @stability development
  */
-const MappingHasFilenames: string = "pprof.mapping.has_filenames";
+alias MappingHasFilenames = "pprof.mapping.has_filenames";
 
 /**
  * Indicates that there are functions related to this mapping.
  * @stability development
  */
-const MappingHasFunctions: string = "pprof.mapping.has_functions";
+alias MappingHasFunctions = "pprof.mapping.has_functions";
 
 /**
  * Indicates that there are inline frames related to this mapping.
  * @stability development
  */
-const MappingHasInlineFrames: string = "pprof.mapping.has_inline_frames";
+alias MappingHasInlineFrames = "pprof.mapping.has_inline_frames";
 
 /**
  * Indicates that there are line numbers related to this mapping.
  * @stability development
  */
-const MappingHasLineNumbers: string = "pprof.mapping.has_line_numbers";
+alias MappingHasLineNumbers = "pprof.mapping.has_line_numbers";
 
 /**
  * Free-form text associated with the profile. This field should not be used to store any machine-readable information, it is only for human-friendly content.
  * @stability development
  */
-const ProfileComment: string = "pprof.profile.comment";
+alias ProfileComment = "pprof.profile.comment";
 
 /**
  * Documentation link for this profile type.
  * @stability development
  */
-const ProfileDocUrl: string = "pprof.profile.doc_url";
+alias ProfileDocUrl = "pprof.profile.doc_url";
 
 /**
  * Frames with Function.function_name fully matching the regexp will be dropped from the samples, along with their successors.
  * @stability development
  */
-const ProfileDropFrames: string = "pprof.profile.drop_frames";
+alias ProfileDropFrames = "pprof.profile.drop_frames";
 
 /**
  * Frames with Function.function_name fully matching the regexp will be kept, even if it matches drop_frames.
  * @stability development
  */
-const ProfileKeepFrames: string = "pprof.profile.keep_frames";
+alias ProfileKeepFrames = "pprof.profile.keep_frames";
 
 /**
  * Records the pprof's default_sample_type in the original profile. Not set if the default sample type was missing.
  * @stability development
  */
-const ScopeDefaultSampleType: string = "pprof.scope.default_sample_type";
+alias ScopeDefaultSampleType = "pprof.scope.default_sample_type";
 
 /**
  * Records the indexes of the sample types in the original profile.
  * @stability development
  */
-const ScopeSampleTypeOrder: string = "pprof.scope.sample_type_order";
+alias ScopeSampleTypeOrder = "pprof.scope.sample_type_order";

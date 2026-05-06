@@ -9,6 +9,7 @@ namespace OTel.Keys.Linux;
 /**
  * The Linux Slab memory state
  * @stability development
+ * @deprecated renamed → system.memory.linux.slab.state
  */
-#deprecated "renamed"
-const MemorySlabState: string = "linux.memory.slab.state";
+#deprecated "renamed → system.memory.linux.slab.state"
+alias MemorySlabState = "linux.memory.slab.state";

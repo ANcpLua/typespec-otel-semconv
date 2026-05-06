@@ -6,8 +6,11 @@
 /** OpenTelemetry "gen_ai" enum-typed attribute values. */
 namespace OTel.Enums.GenAi;
 
-/** Deprecated, use `gen_ai.output.type`. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `gen_ai.output.type`.
+ * @deprecated renamed → gen_ai.output.type
+ */
+#deprecated "renamed → gen_ai.output.type"
 enum GenAiOpenaiRequestResponseFormat {
   /** Text response format */
   Text: "text",
@@ -17,8 +20,11 @@ enum GenAiOpenaiRequestResponseFormat {
   JsonSchema: "json_schema",
 }
 
-/** Deprecated, use `openai.request.service_tier`. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `openai.request.service_tier`.
+ * @deprecated renamed → openai.request.service_tier
+ */
+#deprecated "renamed → openai.request.service_tier"
 enum GenAiOpenaiRequestServiceTier {
   /** The system will utilize scale tier credits until they are exhausted. */
   Auto: "auto",
@@ -94,8 +100,11 @@ enum GenAiProviderName {
   MistralAi: "mistral_ai",
 }
 
-/** Deprecated, use `gen_ai.provider.name` instead. */
-#deprecated "renamed"
+/**
+ * Deprecated, use `gen_ai.provider.name` instead.
+ * @deprecated renamed → gen_ai.provider.name
+ */
+#deprecated "renamed → gen_ai.provider.name"
 enum GenAiSystem {
   /** OpenAI */
   Openai: "openai",
@@ -105,21 +114,33 @@ enum GenAiSystem {
   GcpVertexAi: "gcp.vertex_ai",
   /** Gemini */
   GcpGemini: "gcp.gemini",
-  /** Vertex AI */
-  #deprecated "renamed"
+  /**
+   * Vertex AI
+   * @deprecated renamed → gcp.vertex_ai
+   */
+  #deprecated "renamed → gcp.vertex_ai"
   VertexAi: "vertex_ai",
-  /** Gemini */
-  #deprecated "renamed"
+  /**
+   * Gemini
+   * @deprecated renamed → gcp.gemini
+   */
+  #deprecated "renamed → gcp.gemini"
   Gemini: "gemini",
   /** Anthropic */
   Anthropic: "anthropic",
   /** Cohere */
   Cohere: "cohere",
-  /** Azure AI Inference */
-  #deprecated "renamed"
+  /**
+   * Azure AI Inference
+   * @deprecated renamed → azure.ai.inference
+   */
+  #deprecated "renamed → azure.ai.inference"
   AzAiInference: "az.ai.inference",
-  /** Azure OpenAI */
-  #deprecated "renamed"
+  /**
+   * Azure OpenAI
+   * @deprecated renamed → azure.ai.openai
+   */
+  #deprecated "renamed → azure.ai.openai"
   AzAiOpenai: "az.ai.openai",
   /** Azure AI Inference */
   AzureAiInference: "azure.ai.inference",
@@ -145,8 +166,11 @@ enum GenAiSystem {
 enum GenAiTokenType {
   /** Input tokens (prompt, input, etc.) */
   Input: "input",
-  /** Output tokens (completion, response, etc.) */
-  #deprecated "renamed"
+  /**
+   * Output tokens (completion, response, etc.)
+   * @deprecated renamed → output
+   */
+  #deprecated "renamed → output"
   Completion: "output",
   /** Output tokens (completion, response, etc.) */
   Output: "output",

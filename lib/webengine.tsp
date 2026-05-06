@@ -10,16 +10,16 @@ namespace OTel.Keys.Webengine;
  * Additional description of the web engine (e.g. detailed version and edition information).
  * @stability development
  */
-const Description: string = "webengine.description";
+alias Description = "webengine.description";
 
 /**
  * The name of the web engine.
  * @stability development
  */
-const Name: string = "webengine.name";
+alias Name = "webengine.name";
 
 /**
  * The version of the web engine.
  * @stability development
  */
-const Version: string = "webengine.version";
+alias Version = "webengine.version";

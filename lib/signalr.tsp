@@ -10,10 +10,10 @@ namespace OTel.Keys.Signalr;
  * SignalR HTTP connection closure status.
  * @stability stable
  */
-const ConnectionStatus: string = "signalr.connection.status";
+alias ConnectionStatus = "signalr.connection.status";
 
 /**
  * [SignalR transport type](https://github.com/dotnet/aspnetcore/blob/main/src/SignalR/docs/specs/TransportProtocols.md)
  * @stability stable
  */
-const Transport: string = "signalr.transport";
+alias Transport = "signalr.transport";

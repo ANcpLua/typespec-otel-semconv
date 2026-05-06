@@ -10,16 +10,16 @@ namespace OTel.Keys.Graphql;
  * The GraphQL document being executed.
  * @stability development
  */
-const Document: string = "graphql.document";
+alias Document = "graphql.document";
 
 /**
  * The name of the operation being executed.
  * @stability development
  */
-const OperationName: string = "graphql.operation.name";
+alias OperationName = "graphql.operation.name";
 
 /**
  * The type of the operation being executed.
  * @stability development
  */
-const OperationType: string = "graphql.operation.type";
+alias OperationType = "graphql.operation.type";

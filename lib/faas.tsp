@@ -10,94 +10,94 @@ namespace OTel.Keys.Faas;
  * A boolean that is true if the serverless function is executed for the first time (aka cold-start).
  * @stability development
  */
-const Coldstart: string = "faas.coldstart";
+alias Coldstart = "faas.coldstart";
 
 /**
  * A string containing the schedule period as [Cron Expression](https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm).
  * @stability development
  */
-const Cron: string = "faas.cron";
+alias Cron = "faas.cron";
 
 /**
  * The name of the source on which the triggering operation was performed. For example, in Cloud Storage or S3 corresponds to the bucket name, and in Cosmos DB to the database name.
  * @stability development
  */
-const DocumentCollection: string = "faas.document.collection";
+alias DocumentCollection = "faas.document.collection";
 
 /**
  * The document name/table subjected to the operation. For example, in Cloud Storage or S3 is the name of the file, and in Cosmos DB the table name.
  * @stability development
  */
-const DocumentName: string = "faas.document.name";
+alias DocumentName = "faas.document.name";
 
 /**
  * Describes the type of the operation that was performed on the data.
  * @stability development
  */
-const DocumentOperation: string = "faas.document.operation";
+alias DocumentOperation = "faas.document.operation";
 
 /**
  * A string containing the time when the data was accessed in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format expressed in [UTC](https://www.w3.org/TR/NOTE-datetime).
  * @stability development
  */
-const DocumentTime: string = "faas.document.time";
+alias DocumentTime = "faas.document.time";
 
 /**
  * The execution environment ID as a string, that will be potentially reused for other invocations to the same function/function version.
  * @stability development
  */
-const Instance: string = "faas.instance";
+alias Instance = "faas.instance";
 
 /**
  * The invocation ID of the current function invocation.
  * @stability development
  */
-const InvocationId: string = "faas.invocation_id";
+alias InvocationId = "faas.invocation_id";
 
 /**
  * The name of the invoked function.
  * @stability development
  */
-const InvokedName: string = "faas.invoked_name";
+alias InvokedName = "faas.invoked_name";
 
 /**
  * The cloud provider of the invoked function.
  * @stability development
  */
-const InvokedProvider: string = "faas.invoked_provider";
+alias InvokedProvider = "faas.invoked_provider";
 
 /**
  * The cloud region of the invoked function.
  * @stability development
  */
-const InvokedRegion: string = "faas.invoked_region";
+alias InvokedRegion = "faas.invoked_region";
 
 /**
  * The amount of memory available to the serverless function converted to Bytes.
  * @stability development
  */
-const MaxMemory: string = "faas.max_memory";
+alias MaxMemory = "faas.max_memory";
 
 /**
  * The name of the single function that this runtime instance executes.
  * @stability development
  */
-const Name: string = "faas.name";
+alias Name = "faas.name";
 
 /**
  * A string containing the function invocation time in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format expressed in [UTC](https://www.w3.org/TR/NOTE-datetime).
  * @stability development
  */
-const Time: string = "faas.time";
+alias Time = "faas.time";
 
 /**
  * Type of the trigger which caused this function invocation.
  * @stability development
  */
-const Trigger: string = "faas.trigger";
+alias Trigger = "faas.trigger";
 
 /**
  * The immutable version of the function being executed.
  * @stability development
  */
-const Version: string = "faas.version";
+alias Version = "faas.version";

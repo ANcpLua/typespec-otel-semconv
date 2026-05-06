@@ -9,171 +9,185 @@ namespace OTel.Keys.Http;
 /**
  * Deprecated, use `client.address` instead.
  * @stability development
+ * @deprecated renamed → client.address
  */
-#deprecated "renamed"
-const ClientIp: string = "http.client_ip";
+#deprecated "renamed → client.address"
+alias ClientIp = "http.client_ip";
 
 /**
  * State of the HTTP connection in the HTTP connection pool.
  * @stability development
  */
-const ConnectionState: string = "http.connection.state";
+alias ConnectionState = "http.connection.state";
 
 /**
  * Deprecated, use `network.protocol.name` and `network.protocol.version` instead.
  * @stability development
+ * @deprecated uncategorized: Split into `network.protocol.name` and `network.protocol.version`
  */
-#deprecated "Split into `network.protocol.name` and `network.protocol.version`"
-const Flavor: string = "http.flavor";
+#deprecated "uncategorized: Split into `network.protocol.name` and `network.protocol.version`"
+alias Flavor = "http.flavor";
 
 /**
  * Deprecated, use one of `server.address`, `client.address` or `http.request.header.host` instead, depending on the usage.
  * @stability development
+ * @deprecated uncategorized: Replaced by one of `server.address`, `client.address` or `http.request.header.host`, depending on the usage.
  */
-#deprecated "Replaced by one of `server.address`, `client.address` or `http.request.header.host`, depending on the usage."
-const Host: string = "http.host";
+#deprecated "uncategorized: Replaced by one of `server.address`, `client.address` or `http.request.header.host`, depending on the usage."
+alias Host = "http.host";
 
 /**
  * Deprecated, use `http.request.method` instead.
  * @stability development
+ * @deprecated renamed → http.request.method
  */
-#deprecated "renamed"
-const Method: string = "http.method";
+#deprecated "renamed → http.request.method"
+alias Method = "http.method";
 
 /**
  * Deprecated, use `http.request.header.content-length` instead.
  * @stability development
+ * @deprecated uncategorized: Replaced by `http.request.header.content-length`.
  */
-#deprecated "Replaced by `http.request.header.content-length`."
-const RequestContentLength: string = "http.request_content_length";
+#deprecated "uncategorized: Replaced by `http.request.header.content-length`."
+alias RequestContentLength = "http.request_content_length";
 
 /**
  * Deprecated, use `http.request.body.size` instead.
  * @stability development
+ * @deprecated renamed → http.request.body.size
  */
-#deprecated "renamed"
-const RequestContentLengthUncompressed: string = "http.request_content_length_uncompressed";
+#deprecated "renamed → http.request.body.size"
+alias RequestContentLengthUncompressed = "http.request_content_length_uncompressed";
 
 /**
  * The size of the request payload body in bytes. This is the number of bytes transferred excluding headers and is often, but not always, present as the [Content-Length](https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length) header. For requests using transport encoding, this should be the compressed size.
  * @stability development
  */
-const RequestBodySize: string = "http.request.body.size";
+alias RequestBodySize = "http.request.body.size";
 
 /**
  * HTTP request headers, `<key>` being the normalized HTTP Header name (lowercase), the value being the header values.
  * @stability stable
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
  */
-const RequestHeader: string = "http.request.header";
+alias RequestHeader = "http.request.header";
 
 /**
  * HTTP request method.
  * @stability stable
  */
-const RequestMethod: string = "http.request.method";
+alias RequestMethod = "http.request.method";
 
 /**
  * Original HTTP method sent by the client in the request line.
  * @stability stable
  */
-const RequestMethodOriginal: string = "http.request.method_original";
+alias RequestMethodOriginal = "http.request.method_original";
 
 /**
  * The ordinal number of request resending attempt (for any reason, including redirects).
  * @stability stable
  */
-const RequestResendCount: string = "http.request.resend_count";
+alias RequestResendCount = "http.request.resend_count";
 
 /**
  * The total size of the request in bytes. This should be the total number of bytes sent over the wire, including the request line (HTTP/1.1), framing (HTTP/2 and HTTP/3), headers, and request body if any.
  * @stability development
  */
-const RequestSize: string = "http.request.size";
+alias RequestSize = "http.request.size";
 
 /**
  * Deprecated, use `http.response.header.content-length` instead.
  * @stability development
+ * @deprecated uncategorized: Replaced by `http.response.header.content-length`.
  */
-#deprecated "Replaced by `http.response.header.content-length`."
-const ResponseContentLength: string = "http.response_content_length";
+#deprecated "uncategorized: Replaced by `http.response.header.content-length`."
+alias ResponseContentLength = "http.response_content_length";
 
 /**
  * Deprecated, use `http.response.body.size` instead.
  * @stability development
+ * @deprecated renamed → http.response.body.size
  */
-#deprecated "renamed"
-const ResponseContentLengthUncompressed: string = "http.response_content_length_uncompressed";
+#deprecated "renamed → http.response.body.size"
+alias ResponseContentLengthUncompressed = "http.response_content_length_uncompressed";
 
 /**
  * The size of the response payload body in bytes. This is the number of bytes transferred excluding headers and is often, but not always, present as the [Content-Length](https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length) header. For requests using transport encoding, this should be the compressed size.
  * @stability development
  */
-const ResponseBodySize: string = "http.response.body.size";
+alias ResponseBodySize = "http.response.body.size";
 
 /**
  * HTTP response headers, `<key>` being the normalized HTTP Header name (lowercase), the value being the header values.
  * @stability stable
- * @template attribute (prefix; append <key> at runtime)
+ * @remarks template attribute (prefix; append <key> at runtime)
  */
-const ResponseHeader: string = "http.response.header";
+alias ResponseHeader = "http.response.header";
 
 /**
  * The total size of the response in bytes. This should be the total number of bytes sent over the wire, including the status line (HTTP/1.1), framing (HTTP/2 and HTTP/3), headers, and response body and trailers if any.
  * @stability development
  */
-const ResponseSize: string = "http.response.size";
+alias ResponseSize = "http.response.size";
 
 /**
  * [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).
  * @stability stable
  */
-const ResponseStatusCode: string = "http.response.status_code";
+alias ResponseStatusCode = "http.response.status_code";
 
 /**
  * The matched route template for the request. This MUST be low-cardinality and include all static path segments, with dynamic path segments represented with placeholders.
  * @stability stable
  */
-const Route: string = "http.route";
+alias Route = "http.route";
 
 /**
  * Deprecated, use `url.scheme` instead.
  * @stability development
+ * @deprecated renamed → url.scheme
  */
-#deprecated "renamed"
-const Scheme: string = "http.scheme";
+#deprecated "renamed → url.scheme"
+alias Scheme = "http.scheme";
 
 /**
  * Deprecated, use `server.address` instead.
  * @stability development
+ * @deprecated renamed → server.address
  */
-#deprecated "renamed"
-const ServerName: string = "http.server_name";
+#deprecated "renamed → server.address"
+alias ServerName = "http.server_name";
 
 /**
  * Deprecated, use `http.response.status_code` instead.
  * @stability development
+ * @deprecated renamed → http.response.status_code
  */
-#deprecated "renamed"
-const StatusCode: string = "http.status_code";
+#deprecated "renamed → http.response.status_code"
+alias StatusCode = "http.status_code";
 
 /**
  * Deprecated, use `url.path` and `url.query` instead.
  * @stability development
+ * @deprecated obsoleted: Split to `url.path` and `url.query`.
  */
-#deprecated "Split to `url.path` and `url.query`."
-const Target: string = "http.target";
+#deprecated "obsoleted: Split to `url.path` and `url.query`."
+alias Target = "http.target";
 
 /**
  * Deprecated, use `url.full` instead.
  * @stability development
+ * @deprecated renamed → url.full
  */
-#deprecated "renamed"
-const Url: string = "http.url";
+#deprecated "renamed → url.full"
+alias Url = "http.url";
 
 /**
  * Deprecated, use `user_agent.original` instead.
  * @stability development
+ * @deprecated renamed → user_agent.original
  */
-#deprecated "renamed"
-const UserAgent: string = "http.user_agent";
+#deprecated "renamed → user_agent.original"
+alias UserAgent = "http.user_agent";

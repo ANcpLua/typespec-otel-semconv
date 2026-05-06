@@ -10,173 +10,174 @@ namespace OTel.Keys.Tls;
  * String indicating the [cipher](https://datatracker.ietf.org/doc/html/rfc5246#appendix-A.5) used during the current connection.
  * @stability development
  */
-const Cipher: string = "tls.cipher";
+alias Cipher = "tls.cipher";
 
 /**
  * PEM-encoded stand-alone certificate offered by the client. This is usually mutually-exclusive of `client.certificate_chain` since this value also exists in that list.
  * @stability development
  */
-const ClientCertificate: string = "tls.client.certificate";
+alias ClientCertificate = "tls.client.certificate";
 
 /**
  * Array of PEM-encoded certificates that make up the certificate chain offered by the client. This is usually mutually-exclusive of `client.certificate` since that value should be the first certificate in the chain.
  * @stability development
  */
-const ClientCertificateChain: string = "tls.client.certificate_chain";
+alias ClientCertificateChain = "tls.client.certificate_chain";
 
 /**
  * Certificate fingerprint using the MD5 digest of DER-encoded version of certificate offered by the client. For consistency with other hash values, this value should be formatted as an uppercase hash.
  * @stability development
  */
-const ClientHashMd5: string = "tls.client.hash.md5";
+alias ClientHashMd5 = "tls.client.hash.md5";
 
 /**
  * Certificate fingerprint using the SHA1 digest of DER-encoded version of certificate offered by the client. For consistency with other hash values, this value should be formatted as an uppercase hash.
  * @stability development
  */
-const ClientHashSha1: string = "tls.client.hash.sha1";
+alias ClientHashSha1 = "tls.client.hash.sha1";
 
 /**
  * Certificate fingerprint using the SHA256 digest of DER-encoded version of certificate offered by the client. For consistency with other hash values, this value should be formatted as an uppercase hash.
  * @stability development
  */
-const ClientHashSha256: string = "tls.client.hash.sha256";
+alias ClientHashSha256 = "tls.client.hash.sha256";
 
 /**
  * Distinguished name of [subject](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6) of the issuer of the x.509 certificate presented by the client.
  * @stability development
  */
-const ClientIssuer: string = "tls.client.issuer";
+alias ClientIssuer = "tls.client.issuer";
 
 /**
  * A hash that identifies clients based on how they perform an SSL/TLS handshake.
  * @stability development
  */
-const ClientJa3: string = "tls.client.ja3";
+alias ClientJa3 = "tls.client.ja3";
 
 /**
  * Date/Time indicating when client certificate is no longer considered valid.
  * @stability development
  */
-const ClientNotAfter: string = "tls.client.not_after";
+alias ClientNotAfter = "tls.client.not_after";
 
 /**
  * Date/Time indicating when client certificate is first considered valid.
  * @stability development
  */
-const ClientNotBefore: string = "tls.client.not_before";
+alias ClientNotBefore = "tls.client.not_before";
 
 /**
  * Deprecated, use `server.address` instead.
  * @stability development
+ * @deprecated renamed → server.address
  */
-#deprecated "renamed"
-const ClientServerName: string = "tls.client.server_name";
+#deprecated "renamed → server.address"
+alias ClientServerName = "tls.client.server_name";
 
 /**
  * Distinguished name of subject of the x.509 certificate presented by the client.
  * @stability development
  */
-const ClientSubject: string = "tls.client.subject";
+alias ClientSubject = "tls.client.subject";
 
 /**
  * Array of ciphers offered by the client during the client hello.
  * @stability development
  */
-const ClientSupportedCiphers: string = "tls.client.supported_ciphers";
+alias ClientSupportedCiphers = "tls.client.supported_ciphers";
 
 /**
  * String indicating the curve used for the given cipher, when applicable
  * @stability development
  */
-const Curve: string = "tls.curve";
+alias Curve = "tls.curve";
 
 /**
  * Boolean flag indicating if the TLS negotiation was successful and transitioned to an encrypted tunnel.
  * @stability development
  */
-const Established: string = "tls.established";
+alias Established = "tls.established";
 
 /**
  * String indicating the protocol being tunneled. Per the values in the [IANA registry](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids), this string should be lower case.
  * @stability development
  */
-const NextProtocol: string = "tls.next_protocol";
+alias NextProtocol = "tls.next_protocol";
 
 /**
  * Normalized lowercase protocol name parsed from original string of the negotiated [SSL/TLS protocol version](https://docs.openssl.org/1.1.1/man3/SSL_get_version/#return-values)
  * @stability development
  */
-const ProtocolName: string = "tls.protocol.name";
+alias ProtocolName = "tls.protocol.name";
 
 /**
  * Numeric part of the version parsed from the original string of the negotiated [SSL/TLS protocol version](https://docs.openssl.org/1.1.1/man3/SSL_get_version/#return-values)
  * @stability development
  */
-const ProtocolVersion: string = "tls.protocol.version";
+alias ProtocolVersion = "tls.protocol.version";
 
 /**
  * Boolean flag indicating if this TLS connection was resumed from an existing TLS negotiation.
  * @stability development
  */
-const Resumed: string = "tls.resumed";
+alias Resumed = "tls.resumed";
 
 /**
  * PEM-encoded stand-alone certificate offered by the server. This is usually mutually-exclusive of `server.certificate_chain` since this value also exists in that list.
  * @stability development
  */
-const ServerCertificate: string = "tls.server.certificate";
+alias ServerCertificate = "tls.server.certificate";
 
 /**
  * Array of PEM-encoded certificates that make up the certificate chain offered by the server. This is usually mutually-exclusive of `server.certificate` since that value should be the first certificate in the chain.
  * @stability development
  */
-const ServerCertificateChain: string = "tls.server.certificate_chain";
+alias ServerCertificateChain = "tls.server.certificate_chain";
 
 /**
  * Certificate fingerprint using the MD5 digest of DER-encoded version of certificate offered by the server. For consistency with other hash values, this value should be formatted as an uppercase hash.
  * @stability development
  */
-const ServerHashMd5: string = "tls.server.hash.md5";
+alias ServerHashMd5 = "tls.server.hash.md5";
 
 /**
  * Certificate fingerprint using the SHA1 digest of DER-encoded version of certificate offered by the server. For consistency with other hash values, this value should be formatted as an uppercase hash.
  * @stability development
  */
-const ServerHashSha1: string = "tls.server.hash.sha1";
+alias ServerHashSha1 = "tls.server.hash.sha1";
 
 /**
  * Certificate fingerprint using the SHA256 digest of DER-encoded version of certificate offered by the server. For consistency with other hash values, this value should be formatted as an uppercase hash.
  * @stability development
  */
-const ServerHashSha256: string = "tls.server.hash.sha256";
+alias ServerHashSha256 = "tls.server.hash.sha256";
 
 /**
  * Distinguished name of [subject](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6) of the issuer of the x.509 certificate presented by the client.
  * @stability development
  */
-const ServerIssuer: string = "tls.server.issuer";
+alias ServerIssuer = "tls.server.issuer";
 
 /**
  * A hash that identifies servers based on how they perform an SSL/TLS handshake.
  * @stability development
  */
-const ServerJa3s: string = "tls.server.ja3s";
+alias ServerJa3s = "tls.server.ja3s";
 
 /**
  * Date/Time indicating when server certificate is no longer considered valid.
  * @stability development
  */
-const ServerNotAfter: string = "tls.server.not_after";
+alias ServerNotAfter = "tls.server.not_after";
 
 /**
  * Date/Time indicating when server certificate is first considered valid.
  * @stability development
  */
-const ServerNotBefore: string = "tls.server.not_before";
+alias ServerNotBefore = "tls.server.not_before";
 
 /**
  * Distinguished name of subject of the x.509 certificate presented by the server.
  * @stability development
  */
-const ServerSubject: string = "tls.server.subject";
+alias ServerSubject = "tls.server.subject";
