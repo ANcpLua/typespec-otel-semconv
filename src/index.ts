@@ -9,13 +9,36 @@
 
 import { defineLinter } from "@typespec/compiler";
 import { $lib } from "./lib.js";
+import { $otelEntity } from "./decorators.js";
 import { preferOtelKeyRule } from "./rules/prefer-otel-key.rule.js";
 import { noDeprecatedOtelKeyRule } from "./rules/no-deprecated-otel-key.rule.js";
+import { metricTripletBoundRule } from "./rules/metric-triplet-bound.rule.js";
+import { enumTypedValueRule } from "./rules/enum-typed-value.rule.js";
 
-export { $lib };
-export { preferOtelKeyRule, noDeprecatedOtelKeyRule };
+export { $lib, $otelEntity };
+export { $onValidate } from "./validate.js";
+export {
+  preferOtelKeyRule,
+  noDeprecatedOtelKeyRule,
+  metricTripletBoundRule,
+  enumTypedValueRule,
+};
 
-const allRules = [preferOtelKeyRule, noDeprecatedOtelKeyRule];
+// Wire `extern dec otelEntity(...)` in lib/_decorators.tsp to its JS impl.
+// The compiler reads this export, finds OTel.otelEntity in user code, and
+// dispatches to $otelEntity at decorator-call time.
+export const $decorators = {
+  "OTel": {
+    otelEntity: $otelEntity,
+  },
+};
+
+const allRules = [
+  preferOtelKeyRule,
+  noDeprecatedOtelKeyRule,
+  metricTripletBoundRule,
+  enumTypedValueRule,
+];
 
 export const $linter = defineLinter({
   rules: allRules,

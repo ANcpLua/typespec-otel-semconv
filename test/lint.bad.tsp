@@ -8,7 +8,7 @@
 //   - each diagnostic's code is `prefer-otel-key`;
 //   - the message names the offending value AND the suggested symbol.
 
-import "../lib/main.tsp";
+import "@ancplua/typespec-otel-semconv";
 
 namespace LintBad;
 

@@ -12,7 +12,7 @@
 // .tsp source.
 
 import "@typespec/http";
-import "../lib/main.tsp";
+import "@ancplua/typespec-otel-semconv";
 
 using TypeSpec.Http;
 

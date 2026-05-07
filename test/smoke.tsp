@@ -12,7 +12,7 @@
 // gate. Compiler-only (no @typespec/http dep) so the smoke test stays
 // self-contained.
 
-import "../lib/main.tsp";
+import "@ancplua/typespec-otel-semconv";
 
 namespace Smoke;
 

@@ -30,24 +30,11 @@ import {
 } from "@typespec/compiler";
 import { SyntaxKind } from "@typespec/compiler/ast";
 
-// Sourced from the upstream model directory listing at v1.41.0; see
-// scripts/generate.mjs which walks the same tree to produce the lib/*.tsp files.
-// Keeping the list literal (not derived from the .tsp at lint time) avoids a
-// circular dependency between the rule and the generated library.
-const KNOWN_DOMAINS = new Set<string>([
-  "android", "app", "artifact", "aspnetcore", "aws", "az", "azure", "browser",
-  "cassandra", "cicd", "cli", "client", "cloud", "cloudevents", "cloudfoundry",
-  "code", "container", "cpu", "cpython", "db", "deployment", "destination",
-  "device", "disk", "dns", "dotnet", "elasticsearch", "enduser", "error",
-  "event", "exception", "exceptions", "faas", "feature_flag", "file", "gcp",
-  "gen_ai", "geo", "go", "graphql", "hardware", "heroku", "host", "http",
-  "ios", "jsonrpc", "jvm", "k8s", "kestrel", "linux", "log", "mainframe", "mcp",
-  "messaging", "network", "nfs", "nodejs", "oci", "onc_rpc", "openai",
-  "openshift", "opentracing", "oracle_cloud", "oracledb", "os", "otel",
-  "peer", "pprof", "process", "profile", "rpc", "security_rule", "server",
-  "service", "session", "signalr", "source", "system", "telemetry", "test",
-  "thread", "tls", "url", "user", "user_agent", "v8js", "vcs", "webengine", "zos",
-]);
+// Generated alongside the .tsp library by scripts/generate.mjs — the same YAML
+// walk that produces lib/*.tsp populates this set. The drift-kill test in
+// test/lint.test.ts asserts the file matches the YAML-derived domain union.
+export { KNOWN_DOMAINS } from "../generated/known-domains.js";
+import { KNOWN_DOMAINS } from "../generated/known-domains.js";
 
 function looksLikeOtelKey(value: string): boolean {
   // Two-or-more dot-separated segments, first segment is a known OTel domain.

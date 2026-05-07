@@ -9,7 +9,7 @@
 //      Should fire `no-deprecated-otel-key` only (alias references don't trip
 //      the prefer-otel-key rule).
 
-import "../lib/main.tsp";
+import "@ancplua/typespec-otel-semconv";
 
 namespace LintDeprecated;
 

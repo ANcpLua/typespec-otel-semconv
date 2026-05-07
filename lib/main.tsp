@@ -2,6 +2,8 @@
 // Source: open-telemetry/semantic-conventions @ v1.41.0
 // Regenerate via: npm run generate
 
+import "../dist/index.js";
+import "./_decorators.tsp";
 import "./_schema.tsp";
 import "./android.tsp";
 import "./android.enums.tsp";
