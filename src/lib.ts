@@ -15,6 +15,17 @@ export const $lib = createTypeSpecLibrary({
         default: paramMessage`Raw OTel attribute key '${"value"}' — prefer the typed symbol '${"suggestion"}' from this library so the IDE gets autocomplete + (eventual) deprecation warnings, and the value stays in lockstep with upstream YAML.`,
       },
     },
+    "no-deprecated-otel-key": {
+      severity: "warning",
+      messages: {
+        default:
+          "Deprecated OTel attribute key. Upstream marks it deprecated; replace with the migration target so downstream telemetry stays on the supported wire format.",
+        renamed:
+          "Deprecated OTel attribute key — upstream renamed it. Replace this reference with the migration target so downstream telemetry stays on the supported wire format.",
+        obsoleted:
+          "Deprecated OTel attribute key — upstream obsoleted it without a documented replacement. Audit the call site against the upstream YAML before keeping this reference.",
+      },
+    },
   },
 });
 

@@ -21,6 +21,8 @@
 
 import {
   createRule,
+  defineCodeFix,
+  getSourceLocation,
   type DiagnosticTarget,
   type DecoratorApplication,
   type ModelProperty,
@@ -110,9 +112,24 @@ export const preferOtelKeyRule = createRule({
         if (!arg) continue;
         if (!looksLikeOtelKey(arg.value)) continue;
         const suggestion = suggestSymbolFor(arg.value);
+        const stringLiteralNode = arg.target;
         context.reportDiagnostic({
-          target: arg.target,
+          target: stringLiteralNode,
           format: { value: arg.value, suggestion },
+          codefixes: [
+            defineCodeFix({
+              id: "replace-with-typed-symbol",
+              label: `Replace "${arg.value}" with ${suggestion}`,
+              fix: (ctx) => {
+                const loc = getSourceLocation(stringLiteralNode);
+                if (!loc) return undefined;
+                // The StringLiteralNode's range covers the string token including
+                // both quote characters, so replacing with the bare symbol path
+                // produces a syntactically-valid expression.
+                return ctx.replaceText(loc, suggestion);
+              },
+            }),
+          ],
         });
       }
     };

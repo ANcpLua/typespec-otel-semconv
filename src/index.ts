@@ -10,18 +10,21 @@
 import { defineLinter } from "@typespec/compiler";
 import { $lib } from "./lib.js";
 import { preferOtelKeyRule } from "./rules/prefer-otel-key.rule.js";
+import { noDeprecatedOtelKeyRule } from "./rules/no-deprecated-otel-key.rule.js";
 
 export { $lib };
-export { preferOtelKeyRule };
+export { preferOtelKeyRule, noDeprecatedOtelKeyRule };
+
+const allRules = [preferOtelKeyRule, noDeprecatedOtelKeyRule];
 
 export const $linter = defineLinter({
-  rules: [preferOtelKeyRule],
+  rules: allRules,
   ruleSets: {
     recommended: {
-      enable: { [`${$lib.name}/${preferOtelKeyRule.name}`]: true },
+      enable: Object.fromEntries(allRules.map((r) => [`${$lib.name}/${r.name}`, true])),
     },
     all: {
-      enable: { [`${$lib.name}/${preferOtelKeyRule.name}`]: true },
+      enable: Object.fromEntries(allRules.map((r) => [`${$lib.name}/${r.name}`, true])),
     },
   },
 });
