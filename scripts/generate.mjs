@@ -22,7 +22,7 @@
 //   stability values are development, alpha, beta, release_candidate, stable.
 //   `mixed` is not a stability value and is not emitted.
 
-import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve, relative, basename } from "node:path";
 import { parse as parseYaml } from "yaml";
@@ -31,6 +31,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, "..");
 const UPSTREAM_MODEL = resolve(REPO_ROOT, ".tools/semconv-upstream/model");
 const LIB_DIR = resolve(REPO_ROOT, "lib");
+const SRC_DIR = resolve(REPO_ROOT, "src/generated");
 
 // Pinned upstream release. Bumping this requires checking out the matching tag in
 // the submodule, regenerating, and updating package.json#metadata.semconvVersion.
@@ -548,7 +549,6 @@ export function readSemconvDomains() {
 }
 
 function emitKnownDomainsLookup(byId) {
-  const SRC_DIR = resolve(REPO_ROOT, "src/generated");
   const domains = new Set();
   for (const id of byId.keys()) {
     const dot = id.indexOf(".");
@@ -569,7 +569,6 @@ function emitKnownDomainsLookup(byId) {
 }
 
 function emitEntityIdentifyingLookup(entityGroups) {
-  const SRC_DIR = resolve(REPO_ROOT, "src/generated");
   const entries = [];
   for (const e of entityGroups) {
     const name = typeof e.name === "string" && e.name.length > 0 ? e.name : null;
@@ -604,7 +603,6 @@ function emitMetricTripletLookup(metricGroups) {
   // upstream's identifying tuple for a metric; pulling Name without Unit and
   // Instrument is a wire-format smell because the recorded metric's identity
   // depends on all three.
-  const SRC_DIR = resolve(REPO_ROOT, "src/generated");
   const entries = [];
   for (const m of metricGroups) {
     if (typeof m.metric_name !== "string") continue;
@@ -642,7 +640,6 @@ function emitEnumKeyedAttrsLookup(byId) {
   // The linter uses this to suggest "type this property as the enum, not as
   // bare string" when the consumer uses an attribute id that has a typed enum
   // counterpart.
-  const SRC_DIR = resolve(REPO_ROOT, "src/generated");
   const entries = [];
   for (const [id, attr] of [...byId.entries()].sort(([a], [b]) => a.localeCompare(b))) {
     if (!attr.type || typeof attr.type !== "object" || !Array.isArray(attr.type.members)) continue;
@@ -679,7 +676,6 @@ function emitDeprecationLookup(byId) {
   // "client.address") or null if upstream has no documented renamed_to.
   // Generated alongside the .tsp library so the lookup is byte-stable per
   // semconv release; the rule itself stays free of file I/O.
-  const SRC_DIR = resolve(REPO_ROOT, "src/generated");
   const entries = [];
   for (const [id, attr] of [...byId.entries()].sort(([a], [b]) => a.localeCompare(b))) {
     if (!attr.deprecated) continue;
@@ -724,6 +720,12 @@ function emitDeprecationLookup(byId) {
 }
 
 function main() {
+  // Output dirs may not exist on a clean checkout (or after a wipe). Node's
+  // writeFileSync does not auto-create parents — create them up front so the
+  // generator works against an empty tree.
+  mkdirSync(LIB_DIR, { recursive: true });
+  mkdirSync(SRC_DIR, { recursive: true });
+
   const groups = readGroups();
   const byId = indexAttributes(groups);
   const buckets = bucketByDomain(byId);
