@@ -24,40 +24,10 @@ import {
   createRule,
   defineCodeFix,
   getSourceLocation,
-  type DecoratorApplication,
-  type DiagnosticTarget,
   type ModelProperty,
-  type StringValue,
 } from "@typespec/compiler";
 import { DEPRECATED_KEYS } from "../generated/deprecated-keys.js";
-
-function getEncodedNameResolvedString(
-  app: DecoratorApplication,
-): { value: string; target: DiagnosticTarget } | null {
-  if (app.decorator.name !== "@encodedName" && app.definition?.name !== "@encodedName") {
-    return null;
-  }
-  const arg = app.args[1];
-  if (!arg) return null;
-  const v = arg.value;
-  if (typeof v !== "object" || v === null) return null;
-  if ((v as StringValue).valueKind !== "StringValue") return null;
-  return { value: (v as StringValue).value, target: arg.node as DiagnosticTarget };
-}
-
-function pascalCase(s: string): string {
-  return s.split(/[._-]/).filter(Boolean).map((p) => p[0]!.toUpperCase() + p.slice(1)).join("");
-}
-
-function symbolForId(id: string): string {
-  // Mirrors scripts/generate.mjs domainOf + constNameOf: `client.address` →
-  // `OTel.Keys.Client.Address`, `gen_ai.system` → `OTel.Keys.GenAi.System`.
-  const dotIdx = id.indexOf(".");
-  if (dotIdx <= 0) return id;
-  const domain = id.slice(0, dotIdx);
-  const tail = id.slice(dotIdx + 1);
-  return `OTel.Keys.${pascalCase(domain)}.${pascalCase(tail)}`;
-}
+import { getEncodedNameStringArg, symbolForId } from "./_shared.js";
 
 export const noDeprecatedOtelKeyRule = createRule({
   name: "no-deprecated-otel-key",
@@ -75,7 +45,7 @@ export const noDeprecatedOtelKeyRule = createRule({
   create(context) {
     const visit = (prop: ModelProperty) => {
       for (const app of prop.decorators) {
-        const arg = getEncodedNameResolvedString(app);
+        const arg = getEncodedNameStringArg(app);
         if (!arg) continue;
         const entry = DEPRECATED_KEYS.get(arg.value);
         if (!entry) continue;

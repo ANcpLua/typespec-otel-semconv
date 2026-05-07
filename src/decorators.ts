@@ -1,16 +1,17 @@
-import type { DecoratorContext, Model } from "@typespec/compiler";
+import type { DecoratorContext, Model, Program } from "@typespec/compiler";
+import { useStateMap } from "@typespec/compiler/utils";
 import { $lib } from "./lib.js";
 
-const otelEntityKey = $lib.createStateSymbol("otelEntity");
+const [getOtelEntityName, setOtelEntityName, getOtelEntityMap] = useStateMap<Model, string>(
+  $lib.createStateSymbol("otelEntity"),
+);
 
 export function $otelEntity(context: DecoratorContext, target: Model, name: string): void {
-  context.program.stateMap(otelEntityKey).set(target, name);
+  setOtelEntityName(context.program, target, name);
 }
 
-export function getOtelEntityName(program: { stateMap: (k: symbol) => Map<unknown, unknown> }, target: Model): string | undefined {
-  return program.stateMap(otelEntityKey).get(target) as string | undefined;
-}
+export { getOtelEntityName };
 
-export function listOtelEntities(program: { stateMap: (k: symbol) => Map<unknown, unknown> }): Iterable<[Model, string]> {
-  return program.stateMap(otelEntityKey).entries() as Iterable<[Model, string]>;
+export function listOtelEntities(program: Program): Iterable<[Model, string]> {
+  return getOtelEntityMap(program);
 }

@@ -1,38 +1,18 @@
 import {
   createRule,
-  type DecoratorApplication,
-  type DiagnosticTarget,
   type Model,
-  type ModelProperty,
-  type StringValue,
 } from "@typespec/compiler";
 import { METRIC_TRIPLETS } from "../generated/metric-triplets.js";
-
-function getEncodedNameValue(app: DecoratorApplication): { value: string; target: DiagnosticTarget } | null {
-  if (app.decorator.name !== "@encodedName" && app.definition?.name !== "@encodedName") return null;
-  const arg = app.args[1];
-  if (!arg) return null;
-  const v = arg.value;
-  if (typeof v !== "object" || v === null) return null;
-  if ((v as StringValue).valueKind !== "StringValue") return null;
-  return { value: (v as StringValue).value, target: arg.node as DiagnosticTarget };
-}
-
-function getDefaultValue(prop: ModelProperty): string | null {
-  const d = prop.defaultValue;
-  if (!d || typeof d !== "object") return null;
-  if ((d as StringValue).valueKind !== "StringValue") return null;
-  return (d as StringValue).value;
-}
+import { getEncodedNameStringArg, getStringDefaultValue } from "./_shared.js";
 
 function collectStringValuesOnModel(model: Model): Set<string> {
   const found = new Set<string>();
   for (const [, prop] of model.properties) {
     for (const app of prop.decorators) {
-      const v = getEncodedNameValue(app);
+      const v = getEncodedNameStringArg(app);
       if (v) found.add(v.value);
     }
-    const dv = getDefaultValue(prop);
+    const dv = getStringDefaultValue(prop);
     if (dv !== null) found.add(dv);
   }
   return found;
@@ -54,9 +34,7 @@ export const metricTripletBoundRule = createRule({
         for (const v of values) {
           const triplet = METRIC_TRIPLETS.get(v);
           if (!triplet) continue;
-          const hasUnit = values.has(triplet.unit);
-          const hasInstrument = values.has(triplet.instrument);
-          if (hasUnit && hasInstrument) continue;
+          if (values.has(triplet.unit) && values.has(triplet.instrument)) continue;
           // Diagnostic target: the model declaration itself, since the rule is
           // a coupling check across multiple properties — pinning to a single
           // call site would be misleading.

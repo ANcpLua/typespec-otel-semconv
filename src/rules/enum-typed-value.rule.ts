@@ -1,21 +1,9 @@
 import {
   createRule,
-  type DecoratorApplication,
-  type DiagnosticTarget,
   type ModelProperty,
-  type StringValue,
 } from "@typespec/compiler";
 import { ENUM_KEYED_ATTRS } from "../generated/enum-keyed-attrs.js";
-
-function getEncodedNameValue(app: DecoratorApplication): { value: string; target: DiagnosticTarget } | null {
-  if (app.decorator.name !== "@encodedName" && app.definition?.name !== "@encodedName") return null;
-  const arg = app.args[1];
-  if (!arg) return null;
-  const v = arg.value;
-  if (typeof v !== "object" || v === null) return null;
-  if ((v as StringValue).valueKind !== "StringValue") return null;
-  return { value: (v as StringValue).value, target: arg.node as DiagnosticTarget };
-}
+import { getEncodedNameStringArg } from "./_shared.js";
 
 function isPlainStringScalar(prop: ModelProperty): boolean {
   // Property type is a Scalar that bottoms out at string; library-emitted
@@ -45,7 +33,7 @@ export const enumTypedValueRule = createRule({
       modelProperty: (prop) => {
         if (!isPlainStringScalar(prop)) return;
         for (const app of prop.decorators) {
-          const v = getEncodedNameValue(app);
+          const v = getEncodedNameStringArg(app);
           if (!v) continue;
           const enumPath = ENUM_KEYED_ATTRS.get(v.value);
           if (!enumPath) continue;

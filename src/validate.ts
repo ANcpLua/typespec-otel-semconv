@@ -8,24 +8,17 @@ import {
   type Namespace,
   type Program,
   type Model,
-  type StringValue,
 } from "@typespec/compiler";
-import { $lib, reportDiagnostic } from "./lib.js";
+import { reportDiagnostic } from "./lib.js";
 import { listOtelEntities } from "./decorators.js";
 import { ENTITY_IDENTIFYING } from "./generated/entity-identifying.js";
+import { getEncodedNameStringArg, getStringDefaultValue } from "./rules/_shared.js";
 
 const SCHEMA_URL_RE = /^https:\/\/opentelemetry\.io\/schemas\/[\d.]+$/;
 
 interface SchemaSighting {
   url: string;
   ns: Namespace;
-}
-
-function getStringDefault(node: { defaultValue?: unknown }): string | null {
-  const d = (node as { defaultValue?: unknown }).defaultValue;
-  if (!d || typeof d !== "object") return null;
-  if ((d as StringValue).valueKind !== "StringValue") return null;
-  return (d as StringValue).value;
 }
 
 function topServiceNamespace(ns: Namespace | undefined): Namespace | undefined {
@@ -45,7 +38,7 @@ function checkSchemaUrlCoherence(program: Program): void {
   const byNamespace = new Map<Namespace, SchemaSighting[]>();
   navigateProgram(program, {
     modelProperty: (prop) => {
-      const v = getStringDefault(prop);
+      const v = getStringDefaultValue(prop);
       if (!v || !SCHEMA_URL_RE.test(v)) return;
       const owning = (prop.model as Model | undefined)?.namespace;
       const top = topServiceNamespace(owning);
@@ -76,13 +69,8 @@ function checkEntityIdentifyingRequired(program: Program): void {
     const seen = new Set<string>();
     for (const [, prop] of model.properties) {
       for (const app of prop.decorators) {
-        if (app.decorator.name !== "@encodedName" && app.definition?.name !== "@encodedName") continue;
-        const arg = app.args[1];
-        if (!arg) continue;
-        const v = arg.value;
-        if (typeof v !== "object" || v === null) continue;
-        if ((v as StringValue).valueKind !== "StringValue") continue;
-        seen.add((v as StringValue).value);
+        const arg = getEncodedNameStringArg(app);
+        if (arg) seen.add(arg.value);
       }
     }
     const missing = required.filter((id) => !seen.has(id));
