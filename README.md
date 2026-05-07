@@ -48,6 +48,34 @@ Plus `OTel.Schemas.Current` (`"https://opentelemetry.io/schemas/1.41.0"`) and th
 - **Compiler-level deprecation warnings on enum and enum-member references** — TypeSpec's `#deprecated` directive fires for enum-position references, so `OTel.Enums.Http.HttpRequestMethod` (the whole enum) and individual deprecated members produce a build-time warning when used.
 - **Compiler-level deprecation warnings on attribute keys** — _not yet_. Keys are emitted as `alias Name = "foo.bar"` so they satisfy `@encodedName(format, value: valueof string)`. TypeSpec 1.12.0-dev.6 does not fire `#deprecated` for value-position references to string-literal aliases. The directive and the JSDoc `@deprecated` tag are both emitted, so the IDE strikethrough still works today, and the build-time warning starts firing automatically once TypeSpec extends value-position deprecation checking — no library change needed at that point.
 
+### Linter — `prefer-otel-key`
+
+Ships a TypeSpec linter rule that warns when a consumer uses a raw OTel-shaped string in `@encodedName` instead of the typed library symbol. Enable it from your `tspconfig.yaml`:
+
+```yaml
+linter:
+  extends:
+    - "@ancplua/typespec-otel-semconv/recommended"
+```
+
+The rule fires only on raw string literals — `@encodedName("application/json", OTel.Keys.Http.RequestMethod)` is fine because that's an alias reference, while `@encodedName("application/json", "http.request.method")` triggers a warning at the literal's position with a suggested replacement (`OTel.Keys.Http.RequestMethod`).
+
+This closes the loop on deprecation: TypeSpec's `#deprecated` directive does not fire on string-literal-alias values today (compiler limitation), but the linter rule names the issue at the source — once a consumer adopts `OTel.Keys.<Domain>.<Name>` they're funneled through the library's deprecation tooltips.
+
+### Tests — Vitest with file snapshots
+
+```bash
+npm test           # run all tests
+npm run test:update   # accept current behavior as the new snapshot
+```
+
+Two tests, both snapshot-style (the JS equivalent of `Verify` in .NET):
+
+- **`test/lint.test.ts`** — runs `tsp compile` against a known-good spec and a known-bad spec, asserts the linter fires *exactly* the expected warnings. No false positives on the good spec, exact count on the bad one.
+- **`test/snapshot.test.ts`** — captures (a) the library's structure shape (file counts per surface, list of domains) and (b) the full `openapi.yaml` produced by running `@typespec/openapi3` over the smoke spec. Snapshot files live under `test/__snapshots__/` and are committed; any drift fails CI with a reviewable diff.
+
+The `__snapshots__/openapi3-smoke.yaml` is the contract that proves the library is emitter-agnostic — every regen of v1.41.0 must produce byte-identical OpenAPI output through `@typespec/openapi3`.
+
 ### Emitter-agnostic by construction
 
 The library only contributes `.tsp` source. Every TypeSpec emitter that honours `@encodedName` consumes it transparently — no language-specific code lives here.

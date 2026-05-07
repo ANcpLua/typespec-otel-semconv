@@ -1,37 +1,47 @@
 {
   "name": "@ancplua/typespec-otel-semconv",
-  "version": "0.1.0-dev.0",
+  "version": "0.2.0-dev.0",
   "description": "TypeSpec library mirroring the OpenTelemetry Semantic Conventions YAML model. Personal sandbox — not affiliated with OpenTelemetry.",
   "private": true,
   "type": "module",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "tspMain": "lib/main.tsp",
   "exports": {
     ".": {
-      "typespec": "./lib/main.tsp"
+      "typespec": "./lib/main.tsp",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "files": [
     "lib/**/*.tsp",
+    "dist/**/*.{js,d.ts}",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
     "generate": "node scripts/generate.mjs",
+    "build": "tsc -p tsconfig.json",
     "compile": "tsp compile lib/main.tsp --no-emit",
     "verify-clean": "node scripts/generate.mjs && git diff --exit-code -- lib/",
-    "lint": "tsp compile lib/main.tsp --warn-as-error --no-emit"
+    "lint": "tsp compile lib/main.tsp --warn-as-error --no-emit",
+    "test": "vitest run",
+    "test:update": "vitest run -u"
   },
   "peerDependencies": {
     "@typespec/compiler": "^1.12.0-dev"
   },
   "devDependencies": {
+    "@types/node": "22.10.0",
     "@typespec/compiler": "1.12.0-dev.6",
     "@typespec/http": "^1.12.0-dev.5",
     "@typespec/openapi": "^1.12.0-dev.2",
     "@typespec/openapi3": "^1.12.0-dev.4",
     "@typespec/rest": "^0.82.0-dev.3",
     "@typespec/versioning": "^0.82.0-dev.2",
+    "typescript": "5.6.3",
+    "vitest": "2.1.9",
     "yaml": "2.7.0"
   },
   "engines": {

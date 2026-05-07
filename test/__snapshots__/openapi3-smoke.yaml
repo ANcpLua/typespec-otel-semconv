@@ -1,0 +1,81 @@
+openapi: 3.0.0
+info:
+  title: OTel-aware sample API
+  version: 0.0.0
+tags: []
+paths:
+  /requests:
+    post:
+      operationId: recordRequest
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HttpRequestRecord'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HttpRequestRecord'
+  /service:
+    get:
+      operationId: service
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceContext'
+components:
+  schemas:
+    HttpRequestRecord:
+      type: object
+      required:
+        - http.request.method
+        - url.full
+        - server.address
+      properties:
+        http.request.method:
+          $ref: '#/components/schemas/OTel.Enums.Http.HttpRequestMethod'
+        url.full:
+          type: string
+        server.address:
+          type: string
+      description: Inbound HTTP request envelope.
+    OTel.Enums.Http.HttpRequestMethod:
+      type: string
+      enum:
+        - CONNECT
+        - DELETE
+        - GET
+        - HEAD
+        - OPTIONS
+        - PATCH
+        - POST
+        - PUT
+        - TRACE
+        - QUERY
+        - _OTHER
+      description: HTTP request method.
+    ServiceContext:
+      type: object
+      required:
+        - entity_name
+        - service.name
+        - schema_url
+      properties:
+        entity_name:
+          type: string
+          default: service
+        service.name:
+          type: string
+        schema_url:
+          type: string
+          default: https://opentelemetry.io/schemas/1.41.0
+      description: Service-context envelope (mirrors what an OTel exporter would attach).
