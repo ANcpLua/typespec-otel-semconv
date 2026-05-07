@@ -14,7 +14,7 @@ import { describe, it, expect, inject } from "vitest";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { tspCompile } from "./setup";
-import { KNOWN_DOMAINS } from "../src/rules/prefer-otel-key.rule";
+import { KNOWN_DOMAINS } from "../src/generated/known-domains";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, "..");

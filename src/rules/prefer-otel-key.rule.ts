@@ -32,8 +32,7 @@ import { SyntaxKind } from "@typespec/compiler/ast";
 
 // Generated alongside the .tsp library by scripts/generate.mjs — the same YAML
 // walk that produces lib/*.tsp populates this set. The drift-kill test in
-// test/lint.test.ts asserts the file matches the YAML-derived domain union.
-export { KNOWN_DOMAINS } from "../generated/known-domains.js";
+// test/lint.test.ts imports it directly from the generated module.
 import { KNOWN_DOMAINS } from "../generated/known-domains.js";
 
 function looksLikeOtelKey(value: string): boolean {
