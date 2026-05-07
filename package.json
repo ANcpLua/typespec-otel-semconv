@@ -24,10 +24,13 @@
     "generate": "node scripts/generate.mjs",
     "build": "tsc -p tsconfig.json",
     "compile": "tsp compile lib/main.tsp --no-emit",
-    "verify-clean": "node scripts/generate.mjs && git diff --exit-code -- lib/",
-    "lint": "tsp compile lib/main.tsp --warn-as-error --no-emit",
+    "verify-clean": "node scripts/generate.mjs && git diff --exit-code -- lib/ src/generated/",
+    "lint:lib": "tsp compile lib/main.tsp --warn-as-error --no-emit",
+    "lint:smoke": "tsp compile test/smoke.tsp --warn-as-error --no-emit",
+    "lint": "npm run lint:lib && npm run lint:smoke",
     "test": "vitest run",
-    "test:update": "vitest run -u"
+    "test:update": "vitest run -u",
+    "check": "npm run build && npm run verify-clean && npm run lint && npm run test"
   },
   "peerDependencies": {
     "@typespec/compiler": "^1.12.0-dev"
