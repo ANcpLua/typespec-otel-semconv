@@ -24,3 +24,18 @@ model HasIdentifying {
   @encodedName("application/json", OTel.Keys.Service.Version)
   version: string;
 }
+
+// Multi-entity coverage — `app` identifies on app.build_id (one of the
+// 30 entities upstream tags with role: identifying explicitly). Distinct from
+// service so the validator's per-entity dispatch is exercised.
+@OTel.otelEntity("app")
+model AppMissing {
+  @encodedName("application/json", OTel.Keys.App.InstallationId)
+  installationId: string;
+}
+
+@OTel.otelEntity("app")
+model AppHasBuildId {
+  @encodedName("application/json", OTel.Keys.App.BuildId)
+  buildId: string;
+}

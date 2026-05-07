@@ -139,14 +139,35 @@ describe("$onValidate hard checks", () => {
     expect(countRuleErrors(stdout, stderr, SCHEMA_RULE)).toBe(1);
   }, 120_000);
 
-  it("entity-identifying-required: errors when @otelEntity model is missing identifying attrs", async () => {
+  it("schema-url-coherence: silent when every property defaults to the same URL", async () => {
+    const { exitCode, stdout, stderr } = await tspCompile(
+      "test/validate.schema-url.valid.tsp",
+      ["--no-emit"],
+      REPO_ROOT,
+    );
+    expect(exitCode).toBe(0);
+    expect(countRuleErrors(stdout, stderr, SCHEMA_RULE)).toBe(0);
+  }, 120_000);
+
+  it("entity-identifying-required: fires once per offending @otelEntity across multiple entity kinds", async () => {
     const { exitCode, stdout, stderr } = await tspCompile(
       "test/validate.entity.tsp",
       ["--no-emit"],
       REPO_ROOT,
     );
     expect(exitCode).not.toBe(0);
-    // MissingIdentifying violates; HasIdentifying passes.
-    expect(countRuleErrors(stdout, stderr, ENTITY_RULE)).toBe(1);
+    // service.MissingIdentifying + host.HostMissing violate; siblings with the
+    // identifying refs pass silently.
+    expect(countRuleErrors(stdout, stderr, ENTITY_RULE)).toBe(2);
+  }, 120_000);
+
+  it("entity-identifying-required: silent when every @otelEntity model carries its required refs", async () => {
+    const { exitCode, stdout, stderr } = await tspCompile(
+      "test/validate.entity.valid.tsp",
+      ["--no-emit"],
+      REPO_ROOT,
+    );
+    expect(exitCode).toBe(0);
+    expect(countRuleErrors(stdout, stderr, ENTITY_RULE)).toBe(0);
   }, 120_000);
 });
