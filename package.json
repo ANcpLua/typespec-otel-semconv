@@ -27,6 +27,11 @@
   },
   "devDependencies": {
     "@typespec/compiler": "1.12.0-dev.6",
+    "@typespec/http": "^1.12.0-dev.5",
+    "@typespec/openapi": "^1.12.0-dev.2",
+    "@typespec/openapi3": "^1.12.0-dev.4",
+    "@typespec/rest": "^0.82.0-dev.3",
+    "@typespec/versioning": "^0.82.0-dev.2",
     "yaml": "2.7.0"
   },
   "engines": {
