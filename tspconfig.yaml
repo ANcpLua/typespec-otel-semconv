@@ -1,5 +1,0 @@
-# Self-test config for the library. Real consumers don't need this — they
-# enable the linter through their own tspconfig with `extends:`.
-linter:
-  extends:
-    - "@ancplua/typespec-otel-semconv/recommended"

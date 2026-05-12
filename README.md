@@ -1,145 +1,113 @@
 # @ancplua/typespec-otel-semconv
 
-TypeSpec library mirroring the [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/semantic-conventions) YAML model. Pinned to **v1.41.0**.
+Weaver-based TypeSpec projection of OpenTelemetry semantic-convention attribute keys, pinned to **v1.41.0** of [`open-telemetry/semantic-conventions`](https://github.com/open-telemetry/semantic-conventions).
 
-**Personal sandbox.** Not affiliated with OpenTelemetry. Not a normative source. The upstream YAML model is the only source of truth — this library is a downstream consumer that regenerates from that model.
+**Personal sandbox.** Not affiliated with OpenTelemetry. Not a normative source. The upstream YAML model is the only source of truth — this library is a downstream consumer that regenerates from that model via the official [OpenTelemetry Weaver](https://github.com/open-telemetry/weaver) CLI.
 
-## Why
+## Producer / consumer chain
 
-So that a `.tsp` author writing an HTTP API spec can write
-
-```typespec
-import "@ancplua/typespec-otel-semconv";
-
-namespace MyApi;
-
-model RouteInfo {
-  @encodedName("application/json", OTel.Keys.Http.RequestMethod)
-  method: OTel.Enums.Http.HttpRequestMethod;
-
-  @encodedName("application/json", OTel.Keys.Server.Address)
-  serverAddress: string;
-}
+```
+open-telemetry/semantic-conventions @ v1.41.0     (authoritative upstream YAML model)
+        │
+        │  Weaver v0.23.0  +  templates/registry/typespec/{weaver.yaml, otel-keys.gen.tsp.j2}
+        ▼
+@ancplua/typespec-otel-semconv@1.41.0-N            (this repo — single-file TypeSpec const surface)
+        │
+        │  pinned exact npm dependency
+        ▼
+@o-ancpplua/otel-conventions-api                   (downstream API repo, multi-emitter)
+        │
+        │  generated C#/DuckDB/TS-types/...
+        ▼
+qyl + other consumers                              (instrumentation runtimes)
 ```
 
-instead of stringly-typed `"http.request.method"`. Names, enum values, deprecation flags, and stability levels stay in lockstep with upstream because every release is a clean regen.
+This repo emits exactly one artifact: `lib/otel-keys.gen.tsp` — a single TypeSpec file with one namespace per OTel root group, each declaring `const <Name>: string = "<dotted.key>"`. Downstream models reference these consts inside `@encodedName(...)` instead of hand-typing dotted attribute keys.
 
 ## What you get
 
-### Full coverage of the upstream YAML model
+```tsp
+import "@ancplua/typespec-otel-semconv";
 
-All five OTel group types reach the consumer as typed symbols:
-
-| Group type (upstream) | Library surface | Example |
-|---|---|---|
-| `attribute_group` | `OTel.Keys.<Domain>.<Name>` (alias to attribute key string) | `OTel.Keys.Http.RequestMethod` → `"http.request.method"` |
-| Member-style attribute | `OTel.Enums.<Domain>.<Name>` (typed enum) | `OTel.Enums.Http.HttpRequestMethod.Get` → `"GET"` |
-| `span` | `OTel.Spans.<Domain>.<Name>Span` | `OTel.Spans.Http.ClientSpan` → `"http.client"` |
-| `metric` | `OTel.Metrics.<Domain>.<Name>{Name,Unit,Instrument}` (three aliases per metric) | `…ServerRequestDurationName` / `…Unit` (`"s"`) / `…Instrument` (`"histogram"`) |
-| `event` | `OTel.Events.<Domain>.<Name>Event` | `OTel.Events.Exception.ExceptionEvent` → `"exception"` |
-| `entity` | `OTel.Entities.<Domain>.<Name>Entity` | `OTel.Entities.Service.ServiceEntity` → `"service"` |
-
-Plus `OTel.Schemas.Current` (`"https://opentelemetry.io/schemas/1.41.0"`) and the version-specific alias `OTel.Schemas.V1410`.
-
-### Editor + compiler experience
-
-- **IDE autocomplete** — every symbol resolves through its namespace tree. Any TypeSpec-aware editor (VS Code with the TypeSpec extension, JetBrains via the LSP, Vim with the language server) sees the full structure.
-- **Hover tooltips** — every alias and enum carries a JSDoc comment with the upstream `brief`, the formal stability level (`development`, `alpha`, `beta`, `release_candidate`, `stable`), the `@instrument` / `@unit` / `@spanKind` / `@identifying` tags where applicable, and — for deprecated entries — an actionable `@deprecated` tag like `renamed → client.address` extracted from the upstream `deprecated.renamed_to` field.
-- **Compiler-level deprecation warnings on enum and enum-member references** — TypeSpec's `#deprecated` directive fires for enum-position references, so `OTel.Enums.Http.HttpRequestMethod` (the whole enum) and individual deprecated members produce a build-time warning when used.
-- **Compiler-level deprecation warnings on attribute keys** — _not yet_. Keys are emitted as `alias Name = "foo.bar"` so they satisfy `@encodedName(format, value: valueof string)`. TypeSpec 1.12.0-dev.6 does not fire `#deprecated` for value-position references to string-literal aliases. The directive and the JSDoc `@deprecated` tag are both emitted, so the IDE strikethrough still works today, and the build-time warning starts firing automatically once TypeSpec extends value-position deprecation checking — no library change needed at that point.
-
-### Linter — `prefer-otel-key`
-
-Ships a TypeSpec linter rule that warns when a consumer uses a raw OTel-shaped string in `@encodedName` instead of the typed library symbol. Enable it from your `tspconfig.yaml`:
-
-```yaml
-linter:
-  extends:
-    - "@ancplua/typespec-otel-semconv/recommended"
+@encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.GenAi.System)
+system?: string;
 ```
 
-The rule fires only on raw string literals — `@encodedName("application/json", OTel.Keys.Http.RequestMethod)` is fine because that's an alias reference, while `@encodedName("application/json", "http.request.method")` triggers a warning at the literal's position with a suggested replacement (`OTel.Keys.Http.RequestMethod`).
+Deprecated upstream attributes are emitted with `#deprecated "..."` so models that reference them produce a TypeSpec compiler warning matching upstream's own deprecation notes.
 
-This closes the loop on deprecation: TypeSpec's `#deprecated` directive does not fire on string-literal-alias values today (compiler limitation), but the linter rule names the issue at the source — once a consumer adopts `OTel.Keys.<Domain>.<Name>` they're funneled through the library's deprecation tooltips.
-
-### Tests — Vitest with file snapshots
+## One-time setup
 
 ```bash
-npm test           # run all tests
-npm run test:update   # accept current behavior as the new snapshot
-```
-
-Two tests, both snapshot-style (the JS equivalent of `Verify` in .NET):
-
-- **`test/lint.test.ts`** — runs `tsp compile` against a known-good spec and a known-bad spec, asserts the linter fires *exactly* the expected warnings. No false positives on the good spec, exact count on the bad one.
-- **`test/snapshot.test.ts`** — captures (a) the library's structure shape (file counts per surface, list of domains) and (b) the full `openapi.yaml` produced by running `@typespec/openapi3` over the smoke spec. Snapshot files live under `test/__snapshots__/` and are committed; any drift fails CI with a reviewable diff.
-
-The `__snapshots__/openapi3-smoke.yaml` is the contract that proves the library is emitter-agnostic — every regen of v1.41.0 must produce byte-identical OpenAPI output through `@typespec/openapi3`.
-
-### Emitter-agnostic by construction
-
-The library only contributes `.tsp` source. Every TypeSpec emitter that honours `@encodedName` consumes it transparently — no language-specific code lives here.
-
-Verified against `@typespec/openapi3` (`test/openapi3.tsp`): the consumer's
-`@encodedName("application/json", OTel.Keys.Http.RequestMethod)` lands in the
-generated `openapi.yaml` as the property name `http.request.method`, and the
-default-valued `schema_url` gets `default: https://opentelemetry.io/schemas/1.41.0`.
-The same library passes through `@typespec/http-client-{csharp,java,js,python}`,
-`@typespec/http-server-{csharp,js}`, `@typespec/json-schema`, and any other
-`@typespec/*` emitter the consumer chooses.
-
-## Source-of-truth chain
-
-```
-upstream YAML model (authoritative — open-telemetry/semantic-conventions @ v1.41.0)
-        ↓
-  scripts/generate.mjs
-        ↓
-   lib/**/*.tsp (this library)
-```
-
-One direction. The `.tsp` does not feed back into anything upstream. It is not a normative representation. It is not used to validate Weaver-generated language outputs. It is purely a *consumer-side convenience* for TypeSpec API authors who want OTel attribute names by symbol instead of string.
-
-## Regen
-
-```bash
+git clone https://github.com/ANcpLua/typespec-otel-semconv.git
+cd typespec-otel-semconv
 git submodule update --init .tools/semconv-upstream
 npm install
-npm run generate
-npm run lint    # tsp compile --warn-as-error --no-emit
 ```
 
-`npm run verify-clean` runs the generator and asserts `git diff --exit-code -- lib/` — byte-identity regeneration on a clean checkout is the contract.
+The submodule pins `open-telemetry/semantic-conventions` at commit `e018fe6f` (tag `v1.41.0`).
+
+## Regenerate
+
+```bash
+bash scripts/bootstrap-weaver.sh    # download pinned Weaver v0.23.0 into .tools/weaver/
+bash scripts/run-weaver.sh          # emit lib/otel-keys.gen.tsp
+npm run lint:smoke                  # tsp compile test/smoke.tsp --warn-as-error --no-emit
+npm run verify-clean                # regenerate + assert zero drift (no diff, no untracked)
+npm run test                        # vitest: regen byte-identity + drift checks
+npm run check                       # all of the above
+```
+
+## Nuke targets
+
+Build orchestration is provided by [`Nuke.OpenTelemetry.Conventions`](https://github.com/ANcpLua/Nuke.OpenTelemetry.Conventions) via the `IUpstreamConventions` component interface. The Nuke build is a thin orchestrator over the same shell scripts.
+
+```bash
+./build.sh GenerateOtelKeys                # bootstrap + submodule + run-weaver
+./build.sh VerifyOtelKeysReproducible      # default — generate twice, diff bytewise
+./build.sh VerifyOtelKeysScriptParity      # exercise both bash + powershell bootstrap
+./build.sh VerifyOtelKeysCompile           # npm run lint:smoke
+./build.sh RunSmokeTests                   # npm run test
+./build.sh VerifyClean                     # npm run verify-clean
+./build.sh PackTypeSpecLibrary             # full check chain + npm pack
+./build.sh PublishTypeSpecLibrary          # PackTypeSpecLibrary + npm publish --provenance
+./build.sh --help                          # list every target
+```
+
+The default target (`VerifyOtelKeysReproducible`) chains `RestoreWeaver -> FetchSemconvModel -> GenerateOtelKeys -> diff`.
+
+## Versioning
+
+```
+{semconv-version}-{n}
+```
+
+`semconv-version` is the upstream OpenTelemetry semantic-conventions release without the leading `v` (e.g. `1.41.0`). `n` is a monotonic generator-revision counter — bump it whenever the generator changes shape (template, Weaver version, scripts) but the upstream pin is unchanged. Examples: `1.41.0-1`, `1.41.0-2`, …
+
+When the upstream pin bumps (e.g. to `1.42.0`), the counter resets: `1.42.0-1`.
 
 ## Pinning a different release
 
-This library tracks one upstream release at a time. To bump:
-
-1. `cd .tools/semconv-upstream && git fetch --tags && git checkout v1.42.0`
-2. `cd ../.. && npm run generate`
-3. `npm run lint`
-4. Update `package.json#metadata.semconvVersion`.
-5. Commit `package.json`, the submodule pointer, and the regenerated `lib/`.
+```bash
+cd .tools/semconv-upstream
+git fetch --tags
+git checkout v1.42.0                       # for example
+cd ../..
+# update templates/registry/typespec/weaver.yaml: semconv_version, schema_url, schema_version
+npm run generate
+npm run check
+# bump package.json version → 1.42.0-1
+```
 
 ## Scope
 
-| In scope | Out of scope |
-|---|---|
-| `attribute_group`, `span`, `metric`, `event`, `entity` group types | Hand-edited overrides on top of generated output |
-| All `model/**/*.yaml` AND `model/**/*.yml` | Custom semconv registries (no federation) |
-| Recursive nested directories incl. `deprecated/` subtrees | OTel SDK runtime constants (use upstream Weaver `csharp_*` templates) |
-| Enum-like `members`, deprecation reasons + `renamed_to` migration targets, stability | Validating SDK output |
-| Span kind, metric instrument + unit, event name, entity identifying refs | Conditional `requirement_level` enforcement |
-| Schema URL constants | OpenTelemetry contribution (this is personal) |
-
-## Stats — v1.41.0
-
-```
-935 groups   925 attributes   70 spans   529 metrics   31 events   63 entities
-       ↓
-90 key files + 53 enum files + 15 spans + 29 metrics + 14 events + 24 entities + main + schema
-```
+| In scope                                                          | Out of scope                                                 |
+|-------------------------------------------------------------------|--------------------------------------------------------------|
+| `attribute_group` keys for the upstream root namespaces           | Hand-edited overrides on top of generated output             |
+| Recursive `model/**/*.{yaml,yml}` (incl. `graphql/spans.yml`)     | Custom semconv registries (no federation)                    |
+| Deprecation reasons + `renamed_to` migration targets              | `span` / `metric` / `event` / `entity` group surfaces        |
+| Byte-reproducible regeneration                                    | Validating downstream SDK output                             |
+| Bash↔PowerShell script parity                                    | OpenTelemetry contribution (this is personal)                |
 
 ## License
 
-MIT.
+Apache-2.0. Generated content inherits the license of the upstream OpenTelemetry semantic-conventions YAML model.

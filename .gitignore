@@ -3,3 +3,10 @@ dist/
 *.tsbuildinfo
 .DS_Store
 .tools/weaver/
+.tools/staging/
+
+# Nuke build
+.nuke/temp/
+.nuke/build.schema.json
+build/bin/
+build/obj/
