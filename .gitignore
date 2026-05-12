@@ -7,5 +7,6 @@ dist/
 
 # Nuke build
 .nuke/temp/
+.nuke/build.schema.json
 build/bin/
 build/obj/
