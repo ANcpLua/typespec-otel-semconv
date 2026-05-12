@@ -1,0 +1,93 @@
+name: Publish to GitHub Packages
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'npm dist-tag (alphanumerics, dot, underscore, hyphen). Leave blank to auto-pick (latest for stable releases, next for prereleases).'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+  packages: write     # required to publish to GitHub Packages
+  id-token: write     # required for npm provenance attestations
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: github-packages
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          # GitHub Packages npm registry — scope @ancplua matches this repo's
+          # GitHub org. Auth uses GITHUB_TOKEN below; no NPM secret needs to
+          # live in repo settings.
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@ancplua'
+          always-auth: true
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Verify package.json is not private
+        run: |
+          if [ "$(node -p "require('./package.json').private || false")" = "true" ]; then
+            echo "::error::package.json has \"private\": true — refusing to publish."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Bootstrap Weaver
+        run: bash scripts/bootstrap-weaver.sh
+
+      - name: Regenerate keys and verify clean
+        run: npm run verify-clean
+
+      - name: Lint smoke
+        run: npm run lint:smoke
+
+      - name: Vitest
+        run: npm run test
+
+      - name: Resolve npm dist-tag
+        shell: bash
+        env:
+          DISPATCH_TAG: ${{ inputs.tag }}
+          IS_PRERELEASE: ${{ github.event.release.prerelease }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ -n "$DISPATCH_TAG" ]; then
+            dist_tag="$DISPATCH_TAG"
+          elif [ "$IS_PRERELEASE" = "true" ]; then
+            dist_tag="next"
+          else
+            dist_tag="latest"
+          fi
+          if ! [[ "$dist_tag" =~ ^[A-Za-z0-9._-]+$ ]]; then
+            echo "::error::Invalid npm dist-tag: $dist_tag (must match ^[A-Za-z0-9._-]+$)"
+            exit 1
+          fi
+          echo "NPM_DIST_TAG=$dist_tag" >> "$GITHUB_ENV"
+          echo "Resolved dist-tag: $dist_tag"
+
+      - name: Publish to GitHub Packages with provenance
+        run: npm publish --access public --provenance --tag "$NPM_DIST_TAG"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_CONFIG_PROVENANCE: 'true'

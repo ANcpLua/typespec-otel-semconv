@@ -1,0 +1,109 @@
+# Weaver template config for the @ancplua/typespec-otel-semconv TypeSpec semconv bridge.
+# Emits a single lib/otel-keys.gen.tsp file with one
+# namespace per OTel root group, each declaring `const <Name>: string = "<key>"`.
+# Downstream TypeSpec models then reference these consts inside @encodedName(...) instead
+# of hand-typing the dotted key strings.
+#
+# Stability filter: this bridge mirrors what downstream models actually use, which is
+# any attribute regardless of stability. The include_prefixes list governs
+# which OTel root namespaces are included; everything else is dropped.
+#
+# Discovered invariants (do not change without re-testing):
+#   - semconv_grouped_attributes returns one synthetic group per root_namespace.
+#   - application_mode: single → one file, ctx is the full group list.
+#   - Filter the prefix list in-template; weaver does not provide a YAML-level
+#     prefix filter for application_mode: single.
+#   - Attribute names like `db.client.connection.pool.name` need to be reduced
+#     to a TypeSpec-safe identifier: strip root prefix, replace `.` with `_`,
+#     then PascalCase.
+
+whitespace_control:
+  trim_blocks: true
+  lstrip_blocks: true
+  keep_trailing_newline: true
+
+params:
+  semconv_version: "1.41.0"
+  schema_url: "https://opentelemetry.io/schemas/1.41.0"
+  schema_version: "1.41.0"
+
+  # Root namespace for the generated TypeSpec consts. Each OTel root_namespace
+  # becomes a sub-namespace, e.g. `ANcpLua.OtelConventions.OTel.Keys.GenAi.System = "gen_ai.system"`.
+  # Matches the namespace shape consumed by ANcpLua.OtelConventions.Api.
+  root_namespace: "ANcpLua.OtelConventions.OTel.Keys"
+
+  # OTel root namespaces to surface. Kept identical to the downstream consumer's
+  # expected set so the generated file is byte-stable across the producer/consumer chain.
+  include_prefixes:
+    # AI
+    - gen_ai
+    - code
+    # Transport
+    - http
+    - rpc
+    - messaging
+    - url
+    - user_agent
+    - signalr
+    - kestrel
+    # Data
+    - db
+    - file
+    - vcs
+    - artifact
+    - elasticsearch
+    # Infra
+    - cloud
+    - container
+    - k8s
+    - host
+    - os
+    - faas
+    - webengine
+    # Security
+    - network
+    - tls
+    - dns
+    - destination
+    - source
+    # Runtime
+    - process
+    - thread
+    - system
+    - dotnet
+    - aspnetcore
+    # Identity
+    - user
+    - enduser
+    - geo
+    - client
+    - server
+    - service
+    - telemetry
+    # Observe
+    - app
+    - browser
+    - session
+    - exception
+    - error
+    - log
+    - feature_flag
+    - otel
+    - test
+    # Profiling
+    - profile
+    - pprof
+    # Ops
+    - cicd
+    - deployment
+    # Vendor
+    - openai
+    - azure
+    - oracle
+    - oracle_cloud
+
+templates:
+  - template: otel-keys.gen.tsp.j2
+    filter: semconv_grouped_attributes
+    application_mode: single
+    file_name: "otel-keys.gen.tsp"

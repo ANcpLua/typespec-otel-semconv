@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Install npm deps
+        run: npm ci || npm install
+
+      - name: Bootstrap Weaver
+        run: bash scripts/bootstrap-weaver.sh
+
+      - name: Generate keys
+        run: bash scripts/run-weaver.sh
+
+      - name: Verify clean (regen + diff + untracked check)
+        run: npm run verify-clean
+
+      - name: Lint smoke (tsp compile)
+        run: npm run lint:smoke
+
+      - name: Vitest
+        run: npm run test
+
+      - name: Staging-dir guard regression test
+        run: bash test/staging-dir-guard.test.sh
+
+      - name: Nuke build (compile)
+        run: dotnet build build/_build.csproj -c Release
+
+      - name: Nuke VerifyOtelKeysReproducible
+        run: ./build.sh VerifyOtelKeysReproducible
