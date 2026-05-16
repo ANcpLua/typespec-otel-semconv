@@ -90,13 +90,6 @@ reviews:
   poem: false
   enable_prompt_for_ai_agents: true
   path_filters:
-  - "!**/*.g.cs"
-  - "!**/*.g.ts"
-  - "!**/*.g.sql"
-  - "!**/*.g.tsp"
-  - "!**/*.Designer.cs"
-  - "!**/Generated/**"
-  - "!**/generated/**"
   - "!**/bin/**"
   - "!**/obj/**"
   - "!**/dist/**"
@@ -107,15 +100,62 @@ reviews:
   - "!**/.next/**"
   - "!**/*.min.js"
   - "!**/*.min.css"
-  - "!**/package-lock.json"
-  - "!**/pnpm-lock.yaml"
-  - "!**/yarn.lock"
   - "!Artifacts/**"
   - "!artifacts/**"
   - "!**/*.sarif"
   - "!**/*.trx"
   path_instructions:
-  - path: "**/*.{cs,csproj,props,targets,sln,slnx}"
+  - path: "**/*.cs"
+    instructions: C#/.NET review. Treat warnings, nullable annotations, async flow,
+      package boundaries, and generated code as correctness concerns. Flag sync-over-async
+      (`.Result`, `.Wait()`, `.GetAwaiter().GetResult()`), fire-and-forget work without
+      lifecycle/error handling, missing CancellationToken on public/internal async
+      methods, `DateTime.Now`/`UtcNow` in domain logic instead of TimeProvider, null-forgiving
+      `!` without a documented proof, catch-and-fallback paths that hide failures,
+      and service registration drift. Prefer data-driven, composable code over hardcoded
+      switch/case tables. Public package/API surface changes need XML docs and explicit
+      compatibility notes.
+  - path: "**/*.csproj"
+    instructions: C#/.NET review. Treat warnings, nullable annotations, async flow,
+      package boundaries, and generated code as correctness concerns. Flag sync-over-async
+      (`.Result`, `.Wait()`, `.GetAwaiter().GetResult()`), fire-and-forget work without
+      lifecycle/error handling, missing CancellationToken on public/internal async
+      methods, `DateTime.Now`/`UtcNow` in domain logic instead of TimeProvider, null-forgiving
+      `!` without a documented proof, catch-and-fallback paths that hide failures,
+      and service registration drift. Prefer data-driven, composable code over hardcoded
+      switch/case tables. Public package/API surface changes need XML docs and explicit
+      compatibility notes.
+  - path: "**/*.props"
+    instructions: C#/.NET review. Treat warnings, nullable annotations, async flow,
+      package boundaries, and generated code as correctness concerns. Flag sync-over-async
+      (`.Result`, `.Wait()`, `.GetAwaiter().GetResult()`), fire-and-forget work without
+      lifecycle/error handling, missing CancellationToken on public/internal async
+      methods, `DateTime.Now`/`UtcNow` in domain logic instead of TimeProvider, null-forgiving
+      `!` without a documented proof, catch-and-fallback paths that hide failures,
+      and service registration drift. Prefer data-driven, composable code over hardcoded
+      switch/case tables. Public package/API surface changes need XML docs and explicit
+      compatibility notes.
+  - path: "**/*.targets"
+    instructions: C#/.NET review. Treat warnings, nullable annotations, async flow,
+      package boundaries, and generated code as correctness concerns. Flag sync-over-async
+      (`.Result`, `.Wait()`, `.GetAwaiter().GetResult()`), fire-and-forget work without
+      lifecycle/error handling, missing CancellationToken on public/internal async
+      methods, `DateTime.Now`/`UtcNow` in domain logic instead of TimeProvider, null-forgiving
+      `!` without a documented proof, catch-and-fallback paths that hide failures,
+      and service registration drift. Prefer data-driven, composable code over hardcoded
+      switch/case tables. Public package/API surface changes need XML docs and explicit
+      compatibility notes.
+  - path: "**/*.sln"
+    instructions: C#/.NET review. Treat warnings, nullable annotations, async flow,
+      package boundaries, and generated code as correctness concerns. Flag sync-over-async
+      (`.Result`, `.Wait()`, `.GetAwaiter().GetResult()`), fire-and-forget work without
+      lifecycle/error handling, missing CancellationToken on public/internal async
+      methods, `DateTime.Now`/`UtcNow` in domain logic instead of TimeProvider, null-forgiving
+      `!` without a documented proof, catch-and-fallback paths that hide failures,
+      and service registration drift. Prefer data-driven, composable code over hardcoded
+      switch/case tables. Public package/API surface changes need XML docs and explicit
+      compatibility notes.
+  - path: "**/*.slnx"
     instructions: C#/.NET review. Treat warnings, nullable annotations, async flow,
       package boundaries, and generated code as correctness concerns. Flag sync-over-async
       (`.Result`, `.Wait()`, `.GetAwaiter().GetResult()`), fire-and-forget work without
@@ -132,14 +172,89 @@ reviews:
       are threaded; mocks are strict where the repo convention expects strictness;
       and new behavior has focused regression coverage. Do not accept weakening or
       deleting truthful tests to make a PR pass."
-  - path: "**/*.{ts,tsx,js,jsx,mjs,cjs,json}"
+  - path: "**/*.ts"
     instructions: TypeScript/JavaScript review. Flag `any` without a narrow justification,
       unsafe casts, stale hook dependencies, direct network calls that bypass shared
       clients, client/server contract drift, swallowed promise rejections, accessibility
       regressions, missing loading/error states, bundle-heavy dependencies, and package-script
       drift. Generated clients or schemas must be regenerated from the source contract;
       do not hand-edit generated output.
-  - path: "**/*.{spec,test}.{ts,tsx,js,jsx}"
+  - path: "**/*.tsx"
+    instructions: TypeScript/JavaScript review. Flag `any` without a narrow justification,
+      unsafe casts, stale hook dependencies, direct network calls that bypass shared
+      clients, client/server contract drift, swallowed promise rejections, accessibility
+      regressions, missing loading/error states, bundle-heavy dependencies, and package-script
+      drift. Generated clients or schemas must be regenerated from the source contract;
+      do not hand-edit generated output.
+  - path: "**/*.js"
+    instructions: TypeScript/JavaScript review. Flag `any` without a narrow justification,
+      unsafe casts, stale hook dependencies, direct network calls that bypass shared
+      clients, client/server contract drift, swallowed promise rejections, accessibility
+      regressions, missing loading/error states, bundle-heavy dependencies, and package-script
+      drift. Generated clients or schemas must be regenerated from the source contract;
+      do not hand-edit generated output.
+  - path: "**/*.jsx"
+    instructions: TypeScript/JavaScript review. Flag `any` without a narrow justification,
+      unsafe casts, stale hook dependencies, direct network calls that bypass shared
+      clients, client/server contract drift, swallowed promise rejections, accessibility
+      regressions, missing loading/error states, bundle-heavy dependencies, and package-script
+      drift. Generated clients or schemas must be regenerated from the source contract;
+      do not hand-edit generated output.
+  - path: "**/*.mjs"
+    instructions: TypeScript/JavaScript review. Flag `any` without a narrow justification,
+      unsafe casts, stale hook dependencies, direct network calls that bypass shared
+      clients, client/server contract drift, swallowed promise rejections, accessibility
+      regressions, missing loading/error states, bundle-heavy dependencies, and package-script
+      drift. Generated clients or schemas must be regenerated from the source contract;
+      do not hand-edit generated output.
+  - path: "**/*.cjs"
+    instructions: TypeScript/JavaScript review. Flag `any` without a narrow justification,
+      unsafe casts, stale hook dependencies, direct network calls that bypass shared
+      clients, client/server contract drift, swallowed promise rejections, accessibility
+      regressions, missing loading/error states, bundle-heavy dependencies, and package-script
+      drift. Generated clients or schemas must be regenerated from the source contract;
+      do not hand-edit generated output.
+  - path: "**/*.json"
+    instructions: JSON review. Validate well-formed JSON, schema/manifest contract
+      drift, required fields, dependency version changes, package/tsconfig/tooling
+      semantics, and generated-output provenance. Do not apply TypeScript runtime
+      or hook guidance to plain JSON files.
+  - path: "**/*.spec.ts"
+    instructions: Frontend tests. Prefer user-visible assertions by role/text/state,
+      not implementation selectors. Avoid fixed sleeps and brittle snapshots. Validate
+      unhappy paths, loading states, and accessibility-critical behavior when UI logic
+      changes.
+  - path: "**/*.spec.tsx"
+    instructions: Frontend tests. Prefer user-visible assertions by role/text/state,
+      not implementation selectors. Avoid fixed sleeps and brittle snapshots. Validate
+      unhappy paths, loading states, and accessibility-critical behavior when UI logic
+      changes.
+  - path: "**/*.spec.js"
+    instructions: Frontend tests. Prefer user-visible assertions by role/text/state,
+      not implementation selectors. Avoid fixed sleeps and brittle snapshots. Validate
+      unhappy paths, loading states, and accessibility-critical behavior when UI logic
+      changes.
+  - path: "**/*.spec.jsx"
+    instructions: Frontend tests. Prefer user-visible assertions by role/text/state,
+      not implementation selectors. Avoid fixed sleeps and brittle snapshots. Validate
+      unhappy paths, loading states, and accessibility-critical behavior when UI logic
+      changes.
+  - path: "**/*.test.ts"
+    instructions: Frontend tests. Prefer user-visible assertions by role/text/state,
+      not implementation selectors. Avoid fixed sleeps and brittle snapshots. Validate
+      unhappy paths, loading states, and accessibility-critical behavior when UI logic
+      changes.
+  - path: "**/*.test.tsx"
+    instructions: Frontend tests. Prefer user-visible assertions by role/text/state,
+      not implementation selectors. Avoid fixed sleeps and brittle snapshots. Validate
+      unhappy paths, loading states, and accessibility-critical behavior when UI logic
+      changes.
+  - path: "**/*.test.js"
+    instructions: Frontend tests. Prefer user-visible assertions by role/text/state,
+      not implementation selectors. Avoid fixed sleeps and brittle snapshots. Validate
+      unhappy paths, loading states, and accessibility-critical behavior when UI logic
+      changes.
+  - path: "**/*.test.jsx"
     instructions: Frontend tests. Prefer user-visible assertions by role/text/state,
       not implementation selectors. Avoid fixed sleeps and brittle snapshots. Validate
       unhappy paths, loading states, and accessibility-critical behavior when UI logic
@@ -151,21 +266,72 @@ reviews:
       keep required and non-blocking jobs clear; preserve tokenless OIDC upload patterns
       where used; and flag any admin-bypass, force-push, destructive cleanup, or auto-merge
       behavior that can mask a failed required check.
-  - path: "**/*.{md,mdx}"
+  - path: "**/*.md"
     instructions: 'Documentation review. Treat docs as executable team memory: flag
       instructions that disagree with actual scripts, package versions, branch protection,
       generated-file workflows, or repo layout. Keep AGENTS.md/CLAUDE.md rules coherent
       with automation. Do not request cosmetic prose changes unless ambiguity would
       mislead an agent or maintainer.'
-  - path: "**/*.{g.cs,g.ts,g.sql,g.tsp,Designer.cs,generated.*,snap}"
+  - path: "**/*.mdx"
+    instructions: 'Documentation review. Treat docs as executable team memory: flag
+      instructions that disagree with actual scripts, package versions, branch protection,
+      generated-file workflows, or repo layout. Keep AGENTS.md/CLAUDE.md rules coherent
+      with automation. Do not request cosmetic prose changes unless ambiguity would
+      mislead an agent or maintainer.'
+  - path: "**/*.g.cs"
     instructions: Generated-output discipline. Do not suggest hand-editing generated
       files. If generated output is wrong or missing, identify the generator/source
       input and require regeneration in the same PR. If source model changes without
       matching generated artifacts, flag it.
-  - path: "**/*.{yaml,yml,tsp,json}"
-    instructions: OpenTelemetry/TypeSpec convention models. Validate schema shape,
-      stability names, attribute reuse, generated-output consistency, and that changes
-      regenerate all emitted C#/TS/docs artifacts through the documented generator.
+  - path: "**/*.g.ts"
+    instructions: Generated-output discipline. Do not suggest hand-editing generated
+      files. If generated output is wrong or missing, identify the generator/source
+      input and require regeneration in the same PR. If source model changes without
+      matching generated artifacts, flag it.
+  - path: "**/*.g.sql"
+    instructions: Generated-output discipline. Do not suggest hand-editing generated
+      files. If generated output is wrong or missing, identify the generator/source
+      input and require regeneration in the same PR. If source model changes without
+      matching generated artifacts, flag it.
+  - path: "**/*.g.tsp"
+    instructions: Generated-output discipline. Do not suggest hand-editing generated
+      files. If generated output is wrong or missing, identify the generator/source
+      input and require regeneration in the same PR. If source model changes without
+      matching generated artifacts, flag it.
+  - path: "**/*.Designer.cs"
+    instructions: Generated-output discipline. Do not suggest hand-editing generated
+      files. If generated output is wrong or missing, identify the generator/source
+      input and require regeneration in the same PR. If source model changes without
+      matching generated artifacts, flag it.
+  - path: "**/*.generated.*"
+    instructions: Generated-output discipline. Do not suggest hand-editing generated
+      files. If generated output is wrong or missing, identify the generator/source
+      input and require regeneration in the same PR. If source model changes without
+      matching generated artifacts, flag it.
+  - path: "**/*.snap"
+    instructions: Generated-output discipline. Do not suggest hand-editing generated
+      files. If generated output is wrong or missing, identify the generator/source
+      input and require regeneration in the same PR. If source model changes without
+      matching generated artifacts, flag it.
+  - path: "**/semconv/**/*.yaml"
+    instructions: OpenTelemetry semantic-convention YAML. Validate schema shape, stability
+      names, attribute reuse, generated-output consistency, and regenerated downstream
+      artifacts.
+  - path: "**/semconv/**/*.yml"
+    instructions: OpenTelemetry semantic-convention YAML. Validate schema shape, stability
+      names, attribute reuse, generated-output consistency, and regenerated downstream
+      artifacts.
+  - path: "**/model/**/*.yaml"
+    instructions: OpenTelemetry semantic-convention model YAML. Validate schema shape,
+      stability names, attribute reuse, generated-output consistency, and regenerated
+      downstream artifacts.
+  - path: "**/models/**/*.yaml"
+    instructions: OpenTelemetry semantic-convention model YAML. Validate schema shape,
+      stability names, attribute reuse, generated-output consistency, and regenerated
+      downstream artifacts.
+  - path: "**/*.tsp"
+    instructions: TypeSpec contracts. Validate API/schema contract drift, generated-output
+      consistency, and documented generator usage.
   - path: Pipeline/**
     instructions: NUKE generation/release pipeline. Keep fluent C# targets, typed
       parameters, no raw shell, and generator outputs reproducible.
@@ -267,11 +433,13 @@ reviews:
         repo uses one.'
     - mode: error
       name: CI Release Safety
-      instructions: 'Pass/fail criteria: fail workflow/build/release changes that
-        reduce required validation, introduce admin bypasses, broaden token permissions
-        without justification, leak secrets, remove concurrency where needed, make
-        publish steps run on the wrong trigger, or allow failed required checks to
-        be ignored.'
+      instructions: 'Pass/fail criteria: if no workflow/build/release files changed,
+        pass. Fail when a changed workflow removes an existing validation job, removes
+        concurrency from push/PR workflows, adds --admin/force-push/bypass commands,
+        increases token permissions beyond contents:read without inline rationale,
+        exposes secrets in command arguments/logs, changes publish triggers to run
+        outside tags or approved environments, or allows a previously required failing
+        check to be ignored.'
     - mode: warning
       name: Tests Match Risk
       instructions: 'Pass/fail criteria: warn when production behavior changes without
@@ -317,7 +485,7 @@ reviews:
       timeout_ms: 900000
     languagetool:
       enabled: true
-      level: picky
+      level: default
     biome:
       enabled: true
     hadolint:
@@ -448,7 +616,7 @@ knowledge_base:
   pull_requests:
     scope: global
   mcp:
-    usage: enabled
+    usage: auto
   linked_repositories:
   - repository: ANcpLua/ANcpLua.Agents
     instructions: Related ANcpLua/O-ANcppLua repository. Use for cross-repo API, package,
@@ -509,7 +677,11 @@ code_generation:
       instructions: Generate XML docs for public/protected APIs and package surfaces.
         Document intent, contracts, cancellation, exceptions, and compatibility. Do
         not add obvious comments to private implementation details.
-    - path: "**/*.{ts,tsx}"
+    - path: "**/*.ts"
+      instructions: Generate concise TSDoc only for exported APIs, hooks, reusable
+        components, schemas, and non-obvious utility behavior. Avoid restating prop
+        names.
+    - path: "**/*.tsx"
       instructions: Generate concise TSDoc only for exported APIs, hooks, reusable
         components, schemas, and non-obvious utility behavior. Avoid restating prop
         names.
@@ -519,7 +691,10 @@ code_generation:
       instructions: Use the repo test stack (xUnit v3/Microsoft Testing Platform where
         present). Prefer focused unit tests plus integration tests for persistence,
         queues, external clients, and generated contracts. Avoid sleeps; use fakes/signals.
-    - path: "**/*.{ts,tsx}"
+    - path: "**/*.ts"
+      instructions: Use the repo frontend test stack. Assert user-visible behavior
+        and accessible roles/states. Avoid waitForTimeout and brittle snapshots.
+    - path: "**/*.tsx"
       instructions: Use the repo frontend test stack. Assert user-visible behavior
         and accessible roles/states. Avoid waitForTimeout and brittle snapshots.
     - path: "**/*.py"
@@ -540,37 +715,21 @@ issue_enrichment:
       - help-wanted
   labeling:
     labeling_instructions:
-    - label: area:api
-      instructions: Apply when REST, RPC, MCP, public endpoints, contracts, or request/response
-        models change.
-    - label: area:ui
-      instructions: Apply when frontend UI, styling, accessibility, or client-side
-        state changes.
-    - label: area:build
-      instructions: Apply when build scripts, NUKE/MSBuild, package managers, Docker,
-        CI, or release automation change.
-    - label: area:test
-      instructions: Apply when tests, fixtures, test infrastructure, coverage, or
-        snapshots change.
-    - label: area:docs
-      instructions: Apply when docs, AGENTS.md, CLAUDE.md, README, changelogs, specs,
-        or generated reference docs change.
-    - label: area:security
-      instructions: Apply when authentication, authorization, secrets, token handling,
-        logging of sensitive data, or dependency security changes.
-    - label: area:data
-      instructions: Apply when database schema, persistence, migrations, queues, storage,
-        serialization, generated data, or data contracts change.
-    - label: area:agents
-      instructions: Apply when agent prompts, MCP tools, AI workflow code, model calls,
-        tool schemas, or agent-facing instructions change.
-    - label: area:generated
-      instructions: Apply when generated files, generators, schemas, OpenAPI/TypeSpec/semconv
-        models, lockfiles, or generated docs change.
-    - label: breaking
-      instructions: Apply when public APIs, CLI flags, package surfaces, endpoint
-        schemas, storage formats, config keys, or emitted artifacts change incompatibly.
-    - label: review:slop
-      instructions: Auto-applied by CodeRabbit slop detection for low-quality AI-generated
-        changes. Do not apply manually.
+    - label: bug
+      instructions: Apply when the issue reports incorrect behavior, failing tests,
+        regressions, or broken automation.
+    - label: enhancement
+      instructions: Apply when the issue asks for new capability or meaningful improvement.
+    - label: documentation
+      instructions: Apply when the issue is primarily about docs, examples, guides,
+        or agent instructions.
+    - label: security
+      instructions: Apply when the issue involves secrets, auth, privacy, dependency
+        risk, or exploitability.
+    - label: dependencies
+      instructions: Apply when the issue is about package, SDK, runtime, or lockfile
+        updates.
+    - label: good-first-issue
+      instructions: Apply only when the issue is small, well-scoped, and low-risk
+        for a new contributor or agent.
     auto_apply_labels: true
