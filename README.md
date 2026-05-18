@@ -24,6 +24,10 @@ qyl + other consumers                              (instrumentation runtimes)
 
 This repo emits exactly one artifact: `lib/otel-keys.gen.tsp` — a single TypeSpec file with one namespace per OTel root group, each declaring `const <Name>: string = "<dotted.key>"`. Downstream models reference these consts inside `@encodedName(...)` instead of hand-typing dotted attribute keys.
 
+## See also
+
+- [`ANcpLua/semconv-testbed`](https://github.com/ANcpLua/semconv-testbed) — **C# counterpart.** Same pinned semconv `v1.41.0` + Weaver `v0.23.0`, different templates → emits C# attribute classes targeted at [`opentelemetry-dotnet-contrib#4362`](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/pull/4362) (Stable/Incubating split). Runs the byte-identity reproducibility gate plus a multi-target test matrix (net8.0 + net10.0) locally before push. The two repos share an upstream pin but emit independent language surfaces — no dependency between them.
+
 ## What you get
 
 ```tsp
