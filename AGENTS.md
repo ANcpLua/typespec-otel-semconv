@@ -29,7 +29,7 @@ build.sh / build.cmd                  standard Nuke bootstrap
 
 ## Nuke component
 
-The build implements `IUpstreamConventions` from `Nuke.OpenTelemetry.Conventions` (which is locally built and resolved via `build/NuGet.config` pointing at `~/RiderProjects/Nuke.OpenTelemetry.Conventions/src/Nuke.OpenTelemetry.Conventions/bin/Release/`). The interface ships declaration-only stubs; concrete bodies live in `build/Build.cs` and overwhelmingly shell out to the same `scripts/*.sh` callers can run by hand. Don't put logic in Build.cs that can't also be reproduced from the command line — the scripts are the canonical pipeline.
+The build implements `IUpstreamConventions` from `ANcpLua.OpenTelemetry.Conventions.Nuke` (published to nuget.org from O-ANcppLua/ANcpLua.OpenTelemetry.Conventions.Nuke). The interface ships declaration-only stubs; concrete bodies live in `build/Build.cs` and overwhelmingly shell out to the same `scripts/*.sh` callers can run by hand. Don't put logic in Build.cs that can't also be reproduced from the command line — the scripts are the canonical pipeline.
 
 ## Source-of-truth boundary
 

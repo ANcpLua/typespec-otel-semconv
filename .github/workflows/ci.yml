@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: read
-  packages: read     # required to restore Nuke.OpenTelemetry.Conventions from GitHub Packages NuGet
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
@@ -16,11 +15,6 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    env:
-      # build/NuGet.config has the org GitHub Packages NuGet feed as a packageSource
-      # and reads these env vars in its <packageSourceCredentials> section.
-      GITHUB_ACTOR: ${{ github.actor }}
-      GITHUB_PACKAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v6
         with:

@@ -5,14 +5,14 @@ using Nuke.Common;
 using Nuke.Common.IO;
 using Nuke.Common.Tooling;
 using Nuke.Common.Utilities;
-using Nuke.OpenTelemetry.Conventions;
+using ANcpLua.OpenTelemetry.Conventions.Nuke;
 using Serilog;
 
 /// <summary>
 /// Concrete Nuke build for <c>@ancplua/typespec-otel-semconv</c>.
 ///
 /// Implements <see cref="IUpstreamConventions"/> from the
-/// <c>Nuke.OpenTelemetry.Conventions</c> shared component package by shelling
+/// <c>ANcpLua.OpenTelemetry.Conventions.Nuke</c> shared component package by shelling
 /// out to the Bash/PowerShell pipeline scripts (<c>scripts/bootstrap-weaver.{sh,ps1}</c>
 /// and <c>scripts/run-weaver.sh</c>). Keeping the work in the scripts means
 /// Build.cs stays a thin orchestrator that the maintainer-facing pipeline can

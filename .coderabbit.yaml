@@ -645,7 +645,7 @@ knowledge_base:
   - repository: ANcpLua/ErrorOrX
     instructions: Related ANcpLua/O-ANcppLua repository. Use for cross-repo API, package,
       build, telemetry, and agent workflow context when reviewing changes.
-  - repository: O-ANcppLua/Nuke.OpenTelemetry.Conventions
+  - repository: O-ANcppLua/ANcpLua.OpenTelemetry.Conventions.Nuke
     instructions: Related ANcpLua/O-ANcppLua repository. Use for cross-repo API, package,
       build, telemetry, and agent workflow context when reviewing changes.
   - repository: ANcpLua/Paperless

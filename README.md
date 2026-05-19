@@ -63,7 +63,7 @@ npm run check                       # all of the above
 
 ## Nuke targets
 
-Build orchestration is provided by [`Nuke.OpenTelemetry.Conventions`](https://github.com/ANcpLua/Nuke.OpenTelemetry.Conventions) via the `IUpstreamConventions` component interface. The Nuke build is a thin orchestrator over the same shell scripts.
+Build orchestration is provided by [`ANcpLua.OpenTelemetry.Conventions.Nuke`](https://github.com/O-ANcppLua/ANcpLua.OpenTelemetry.Conventions.Nuke) via the `IUpstreamConventions` component interface. The Nuke build is a thin orchestrator over the same shell scripts.
 
 ```bash
 ./build.sh GenerateOtelKeys                # bootstrap + submodule + run-weaver

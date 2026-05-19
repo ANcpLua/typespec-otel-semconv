@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="Nuke.Common" Version="10.1.0" />
-    <PackageReference Include="Nuke.OpenTelemetry.Conventions" Version="0.1.0" />
+    <PackageReference Include="ANcpLua.OpenTelemetry.Conventions.Nuke" Version="0.1.0" />
     <!--
       Transitive security overrides. Nuke.Common 10.1.0 pulls vulnerable
       transitive versions of these packages; the override pins point at
