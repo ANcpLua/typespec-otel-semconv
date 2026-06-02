@@ -15,7 +15,7 @@ open-telemetry/semantic-conventions @ v1.41.0     (authoritative upstream YAML m
         │
         │  pinned exact npm dependency
         ▼
-@o-ancpplua/otel-conventions-api                   (downstream API repo, multi-emitter)
+@o-ancpplua/qyl-api-schema                   (downstream API repo, multi-emitter)
         │
         │  generated C#/DuckDB/TS-types/...
         ▼
@@ -33,7 +33,7 @@ This repo emits exactly one artifact: `lib/otel-keys.gen.tsp` — a single TypeS
 ```tsp
 import "@ancplua/typespec-otel-semconv";
 
-@encodedName("application/json", ANcpLua.OtelConventions.OTel.Keys.GenAi.System)
+@encodedName("application/json", ANcpLua.OpenTelemetry.SemanticConventions.Keys.GenAi.System)
 system?: string;
 ```
 

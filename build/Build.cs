@@ -38,7 +38,7 @@ sealed class Build : NukeBuild, IUpstreamConventions
     /// <remarks>
     /// Override the default <c>lib/otel-keys.tsp</c> from the interface to match
     /// the file name the run-weaver.sh pipeline writes (<c>lib/otel-keys.gen.tsp</c>),
-    /// which is also the name consumed downstream by ANcpLua.OtelConventions.Api.
+    /// which is also the name consumed downstream by qyl-api-schema.
     /// </remarks>
     AbsolutePath IUpstreamConventions.OtelKeysOutput =>
         AsNuke.TryGetValue(() => ((IUpstreamConventions)this).OtelKeysOutput)

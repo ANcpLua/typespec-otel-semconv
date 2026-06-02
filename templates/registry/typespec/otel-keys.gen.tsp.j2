@@ -3,16 +3,16 @@
 
   Target: lib/otel-keys.gen.tsp
   Shape:  one namespace per OTel root_namespace, each declaring `const <Name>: string = "<dotted.key>"`.
-  Consumed by downstream `.tsp` models via @encodedName(..., ANcpLua.OtelConventions.OTel.Keys.<Domain>.<Name>).
+  Consumed by downstream `.tsp` models via @encodedName(..., ANcpLua.OpenTelemetry.SemanticConventions.Keys.<Domain>.<Name>).
 
   Identifier rule:
     1. Strip the root prefix (e.g. "db.client.connection.pool.name" -> "client.connection.pool.name").
     2. Replace "." with "_".
     3. PascalCase.
     Examples:
-      gen_ai.system                    -> ANcpLua.OtelConventions.OTel.Keys.GenAi.System            = "gen_ai.system"
-      gen_ai.usage.input_tokens        -> ANcpLua.OtelConventions.OTel.Keys.GenAi.UsageInputTokens  = "gen_ai.usage.input_tokens"
-      db.client.connection.pool.name   -> ANcpLua.OtelConventions.OTel.Keys.Db.ClientConnectionPoolName
+      gen_ai.system                    -> ANcpLua.OpenTelemetry.SemanticConventions.Keys.GenAi.System            = "gen_ai.system"
+      gen_ai.usage.input_tokens        -> ANcpLua.OpenTelemetry.SemanticConventions.Keys.GenAi.UsageInputTokens  = "gen_ai.usage.input_tokens"
+      db.client.connection.pool.name   -> ANcpLua.OpenTelemetry.SemanticConventions.Keys.Db.ClientConnectionPoolName
                                         = "db.client.connection.pool.name"
 
   Deprecated attributes are emitted with `#deprecated "<reason>"` so callers see

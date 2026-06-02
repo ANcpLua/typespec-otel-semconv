@@ -28,9 +28,9 @@ params:
   schema_version: "1.41.0"
 
   # Root namespace for the generated TypeSpec consts. Each OTel root_namespace
-  # becomes a sub-namespace, e.g. `ANcpLua.OtelConventions.OTel.Keys.GenAi.System = "gen_ai.system"`.
-  # Matches the namespace shape consumed by ANcpLua.OtelConventions.Api.
-  root_namespace: "ANcpLua.OtelConventions.OTel.Keys"
+  # becomes a sub-namespace, e.g. `ANcpLua.OpenTelemetry.SemanticConventions.Keys.GenAi.System = "gen_ai.system"`.
+  # Matches the namespace shape consumed by qyl-api-schema.
+  root_namespace: "ANcpLua.OpenTelemetry.SemanticConventions.Keys"
 
   # OTel root namespaces to surface. Kept identical to the downstream consumer's
   # expected set so the generated file is byte-stable across the producer/consumer chain.

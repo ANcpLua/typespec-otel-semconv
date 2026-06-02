@@ -1,6 +1,6 @@
 {
   "name": "@ancplua/typespec-otel-semconv",
-  "version": "1.41.0-1",
+  "version": "1.41.0-2",
   "description": "Weaver-based TypeSpec projection of OpenTelemetry semantic conventions, pinned at v1.41.0. Personal sandbox; not an official OpenTelemetry artifact.",
   "license": "Apache-2.0",
   "type": "module",
