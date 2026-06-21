@@ -24,7 +24,7 @@
       the consumer build.
     -->
     <PackageReference Include="NuGet.Packaging" Version="7.3.1" PrivateAssets="all" />
-    <PackageReference Include="System.Security.Cryptography.Xml" Version="10.0.7" PrivateAssets="all" />
+    <PackageReference Include="System.Security.Cryptography.Xml" Version="10.0.9" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>
